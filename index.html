@@ -9,7 +9,7 @@
 <meta property="og:description" content="Ανεξάρτητη κατοικία με αυτόνομο διαμέρισμα κήπου στο ημιισόγειο. Οικόπεδο 713 τ.μ., ξυλόφουρνος, θέα βουνό.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #fafaf7;
@@ -21,11 +21,12 @@
     --border: #d9d5c9;
     --card: #ffffff;
     --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+    --terracotta: #b07d54;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     color: var(--text);
     background: var(--bg);
     line-height: 1.65;
@@ -114,7 +115,7 @@
   .key-facts .num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2rem;
-    color: var(--accent-dark);
+    color: var(--terracotta);
     font-weight: 600;
     display: block;
   }
@@ -142,7 +143,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--accent-dark);
+    color: var(--terracotta);
   }
   .audience-card h3 { margin-bottom: 0.3rem; font-size: 1.2rem; }
   .audience-card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
@@ -187,6 +188,7 @@
     background: var(--card);
     border-radius: 8px;
     border: 1px solid var(--border);
+    border-top: 2px solid var(--terracotta);
   }
   .feature h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--accent-dark); font-weight: 500; }
   .feature p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
@@ -411,7 +413,7 @@
   .map-wrapper iframe { width: 100%; height: 420px; border: 0; display: block; }
 
   /* Contact */
-  .contact-section { background: var(--accent-dark); color: #fff; }
+  section.contact-section { background: var(--accent-dark); color: #fff; }
   .contact-section h2 { color: #fff; }
   .contact-section p { color: rgba(255,255,255,0.92); }
   .contact-grid {
@@ -475,11 +477,22 @@
   /* Section heading */
   .section-kicker {
     font-size: 0.85rem;
-    color: var(--accent);
+    color: var(--terracotta);
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 1rem;
     display: block;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .section-intro { max-width: 760px; font-size: 1.05rem; color: var(--text-muted); }
 </style>
@@ -1171,6 +1184,21 @@
   document.getElementById('lightbox') && document.getElementById('lightbox').addEventListener('touchend', e => {
     const diff = e.changedTouches[0].screenX - touchStartX;
     if (Math.abs(diff) > 50) navLightbox(diff > 0 ? -1 : 1);
+  });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('section h2, .audience-card, .space, .feature, .key-facts .grid > div, .neigh-item').forEach((el, i) => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
   });
 </script>
 
