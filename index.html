@@ -495,6 +495,37 @@
     transform: translateY(0);
   }
   .section-intro { max-width: 760px; font-size: 1.05rem; color: var(--text-muted); }
+
+  /* Editorial Spread — Location section (Variant B) */
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 860px) { .editorial-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .editorial-heading { font-size: clamp(2.2rem, 3.8vw, 3.4rem); line-height: 1.15; }
+  .editorial-tagline {
+    font-size: 0.95rem; color: var(--text-muted); line-height: 1.75;
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+  }
+  .editorial-list { border-top: 1px solid var(--border); }
+  .editorial-row {
+    display: grid; grid-template-columns: 95px 1fr;
+    gap: 1.2rem; align-items: baseline;
+    padding: 1.2rem 0; border-bottom: 1px solid var(--border);
+  }
+  .editorial-row.secondary .editorial-dist { font-size: 1.35rem; }
+  .editorial-dist {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem;
+    font-weight: 600; color: var(--terracotta); line-height: 1;
+  }
+  .editorial-info h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    font-weight: 500; line-height: 1.2; margin-bottom: 0.2rem;
+  }
+  .editorial-info p { font-size: 0.85rem; color: var(--text-muted); margin: 0; }
 </style>
 </head>
 <body>
@@ -575,54 +606,94 @@
   </div>
 </section>
 
-<!-- AUDIENCE / DISTANCES -->
+<!-- LOCATION — Editorial Spread (Variant B) -->
 <section id="location">
   <div class="container">
     <span class="section-kicker" lang="el">Η θέση</span>
     <span class="section-kicker" lang="en">Location</span>
-    <h2 lang="el">Στο κέντρο του ακαδημαϊκού<br>και ιατρικού Ηρακλείου.</h2>
-    <h2 lang="en">At the heart of academic<br>and medical Heraklion.</h2>
-    <p class="section-intro" lang="el">Το Καβροχώρι συνδυάζει την ησυχία ενός παραδοσιακού οικισμού με άμεση πρόσβαση στα μεγάλα κέντρα εργασίας του Ηρακλείου. Η θέση του ακινήτου είναι ιδιαίτερα ευνοϊκή για επαγγελματίες υγείας, ερευνητές και ακαδημαϊκούς.</p>
-    <p class="section-intro" lang="en">Kavrochori combines the calm of a traditional village with direct access to Heraklion's major work centres. The property is particularly well situated for healthcare professionals, researchers, and academics.</p>
 
-    <div class="audience-grid">
-      <div class="audience-card">
-        <div class="distance">6,4 χλμ</div>
-        <h3 lang="el">ΠΑΓΝΗ</h3>
-        <h3 lang="en">University Hospital</h3>
-        <p lang="el">Πανεπιστημιακό Νοσοκομείο Ηρακλείου</p>
-        <p lang="en">PAGNI — University Hospital of Heraklion</p>
+    <div class="editorial-grid">
+      <div>
+        <h2 class="editorial-heading" lang="el">Στο κέντρο του ακαδημαϊκού και ιατρικού Ηρακλείου.</h2>
+        <h2 class="editorial-heading" lang="en">At the heart of academic and medical Heraklion.</h2>
+        <p class="editorial-tagline" lang="el">Το Καβροχώρι συνδυάζει την ησυχία ενός παραδοσιακού οικισμού με άμεση πρόσβαση στα μεγάλα κέντρα εργασίας του Ηρακλείου. Η θέση του ακινήτου είναι ιδιαίτερα ευνοϊκή για επαγγελματίες υγείας, ερευνητές και ακαδημαϊκούς.</p>
+        <p class="editorial-tagline" lang="en">Kavrochori combines the calm of a traditional village with direct access to Heraklion's major work centres. The property is particularly well situated for healthcare professionals, researchers, and academics.</p>
       </div>
-      <div class="audience-card">
-        <div class="distance">4,9 χλμ</div>
-        <h3 lang="el">ΙΤΕ / FORTH</h3>
-        <h3 lang="en">FORTH Research Centre</h3>
-        <p lang="el">Ίδρυμα Τεχνολογίας και Έρευνας</p>
-        <p lang="en">Foundation for Research & Technology</p>
-      </div>
-      <div class="audience-card">
-        <div class="distance">5,6 χλμ</div>
-        <h3 lang="el">Ιατρική Σχολή</h3>
-        <h3 lang="en">Medical School</h3>
-        <p lang="el">Πανεπιστήμιο Κρήτης — Βούτες</p>
-        <p lang="en">University of Crete — Voutes campus</p>
-      </div>
-      <div class="audience-card">
-        <div class="distance">13,9 χλμ</div>
-        <h3 lang="el">Κνωσός</h3>
-        <h3 lang="en">Knossos</h3>
-        <p lang="el">Αρχαιολογικός χώρος</p>
-        <p lang="en">Archaeological site</p>
-      </div>
-    </div>
 
-    <div class="distances">
-      <table>
-        <tr><td lang="el">Ελληνικό Μεσογειακό Πανεπιστήμιο</td><td lang="en">Hellenic Mediterranean University</td><td>7,8 χλμ</td></tr>
-        <tr><td lang="el">Κέντρο Ηρακλείου</td><td lang="en">Heraklion city centre</td><td>12,5 χλμ</td></tr>
-        <tr><td lang="el">Διεθνές Αεροδρόμιο Ηρακλείου</td><td lang="en">Heraklion International Airport</td><td>14,5 χλμ</td></tr>
-        <tr><td lang="el">Παραλία Αμμουδάρας (Γαζανός)</td><td lang="en">Ammoudara beach (Gazanos)</td><td>4,5 χλμ</td></tr>
-      </table>
+      <div class="editorial-list">
+        <div class="editorial-row">
+          <div class="editorial-dist">6,4 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">ΠΑΓΝΗ</h3>
+            <h3 lang="en">University Hospital</h3>
+            <p lang="el">Πανεπιστημιακό Νοσοκομείο Ηρακλείου</p>
+            <p lang="en">PAGNI — University Hospital of Heraklion</p>
+          </div>
+        </div>
+        <div class="editorial-row">
+          <div class="editorial-dist">4,9 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">ΙΤΕ / FORTH</h3>
+            <h3 lang="en">FORTH Research Centre</h3>
+            <p lang="el">Ίδρυμα Τεχνολογίας και Έρευνας</p>
+            <p lang="en">Foundation for Research &amp; Technology</p>
+          </div>
+        </div>
+        <div class="editorial-row">
+          <div class="editorial-dist">5,6 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">Ιατρική Σχολή</h3>
+            <h3 lang="en">Medical School</h3>
+            <p lang="el">Πανεπιστήμιο Κρήτης — Βούτες</p>
+            <p lang="en">University of Crete — Voutes campus</p>
+          </div>
+        </div>
+        <div class="editorial-row">
+          <div class="editorial-dist">13,9 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">Κνωσός</h3>
+            <h3 lang="en">Knossos</h3>
+            <p lang="el">Αρχαιολογικός χώρος</p>
+            <p lang="en">Archaeological site</p>
+          </div>
+        </div>
+        <div class="editorial-row secondary">
+          <div class="editorial-dist">7,8 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">ΕΛΜΕΠΑ</h3>
+            <h3 lang="en">Hellenic Mediterranean University</h3>
+            <p lang="el">Ελληνικό Μεσογειακό Πανεπιστήμιο</p>
+            <p lang="en">HMU campus</p>
+          </div>
+        </div>
+        <div class="editorial-row secondary">
+          <div class="editorial-dist">4,5 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">Αμμουδάρα</h3>
+            <h3 lang="en">Ammoudara</h3>
+            <p lang="el">Παραλία Γαζανός</p>
+            <p lang="en">Gazanos beach</p>
+          </div>
+        </div>
+        <div class="editorial-row secondary">
+          <div class="editorial-dist">12,5 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">Κέντρο Ηρακλείου</h3>
+            <h3 lang="en">Heraklion centre</h3>
+            <p lang="el">Λιμάνι, Παλιά Πόλη</p>
+            <p lang="en">Port, Old Town</p>
+          </div>
+        </div>
+        <div class="editorial-row secondary">
+          <div class="editorial-dist">14,5 χλμ</div>
+          <div class="editorial-info">
+            <h3 lang="el">Αεροδρόμιο</h3>
+            <h3 lang="en">Airport</h3>
+            <p lang="el">Διεθνές Αεροδρόμιο Ηρακλείου</p>
+            <p lang="en">Heraklion International Airport</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="bus-strip" id="bus-strip">
