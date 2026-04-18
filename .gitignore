@@ -2,3 +2,4 @@ images/originals/
 .gstack/
 .DS_Store
 *.pdf
+*.eml

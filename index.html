@@ -199,6 +199,47 @@
   .feature h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--accent-dark); font-weight: 500; }
   .feature p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
 
+  /* Essentials — 6 selling points (above-the-fold packaging) */
+  #essentials .editorial-heading { max-width: 820px; margin-bottom: 2.5rem; }
+  .essentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 899px) { .essentials-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 599px) { .essentials-grid { grid-template-columns: 1fr; gap: 1.25rem; } }
+  .essential {
+    padding: 2rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--terracotta);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .essential-num {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+  }
+  .essential h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--accent-dark);
+    margin: 0 0 0.6rem;
+    line-height: 1.2;
+  }
+  .essential p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
   /* Airbnb highlight */
   .highlight-box {
     background: var(--accent-dark);
@@ -501,6 +542,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 300ms ease-out, transform 300ms ease-out;
+    transition-delay: calc(var(--i, 0) * 80ms);
   }
   .reveal.visible {
     opacity: 1;
@@ -567,10 +609,10 @@
     <span class="hero-badge" lang="en">Kavrochori area · Heraklion, Crete</span>
     <span class="hero-badge" lang="de">Raum Kavrochori · Heraklion, Kreta</span>
     <span class="hero-badge" lang="nl">Omgeving Kavrochori · Heraklion, Kreta</span>
-    <h1 lang="el">Ανεξάρτητη κατοικία<br>με αυτόνομο διαμέρισμα<br>στα δυτικά του Ηρακλείου.</h1>
-    <h1 lang="en">Independent residence<br>with self-contained apartment<br>west of Heraklion.</h1>
-    <h1 lang="de">Freistehendes Wohnhaus<br>mit eigenständiger Wohnung<br>westlich von Heraklion.</h1>
-    <h1 lang="nl">Vrijstaande woning<br>met zelfstandig appartement<br>ten westen van Heraklion.</h1>
+    <h1 lang="el">Ανεξάρτητη κατοικία<br>με αυτόνομο ξενώνα,<br>12 χλμ από το Ηράκλειο (Κούλε – Rocca del Mare).</h1>
+    <h1 lang="en">Independent residence<br>with a self-contained guesthouse,<br>12 km from Heraklion (Koules – Rocca del Mare).</h1>
+    <h1 lang="de">Freistehendes Wohnhaus<br>mit eigenständigem Gästehaus,<br>12 km von Heraklion (Koules – Rocca del Mare).</h1>
+    <h1 lang="nl">Vrijstaande woning<br>met een zelfstandig gastenverblijf,<br>12 km van Heraklion (Koules – Rocca del Mare).</h1>
     <p class="subtitle" lang="el">Μεζονέτα 172 τ.μ. και διαμέρισμα κήπου 90 τ.μ. σε οικόπεδο 617 τ.μ. Επτά λεπτά από ΠΑΓΝΗ, ΙΤΕ, Πανεπιστήμιο Κρήτης.</p>
     <p class="subtitle" lang="en">172 sqm maisonette and 90 sqm garden-level apartment on a 617 sqm plot. Seven minutes from the University Hospital, FORTH, and the University of Crete.</p>
     <p class="subtitle" lang="de">172 m² Maisonette und 90 m² Gartenwohnung auf einem 617 m² großen Grundstück. Sieben Minuten vom Universitätsklinikum, FORTH und der Universität Kreta.</p>
@@ -591,6 +633,88 @@
     </div>
   </div>
 </header>
+
+<!-- ESSENTIALS — 6 selling points -->
+<section id="essentials">
+  <div class="container">
+    <span class="section-kicker" lang="el">Τα βασικά</span>
+    <span class="section-kicker" lang="en">The essentials</span>
+    <span class="section-kicker" lang="de">Das Wesentliche</span>
+    <span class="section-kicker" lang="nl">De essentie</span>
+    <h2 class="editorial-heading reveal" lang="el">Έξι πράγματα που δεν αλλάζουν.</h2>
+    <h2 class="editorial-heading reveal" lang="en">Six things that don't change.</h2>
+    <h2 class="editorial-heading reveal" lang="de">Sechs Dinge, die Bestand haben.</h2>
+    <h2 class="editorial-heading reveal" lang="nl">Zes dingen die blijven.</h2>
+    <div class="essentials-grid">
+      <article class="essential reveal" style="--i:0">
+        <span class="essential-num">01</span>
+        <h3 lang="el">Στον δυτικό άξονα του Ηρακλείου</h3>
+        <h3 lang="en">On Heraklion's western axis</h3>
+        <h3 lang="de">An der westlichen Achse Heraklions</h3>
+        <h3 lang="nl">Aan de westelijke as van Heraklion</h3>
+        <p lang="el">Επτά λεπτά δυτικά στο ΠΑΓΝΗ, δεκαπέντε στο κέντρο της πόλης, είκοσι στο αεροδρόμιο.</p>
+        <p lang="en">Seven minutes west to the University Hospital, fifteen to the city centre, twenty to the airport.</p>
+        <p lang="de">Sieben Minuten westlich zum Universitätsklinikum, fünfzehn ins Stadtzentrum, zwanzig zum Flughafen.</p>
+        <p lang="nl">Zeven minuten westelijk naar het universiteitsziekenhuis, vijftien naar het stadscentrum, twintig naar de luchthaven.</p>
+      </article>
+      <article class="essential reveal" style="--i:1">
+        <span class="essential-num">02</span>
+        <h3 lang="el">Αυτοτελής κατοικία</h3>
+        <h3 lang="en">A detached home</h3>
+        <h3 lang="de">Ein freistehendes Haus</h3>
+        <h3 lang="nl">Een vrijstaand huis</h3>
+        <p lang="el">Στο δικό της οικόπεδο, χωρίς τοίχους μοιρασμένους με γείτονες.</p>
+        <p lang="en">On its own plot, with no walls shared with neighbours.</p>
+        <p lang="de">Auf eigenem Grundstück, ohne geteilte Wände mit Nachbarn.</p>
+        <p lang="nl">Op een eigen perceel, zonder muren die met buren worden gedeeld.</p>
+      </article>
+      <article class="essential reveal" style="--i:2">
+        <span class="essential-num">03</span>
+        <h3 lang="el">Αυτόνομες υποδομές</h3>
+        <h3 lang="en">Self-sufficient utilities</h3>
+        <h3 lang="de">Eigenständige Versorgung</h3>
+        <h3 lang="nl">Zelfvoorzienende voorzieningen</h3>
+        <p lang="el">Ρεύμα, νερό και αποχέτευση ιδιωτικά. Νέος ηλιακός θερμοσίφωνας τριπλής απόδοσης, 200 λίτρων (ήλιος, ρεύμα, καλοριφέρ — Μάρτιος 2026), ενεργειακό τζάκι, δεξαμενή νερού 8 κυβικών μέτρων.</p>
+        <p lang="en">Private power, water and drainage. New 200-litre triple-source solar water heater (solar, electric, central heating — March 2026), energy-efficient fireplace, 8 m³ water tank.</p>
+        <p lang="de">Eigener Strom-, Wasser- und Abwasseranschluss. Neuer 200-Liter-Solarboiler mit dreifacher Energiequelle (Solar, Strom, Zentralheizung — März 2026), energieeffizienter Kaminofen, 8-m³-Wassertank.</p>
+        <p lang="nl">Eigen stroom, water en afvoer. Nieuwe 200-liter zonneboiler met drie energiebronnen (zon, stroom, centrale verwarming — maart 2026), energiezuinige haard, watertank van 8 m³.</p>
+      </article>
+      <article class="essential reveal" style="--i:3">
+        <span class="essential-num">04</span>
+        <h3 lang="el">Κοντά στο νοσοκομείο</h3>
+        <h3 lang="en">Near the hospital</h3>
+        <h3 lang="de">In der Nähe des Krankenhauses</h3>
+        <h3 lang="nl">Dicht bij het ziekenhuis</h3>
+        <p lang="el">Το ΠΑΓΝΗ, τα σούπερ μάρκετ και οι βασικές υπηρεσίες της πόλης εντός δέκα λεπτών οδήγησης.</p>
+        <p lang="en">The University Hospital, supermarkets and the city's essential services within ten minutes by car.</p>
+        <p lang="de">Das Universitätsklinikum, Supermärkte und die wesentlichen städtischen Dienste innerhalb von zehn Autominuten.</p>
+        <p lang="nl">Het universiteitsziekenhuis, supermarkten en de essentiële stadsvoorzieningen op tien minuten rijden.</p>
+      </article>
+      <article class="essential reveal" style="--i:4">
+        <span class="essential-num">05</span>
+        <h3 lang="el">Αντισεισμικός κανονισμός '85</h3>
+        <h3 lang="en">1985 seismic code</h3>
+        <h3 lang="de">Erdbebennorm '85</h3>
+        <h3 lang="nl">Aardbevingsnorm '85</h3>
+        <p lang="el">Άδεια 1996, υπό τον αναθεωρημένο αντισεισμικό κανονισμό που ακολούθησε τη μεταρρύθμιση του 1985.</p>
+        <p lang="en">Built in 1996, under the revised seismic code that followed the 1985 reform.</p>
+        <p lang="de">Baugenehmigung 1996, nach der überarbeiteten Erdbebennorm, die auf die Reform von 1985 folgte.</p>
+        <p lang="nl">Bouwvergunning 1996, onder de herziene aardbevingsnorm die volgde op de hervorming van 1985.</p>
+      </article>
+      <article class="essential reveal" style="--i:5">
+        <span class="essential-num">06</span>
+        <h3 lang="el">Άριστη κατασκευή</h3>
+        <h3 lang="en">Exceptional construction</h3>
+        <h3 lang="de">Exzellente Bauausführung</h3>
+        <h3 lang="nl">Uitstekende bouwkwaliteit</h3>
+        <p lang="el">Πέτρα, μπετόν, ολοκληρωμένες λεπτομέρειες — μια κατασκευή που διατηρείται μέχρι σήμερα χωρίς σημαντικές επισκευές.</p>
+        <p lang="en">Stone, concrete, complete finishes — a build that still stands today without major repairs.</p>
+        <p lang="de">Stein, Beton, sorgfältige Details — ein Bau, der heute noch ohne größere Reparaturen Bestand hat.</p>
+        <p lang="nl">Steen, beton, doorwrochte details — een bouw die vandaag nog staat zonder grote reparaties.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- KEY FACTS -->
 <section class="key-facts" style="padding: 2.5rem 0;">
@@ -630,181 +754,6 @@
         <span class="label" lang="en">Energy class</span>
         <span class="label" lang="de">Energieklasse</span>
         <span class="label" lang="nl">Energieklasse</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATION — Editorial Spread (Variant B) -->
-<section id="location">
-  <div class="container">
-    <span class="section-kicker" lang="el">Η θέση</span>
-    <span class="section-kicker" lang="en">Location</span>
-    <span class="section-kicker" lang="de">Lage</span>
-    <span class="section-kicker" lang="nl">Ligging</span>
-
-    <div class="editorial-grid">
-      <div>
-        <h2 class="editorial-heading" lang="el">Στο κέντρο του ακαδημαϊκού και ιατρικού Ηρακλείου.</h2>
-        <h2 class="editorial-heading" lang="en">At the heart of academic and medical Heraklion.</h2>
-        <h2 class="editorial-heading" lang="de">Im Herzen des akademischen und medizinischen Heraklion.</h2>
-        <h2 class="editorial-heading" lang="nl">In het hart van academisch en medisch Heraklion.</h2>
-        <p class="editorial-tagline" lang="el">Το Καβροχώρι συνδυάζει την ησυχία ενός παραδοσιακού οικισμού με άμεση πρόσβαση στα μεγάλα κέντρα εργασίας του Ηρακλείου. Η θέση του ακινήτου είναι ιδιαίτερα ευνοϊκή για επαγγελματίες υγείας, ερευνητές και ακαδημαϊκούς.</p>
-        <p class="editorial-tagline" lang="en">Kavrochori combines the calm of a traditional village with direct access to Heraklion's major work centres. The property is particularly well situated for healthcare professionals, researchers, and academics.</p>
-        <p class="editorial-tagline" lang="de">Kavrochori verbindet die Ruhe eines traditionellen Dorfes mit direktem Zugang zu den wichtigsten Arbeitszentren Heraklions. Die Lage der Immobilie ist besonders vorteilhaft für Gesundheitsfachkräfte, Forscher und Wissenschaftler.</p>
-        <p class="editorial-tagline" lang="nl">Kavrochori combineert de rust van een traditioneel dorp met directe toegang tot de belangrijkste werkcentra van Heraklion. De ligging is bijzonder gunstig voor zorgprofessionals, onderzoekers en academici.</p>
-      </div>
-
-      <div class="editorial-list">
-        <div class="editorial-row">
-          <div class="editorial-dist">6,4 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">ΠΑΓΝΗ</h3>
-            <h3 lang="en">University Hospital</h3>
-            <h3 lang="de">Universitätsklinikum</h3>
-            <h3 lang="nl">Universiteitsziekenhuis</h3>
-            <p lang="el">Πανεπιστημιακό Νοσοκομείο Ηρακλείου</p>
-            <p lang="en">PAGNI — University Hospital of Heraklion</p>
-            <p lang="de">PAGNI — Universitätsklinikum Heraklion</p>
-            <p lang="nl">PAGNI — Universiteitsziekenhuis Heraklion</p>
-          </div>
-        </div>
-        <div class="editorial-row">
-          <div class="editorial-dist">4,9 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">ΙΤΕ / FORTH</h3>
-            <h3 lang="en">FORTH Research Centre</h3>
-            <h3 lang="de">FORTH Forschungszentrum</h3>
-            <h3 lang="nl">FORTH Onderzoekscentrum</h3>
-            <p lang="el">Ίδρυμα Τεχνολογίας και Έρευνας</p>
-            <p lang="en">Foundation for Research &amp; Technology</p>
-            <p lang="de">Stiftung für Forschung &amp; Technologie</p>
-            <p lang="nl">Stichting voor Onderzoek &amp; Technologie</p>
-          </div>
-        </div>
-        <div class="editorial-row">
-          <div class="editorial-dist">5,6 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">Ιατρική Σχολή</h3>
-            <h3 lang="en">Medical School</h3>
-            <h3 lang="de">Medizinische Fakultät</h3>
-            <h3 lang="nl">Geneeskundige Faculteit</h3>
-            <p lang="el">Πανεπιστήμιο Κρήτης — Βούτες</p>
-            <p lang="en">University of Crete — Voutes campus</p>
-            <p lang="de">Universität Kreta — Campus Voutes</p>
-            <p lang="nl">Universiteit van Kreta — Campus Voutes</p>
-          </div>
-        </div>
-        <div class="editorial-row">
-          <div class="editorial-dist">13,9 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">Κνωσός</h3>
-            <h3 lang="en">Knossos</h3>
-            <h3 lang="de">Knossos</h3>
-            <h3 lang="nl">Knossos</h3>
-            <p lang="el">Αρχαιολογικός χώρος</p>
-            <p lang="en">Archaeological site</p>
-            <p lang="de">Archäologische Ausgrabungsstätte</p>
-            <p lang="nl">Archeologische vindplaats</p>
-          </div>
-        </div>
-        <div class="editorial-row secondary">
-          <div class="editorial-dist">7,8 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">ΕΛΜΕΠΑ</h3>
-            <h3 lang="en">Hellenic Mediterranean University</h3>
-            <h3 lang="de">Hellenische Mittelmeer-Universität</h3>
-            <h3 lang="nl">Helleense Mediterrane Universiteit</h3>
-            <p lang="el">Ελληνικό Μεσογειακό Πανεπιστήμιο</p>
-            <p lang="en">HMU campus</p>
-            <p lang="de">HMU Campus</p>
-            <p lang="nl">HMU Campus</p>
-          </div>
-        </div>
-        <div class="editorial-row secondary">
-          <div class="editorial-dist">4,5 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">Αμμουδάρα</h3>
-            <h3 lang="en">Ammoudara</h3>
-            <h3 lang="de">Ammoudara</h3>
-            <h3 lang="nl">Ammoudara</h3>
-            <p lang="el">Παραλία Γαζανός</p>
-            <p lang="en">Gazanos beach</p>
-            <p lang="de">Strand Gazanos</p>
-            <p lang="nl">Strand Gazanos</p>
-          </div>
-        </div>
-        <div class="editorial-row secondary">
-          <div class="editorial-dist">12,5 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">Κέντρο Ηρακλείου</h3>
-            <h3 lang="en">Heraklion centre</h3>
-            <h3 lang="de">Heraklion Zentrum</h3>
-            <h3 lang="nl">Heraklion centrum</h3>
-            <p lang="el">Λιμάνι, Παλιά Πόλη</p>
-            <p lang="en">Port, Old Town</p>
-            <p lang="de">Hafen, Altstadt</p>
-            <p lang="nl">Haven, Oude Stad</p>
-          </div>
-        </div>
-        <div class="editorial-row secondary">
-          <div class="editorial-dist">14,5 km</div>
-          <div class="editorial-info">
-            <h3 lang="el">Αεροδρόμιο</h3>
-            <h3 lang="en">Airport</h3>
-            <h3 lang="de">Flughafen</h3>
-            <h3 lang="nl">Luchthaven</h3>
-            <p lang="el">Διεθνές Αεροδρόμιο Ηρακλείου</p>
-            <p lang="en">Heraklion International Airport</p>
-            <p lang="de">Flughafen Heraklion International</p>
-            <p lang="nl">Internationale Luchthaven Heraklion</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bus-strip" id="bus-strip">
-      <div class="bus-strip-header" onclick="document.getElementById('bus-strip').classList.toggle('open')">
-        <span class="bus-line-badge">Γραμμή 10</span>
-        <span class="bus-route">
-          <span lang="el">Αεροδρόμιο · Γάζι · Καβροχώρι</span>
-          <span lang="en">Airport · Gazi · Kavrochori</span>
-          <span lang="de">Flughafen · Gazi · Kavrochori</span>
-          <span lang="nl">Luchthaven · Gazi · Kavrochori</span>
-        </span>
-        <span class="bus-freq">
-          <span lang="el">7×/ημέρα</span>
-          <span lang="en">7×/day</span>
-          <span lang="de">7×/Tag</span>
-          <span lang="nl">7×/dag</span>
-        </span>
-        <span class="bus-info-btn">i</span>
-      </div>
-      <div class="bus-schedule">
-        <table>
-          <thead>
-            <tr>
-              <th><span lang="el">Αναχ. Αεροδρομίου</span><span lang="en">Dep. Airport</span><span lang="de">Abf. Flughafen</span><span lang="nl">Vertr. Luchthaven</span></th>
-              <th><span lang="el">Άφ. Καβροχώρι</span><span lang="en">Arr. Kavrochori</span><span lang="de">Ank. Kavrochori</span><span lang="nl">Aank. Kavrochori</span></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>06:32</td><td>07:15</td><td class="note"><span lang="el">· 07:25 από Δημαρχείο Γαζίου</span><span lang="en">· 07:25 from Gazi Town Hall</span><span lang="de">· 07:25 ab Gazi Rathaus</span><span lang="nl">· 07:25 vanaf Gazi Gemeentehuis</span></td></tr>
-            <tr><td>10:15</td><td>11:10</td><td></td></tr>
-            <tr><td>12:25</td><td>13:30</td><td></td></tr>
-            <tr><td>13:53</td><td>14:45</td><td></td></tr>
-            <tr><td>14:20</td><td>15:10</td><td></td></tr>
-            <tr><td>17:35</td><td>18:20</td><td></td></tr>
-            <tr><td>20:35</td><td>21:15</td><td></td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.6rem">
-          <span lang="el">Αστικό ΚΤΕΛ Ηρακλείου · Καθημερινές · Ισχύς από 20/04/2026</span>
-          <span lang="en">Heraklion City Bus · Weekdays · Valid from 20/04/2026</span>
-          <span lang="de">Stadtbus Heraklion · Werktage · Gültig ab 20.04.2026</span>
-          <span lang="nl">Stadsbus Heraklion · Weekdagen · Geldig vanaf 20/04/2026</span>
-        </p>
       </div>
     </div>
   </div>
@@ -1165,7 +1114,7 @@
 </section>
 
 <!-- NEIGHBORHOOD -->
-<section>
+<section id="location">
   <div class="container">
     <span class="section-kicker" lang="el">Η γειτονιά</span>
     <span class="section-kicker" lang="en">The neighbourhood</span>
@@ -1559,7 +1508,7 @@
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('section h2, .audience-card, .space, .feature, .key-facts .grid > div, .neigh-item').forEach((el, i) => {
+  document.querySelectorAll('section h2, .audience-card, .space, .feature, .key-facts .grid > div, .neigh-item, .essential').forEach((el, i) => {
     el.classList.add('reveal');
     revealObserver.observe(el);
   });
