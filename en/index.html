@@ -98,102 +98,118 @@
     nav { position: relative; }
   }
 
-  /* Hero — Editorial Cover */
+  /* Hero — Editorial Cover with Floating Card */
   .hero {
     padding: 0;
-    background: url('/images/exterior-street.jpg') center bottom / cover no-repeat;
-    background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center bottom / cover no-repeat;
+    background: url('/images/exterior-street.jpg') center 40% / cover no-repeat;
+    background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 40% / cover no-repeat;
     min-height: 88vh;
-    max-height: 900px;
-    display: flex; align-items: flex-start;
-    position: relative; isolation: isolate;
+    position: relative;
+    isolation: isolate;
   }
-  .hero::before {
-    content: "";
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 65% 80% at 25% 45%, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.15) 75%, transparent 95%),
-      linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 25%, transparent 50%);
-    z-index: 0;
+  .hero-card {
+    position: absolute;
+    top: 5rem;
+    left: 2rem;
+    max-width: 360px;
+    background: var(--bg);
+    padding: 2.25rem 2rem 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    z-index: 2;
   }
-  .hero .container {
-    position: relative; z-index: 1;
-    width: 100%;
-    padding-top: 5rem;
-  }
-  .hero-badge {
-    display: inline-block;
-    background: transparent;
-    padding: 0 0 0.4rem 0;
-    font-size: 0.78rem;
-    color: #ffffff;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.55);
-    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
-  }
-  .hero h1 {
-    max-width: 600px;
-    margin-bottom: 1rem;
-    color: #ffffff;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.3);
-  }
-  .hero .subtitle {
-    max-width: 500px;
-    font-size: 1.1rem;
-    color: #ffffff;
-    text-shadow: 0 1px 16px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.5);
-    margin-bottom: 0;
-  }
-  .hero-garden-note {
+  .hero-card h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #ffffff;
-    border-left: 3px solid var(--terracotta);
-    padding-left: 1rem;
-    margin-top: 1.75rem;
-    max-width: 480px;
-    text-shadow: 0 1px 16px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.5);
+    font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+    line-height: 1.15;
+    color: var(--text);
+    margin: 0 0 0.8rem;
   }
+  .hero-card-location {
+    color: var(--text);
+    font-size: 0.95rem;
+    margin: 0 0 0.25rem;
+  }
+  .hero-card-price {
+    color: var(--text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+  }
+  .hero-card-size {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem;
+  }
+  .hero-card-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: flex;
+    gap: 1rem 1.25rem;
+    flex-wrap: wrap;
+  }
+  .hero-card-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text);
+    transition: opacity 0.2s;
+  }
+  .hero-card-links a:hover { opacity: 0.6; }
+  .hero-card-cta {
+    display: block;
+    text-align: center;
+    padding: 0.95rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--text);
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+  }
+  .hero-card-cta:hover { background: var(--text); color: var(--bg); }
+  .hero-more-photos {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.85rem 1.4rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    z-index: 2;
+    transition: background 0.2s, color 0.2s;
+  }
+  .hero-more-photos:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
   @media (max-width: 768px) {
     .hero {
-      background-position: center 30%;
-      min-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
+      background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
     }
-    .hero::before {
-      background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 35%, transparent 60%);
+    .hero::after {
+      content: '';
+      display: block;
+      height: 55vh;
     }
-    .hero .container { padding-top: 3rem; }
-    .hero-badge { font-size: 0.72rem; }
-  }
-
-  /* Key facts strip */
-  .key-facts {
-    background: var(--card);
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .key-facts .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 2rem;
-    text-align: center;
-  }
-  .key-facts .num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    color: var(--terracotta);
-    font-weight: 600;
-    display: block;
-  }
-  .key-facts .label {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    .hero-card {
+      position: static;
+      max-width: none;
+      margin: 0;
+      padding: 2rem 1.25rem;
+      box-shadow: none;
+      border-top: 1px solid var(--border);
+    }
+    .hero-more-photos { display: none; }
   }
 
   /* Target audience */
@@ -711,28 +727,71 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="container">
-    <span class="hero-badge" lang="el">Ευρύτερη περιοχή Καβροχωρίου · Ηράκλειο Κρήτης</span>
-    <span class="hero-badge" lang="en">Kavrochori area · Heraklion, Crete</span>
-    <span class="hero-badge" lang="de">Raum Kavrochori · Heraklion, Kreta</span>
-    <span class="hero-badge" lang="nl">Omgeving Kavrochori · Heraklion, Kreta</span>
-    <span class="hero-badge" lang="he">אזור קאברוכורי · הרקליון, כרתים</span>
-    <h1 lang="el">Ανεξάρτητη κατοικία<br>με αυτόνομο ξενώνα.</h1>
-    <h1 lang="en">Independent residence with a self-contained guesthouse.</h1>
-    <h1 lang="de">Freistehendes Wohnhaus mit eigenständigem Gästehaus.</h1>
-    <h1 lang="nl">Vrijstaande woning met een zelfstandig gastenverblijf.</h1>
-    <h1 lang="he">בית עצמאי<br>עם יחידת אירוח נפרדת.</h1>
-    <p class="subtitle" lang="el">Μεζονέτα 172 τ.μ. και διαμέρισμα κήπου 90 τ.μ. σε οικόπεδο 617 τ.μ. Επτά λεπτά από ΠΑΓΝΗ, ΙΤΕ, Πανεπιστήμιο Κρήτης.</p>
-    <p class="subtitle" lang="en">172 sqm maisonette and 90 sqm garden-level apartment on a 617 sqm plot. Seven minutes from the University Hospital, FORTH, and the University of Crete.</p>
-    <p class="subtitle" lang="de">172 m² Maisonette und 90 m² Gartenwohnung auf einem 617 m² großen Grundstück. Sieben Minuten vom Universitätsklinikum, FORTH und der Universität Kreta.</p>
-    <p class="subtitle" lang="nl">Maisonette van 172 m² en tuinappartement van 90 m² op een perceel van 617 m². Zeven minuten van het universiteitsziekenhuis, FORTH en de Universiteit van Kreta.</p>
-    <p class="subtitle" lang="he">מזונט בן 172 מ״ר ודירת גן בת 90 מ״ר על מגרש של 617 מ״ר. שבע דקות מבית החולים האוניברסיטאי (PAGNI), ממכון FORTH ומאוניברסיטת כרתים.</p>
-    <p class="hero-garden-note" lang="el">Σε κήπο 617 τ.μ. με ώριμη λεμονιά, πορτοκαλιά και ξυλόφουρνο.</p>
-    <p class="hero-garden-note" lang="en">Set in a 617 sqm garden with mature lemon and orange trees and a wood oven.</p>
-    <p class="hero-garden-note" lang="de">In einem 617 m² großen Garten mit altem Zitronen-, Orangenbaum und Holzofen.</p>
-    <p class="hero-garden-note" lang="nl">In een tuin van 617 m² met volgroeide citroen- en sinaasappelboom en houtoven.</p>
-    <p class="hero-garden-note" lang="he">בגן בן 617 מ״ר עם עצי לימון ותפוז בוגרים וטאבון עצים.</p>
-  </div>
+  <aside class="hero-card">
+    <h1 lang="el">Μεζονέτα με διαμέρισμα κήπου</h1>
+    <h1 lang="en">Maisonette with garden-level apartment</h1>
+    <h1 lang="de">Maisonette mit Gartenwohnung</h1>
+    <h1 lang="nl">Maisonette met tuinappartement</h1>
+    <h1 lang="he">מזונט עם דירת גן</h1>
+
+    <p class="hero-card-location" lang="el">Καβροχώρι, Ηράκλειο Κρήτης</p>
+    <p class="hero-card-location" lang="en">Kavrochori, Heraklion, Crete</p>
+    <p class="hero-card-location" lang="de">Kavrochori, Heraklion, Kreta</p>
+    <p class="hero-card-location" lang="nl">Kavrochori, Heraklion, Kreta</p>
+    <p class="hero-card-location" lang="he">קאברוכורי, הרקליון, כרתים</p>
+
+    <p class="hero-card-price" lang="el">610.000 €</p>
+    <p class="hero-card-price" lang="en">€610,000</p>
+    <p class="hero-card-price" lang="de">610.000 €</p>
+    <p class="hero-card-price" lang="nl">€ 610.000</p>
+    <p class="hero-card-price" lang="he">‎610,000 €‎</p>
+
+    <p class="hero-card-size" lang="el">172 + 90 τ.μ. · οικόπεδο 617 τ.μ.</p>
+    <p class="hero-card-size" lang="en">172 + 90 sqm · 617 sqm plot</p>
+    <p class="hero-card-size" lang="de">172 + 90 m² · 617 m² Grundstück</p>
+    <p class="hero-card-size" lang="nl">172 + 90 m² · 617 m² perceel</p>
+    <p class="hero-card-size" lang="he">172 + 90 מ״ר · מגרש של 617 מ״ר</p>
+
+    <ul class="hero-card-links">
+      <li>
+        <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7%CF%82" lang="el">ΚΑΤΟΨΗ</a>
+        <a href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="en">FLOORPLAN</a>
+        <a href="mailto:home@kavrochori.gr?subject=Grundriss%20anfragen" lang="de">GRUNDRISS</a>
+        <a href="mailto:home@kavrochori.gr?subject=Plattegrond%20opvragen" lang="nl">PLATTEGROND</a>
+        <a href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="he">תוכנית</a>
+      </li>
+      <li>
+        <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B5%CE%BD%CE%B5%CF%81%CE%B3%CE%B5%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%80%CE%B9%CF%83%CF%84%CE%BF%CF%80%CE%BF%CE%B9%CE%B7%CF%84%CE%B9%CE%BA%CE%BF%CF%8D" lang="el">ΕΝΕΡΓΕΙΑΚΟ</a>
+        <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="en">EPC</a>
+        <a href="mailto:home@kavrochori.gr?subject=Energieausweis" lang="de">ENERGIEPASS</a>
+        <a href="mailto:home@kavrochori.gr?subject=Energielabel" lang="nl">ENERGIELABEL</a>
+        <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
+      </li>
+      <li>
+        <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
+        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="en">BROCHURE</a>
+        <a href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
+        <a href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
+        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
+      </li>
+    </ul>
+
+    <a class="hero-card-cta" href="#contact">
+      <span lang="el">ΕΠΙΚΟΙΝΩΝΙΑ</span>
+      <span lang="en">CONTACT</span>
+      <span lang="de">KONTAKT</span>
+      <span lang="nl">CONTACT</span>
+      <span lang="he">יצירת קשר</span>
+    </a>
+  </aside>
+
+  <a class="hero-more-photos" href="#gallery" onclick="openLightbox(0); return false;">
+    <span lang="el">Περισσότερες φωτογραφίες →</span>
+    <span lang="en">More photos →</span>
+    <span lang="de">Mehr Fotos →</span>
+    <span lang="nl">Meer foto's →</span>
+    <span lang="he">עוד תמונות ←</span>
+  </a>
 </header>
 
 <!-- ESSENTIALS — 6 selling points -->
@@ -827,54 +886,6 @@
         <p lang="nl">Steen, beton, doorwrochte details — een bouw die vandaag nog staat zonder grote reparaties.</p>
         <p lang="he">אבן, בטון וגימורים מוקפדים — מבנה שעומד היום על תלו ללא תיקונים משמעותיים.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- KEY FACTS -->
-<section class="key-facts" style="padding: 2.5rem 0;">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <span class="num">4</span>
-        <span class="label" lang="el">Υπνοδωμάτια</span>
-        <span class="label" lang="en">Bedrooms</span>
-        <span class="label" lang="de">Schlafzimmer</span>
-        <span class="label" lang="nl">Slaapkamers</span>
-        <span class="label" lang="he">חדרי שינה</span>
-      </div>
-      <div>
-        <span class="num">3</span>
-        <span class="label" lang="el">Μπάνια / WC</span>
-        <span class="label" lang="en">Bathrooms</span>
-        <span class="label" lang="de">Badezimmer</span>
-        <span class="label" lang="nl">Badkamers</span>
-        <span class="label" lang="he">חדרי רחצה</span>
-      </div>
-      <div>
-        <span class="num">3</span>
-        <span class="label" lang="el">Θέσεις Parking</span>
-        <span class="label" lang="en">Parking spots</span>
-        <span class="label" lang="de">Stellplätze</span>
-        <span class="label" lang="nl">Parkeerplaatsen</span>
-        <span class="label" lang="he">מקומות חניה</span>
-      </div>
-      <div>
-        <span class="num">4</span>
-        <span class="label" lang="el">A/C μονάδες</span>
-        <span class="label" lang="en">A/C units</span>
-        <span class="label" lang="de">Klimaanlagen</span>
-        <span class="label" lang="nl">Airconditioners</span>
-        <span class="label" lang="he">יחידות מיזוג</span>
-      </div>
-      <div>
-        <span class="num"><span lang="el">Γ</span><span lang="en">C</span><span lang="de">C</span><span lang="nl">C</span><span lang="he">C</span></span>
-        <span class="label" lang="el">Ενεργειακή κλάση</span>
-        <span class="label" lang="en">Energy class</span>
-        <span class="label" lang="de">Energieklasse</span>
-        <span class="label" lang="nl">Energieklasse</span>
-        <span class="label" lang="he">דירוג אנרגטי</span>
-      </div>
     </div>
   </div>
 </section>
@@ -1246,14 +1257,6 @@
         </picture>
         <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span>
       </div>
-      <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC/OBVaTidTnB9Xf+AA3wfUXwLB+Nniu5CB34ObgHOVaCILbd5Z20zZ7hrZH98z38QypmCBHHsbowJLo9QAvAAAAA==')">
-        <picture>
-          <source type="image/webp" srcset="/images/thumbs/bedroom-wrought.webp 640w, /images/bedroom-wrought.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <source type="image/jpeg" srcset="/images/thumbs/bedroom-wrought.jpg 640w, /images/bedroom-wrought.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bedroom-wrought.jpg" alt="Garden-level bedroom with dark wood wardrobe and grille window" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-wrought.jpg" data-thumb="/images/thumbs/bedroom-wrought.jpg" data-caption-el="Υπνοδωμάτιο με ξύλινη ντουλάπα και παραδοσιακό παράθυρο" data-caption-en="Bedroom with dark wood wardrobe and grille window" data-caption-de="Schlafzimmer mit dunklem Holzschrank und Gitterfenster" data-caption-nl="Slaapkamer met donkere houten kast en tralievenster" data-caption-he="חדר שינה עם ארון עץ כהה וחלון עם סורגים">
-        </picture>
-        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span>
-      </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC06BUynML9C/LmVXgAAPzjwrg3hVj2LaAlTvYXsr6V3ZKEktgFBkPUj8hy+VzQbDazxJeUx3nbhOgouxkKigNJKQJ56PAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bedroom-secondary.webp 640w, /images/bedroom-secondary.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
@@ -1277,6 +1280,14 @@
           <img src="/images/bathroom.jpg" alt="Main bathroom with tiled walls and full-size bathtub" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bathroom.jpg" data-thumb="/images/thumbs/bathroom.jpg" data-caption-el="Κύριο μπάνιο με μπανιέρα" data-caption-en="Main bathroom with full-size bathtub" data-caption-de="Hauptbadezimmer mit Badewanne" data-caption-nl="Hoofdbadkamer met bad" data-caption-he="חדר רחצה ראשי עם אמבטיה">
         </picture>
         <span class="gallery-caption" lang="el">Μπάνιο</span><span class="gallery-caption" lang="en">Bathroom</span><span class="gallery-caption" lang="de">Badezimmer</span><span class="gallery-caption" lang="nl">Badkamer</span><span class="gallery-caption" lang="he">חדר רחצה</span>
+      </div>
+      <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC/OBVaTidTnB9Xf+AA3wfUXwLB+Nniu5CB34ObgHOVaCILbd5Z20zZ7hrZH98z38QypmCBHHsbowJLo9QAvAAAAA==')">
+        <picture>
+          <source type="image/webp" srcset="/images/thumbs/bedroom-wrought.webp 640w, /images/bedroom-wrought.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
+          <source type="image/jpeg" srcset="/images/thumbs/bedroom-wrought.jpg 640w, /images/bedroom-wrought.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
+          <img src="/images/bedroom-wrought.jpg" alt="Garden-level bedroom with dark wood wardrobe and grille window" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-wrought.jpg" data-thumb="/images/thumbs/bedroom-wrought.jpg" data-caption-el="Υπνοδωμάτιο με ξύλινη ντουλάπα και παραδοσιακό παράθυρο" data-caption-en="Bedroom with dark wood wardrobe and grille window" data-caption-de="Schlafzimmer mit dunklem Holzschrank und Gitterfenster" data-caption-nl="Slaapkamer met donkere houten kast en tralievenster" data-caption-he="חדר שינה עם ארון עץ כהה וחלון עם סורגים">
+        </picture>
+        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZAC7ABA4x3Ot+mMkAPKC1apsZ/+WL5M3dPc3WRV+hRGfKDYTzYbmwQhznOzJ9SMFM3c6XmhajrqEPRRqQssv0I1RuiFuAZnAAA==')">
         <picture>
@@ -1882,7 +1893,7 @@
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('section h2, .audience-card, .space, .feature, .key-facts .grid > div, .neigh-item, .essential').forEach((el, i) => {
+  document.querySelectorAll('section h2, .audience-card, .space, .feature, .neigh-item, .essential').forEach((el, i) => {
     el.classList.add('reveal');
     revealObserver.observe(el);
   });

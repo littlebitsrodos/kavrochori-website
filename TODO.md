@@ -88,6 +88,16 @@ Mobile-first redesign/audit — λεπτομέρειες να συμπληρωθ
 
 Να συμπληρωθεί με πραγματικά σημεία του Καβροχωρίου / Γαζίου.
 
+### 16. 3D Απεικόνιση
+3D walkthrough / virtual tour του ακινήτου — ώστε υποψήφιοι αγοραστές να περιηγηθούν απομακρυσμένα (σημαντικό για αγοραστές εκτός Κρήτης / εξωτερικού).
+
+Επιλογές προς διερεύνηση:
+- Matterport scan (premium, dollhouse view + floor plan auto-generated).
+- Φθηνότερη εναλλακτική: 360° φωτογραφίες με smartphone + Kuula/Pannellum viewer.
+- Embed στο site ως ξεχωριστή section ή modal.
+
+Συνδέεται με: #3 (οπτικά), #11 (κάτοψη — το Matterport τη βγάζει αυτόματα), #15 (assets για το brochure).
+
 ---
 
 ## Technical / Legal
