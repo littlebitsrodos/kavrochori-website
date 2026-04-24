@@ -524,6 +524,95 @@
     .lightbox-next { right: 0.8rem; }
     .lightbox-thumbs { display: none; }
   }
+  /* Sticky CTA bar */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 0.9rem 2rem;
+    padding-bottom: calc(0.9rem + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .sticky-cta.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sticky-cta-meta {
+    display: flex; align-items: baseline; gap: 1rem;
+    flex: 1 1 auto; min-width: 0;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .sticky-cta-title {
+    font-size: 1.25rem;
+    color: var(--text);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .sticky-cta-price {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .sticky-cta-docs { display: flex; gap: 0.6rem; }
+  .sticky-cta-doc {
+    padding: 0.65rem 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .sticky-cta-doc:hover {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  .sticky-cta-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bg);
+    text-decoration: none;
+    background: var(--text);
+    border: 1px solid var(--text);
+    transition: background 0.2s, color 0.2s;
+  }
+  .sticky-cta-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+  @media (max-width: 1024px) {
+    .sticky-cta-docs { display: none; }
+  }
+  @media (max-width: 768px) {
+    .sticky-cta {
+      padding: 0.75rem 1rem;
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
+    .sticky-cta-meta { display: none; }
+    .sticky-cta-primary {
+      flex: 1;
+      text-align: center;
+      padding: 0.85rem 1rem;
+    }
+  }
+  @media print {
+    .sticky-cta { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-cta { transition: none; }
+  }
+
   .gallery-note {
     margin-top: 1.5rem;
     font-size: 0.85rem;
@@ -2027,6 +2116,83 @@
     { "@type": "LocationFeatureSpecification", "name": "Energy class C", "value": true }
   ]
 }
+</script>
+
+<!-- Sticky CTA bar -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+  <div class="sticky-cta-meta">
+    <span class="sticky-cta-title" lang="el">Μεζονέτα με διαμέρισμα κήπου</span>
+    <span class="sticky-cta-title" lang="en">Maisonette with garden-level apartment</span>
+    <span class="sticky-cta-title" lang="de">Maisonette mit Gartenwohnung</span>
+    <span class="sticky-cta-title" lang="nl">Maisonette met tuinappartement</span>
+    <span class="sticky-cta-title" lang="he">מזונט עם דירת גן</span>
+
+    <span class="sticky-cta-price" lang="el">610.000 €</span>
+    <span class="sticky-cta-price" lang="en">€610,000</span>
+    <span class="sticky-cta-price" lang="de">610.000 €</span>
+    <span class="sticky-cta-price" lang="nl">€ 610.000</span>
+    <span class="sticky-cta-price" lang="he">‎610,000 €‎</span>
+  </div>
+
+  <div class="sticky-cta-docs">
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7%CF%82" lang="el">ΚΑΤΟΨΗ</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="en">FLOORPLAN</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Grundriss%20anfragen" lang="de">GRUNDRISS</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Plattegrond%20opvragen" lang="nl">PLATTEGROND</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="he">תוכנית</a>
+
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B5%CE%BD%CE%B5%CF%81%CE%B3%CE%B5%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%80%CE%B9%CF%83%CF%84%CE%BF%CF%80%CE%BF%CE%B9%CE%B7%CF%84%CE%B9%CE%BA%CE%BF%CF%8D" lang="el">ΕΝΕΡΓΕΙΑΚΟ</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="en">EPC</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Energieausweis" lang="de">ENERGIEPASS</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Energielabel" lang="nl">ENERGIELABEL</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
+
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="en">BROCHURE</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
+  </div>
+
+  <a class="sticky-cta-primary" href="#contact">
+    <span lang="el">ΕΠΙΚΟΙΝΩΝΙΑ</span>
+    <span lang="en">CONTACT</span>
+    <span lang="de">KONTAKT</span>
+    <span lang="nl">CONTACT</span>
+    <span lang="he">יצירת קשר</span>
+  </a>
+</div>
+
+<script>
+  (function() {
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroCard = document.querySelector('.hero-card');
+    const contactSection = document.getElementById('contact');
+    if (!stickyCta || !heroCard) return;
+
+    let heroInView = true;
+    let contactInView = false;
+
+    const update = () => {
+      const shouldShow = !heroInView && !contactInView;
+      stickyCta.classList.toggle('visible', shouldShow);
+      stickyCta.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+      if (shouldShow) stickyCta.removeAttribute('inert');
+      else stickyCta.setAttribute('inert', '');
+    };
+
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => { heroInView = e.isIntersecting; });
+      update();
+    }, { rootMargin: '0px 0px -20% 0px' }).observe(heroCard);
+
+    if (contactSection) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => { contactInView = e.isIntersecting; });
+        update();
+      }, { threshold: 0.15 }).observe(contactSection);
+    }
+  })();
 </script>
 </body>
 </html>
