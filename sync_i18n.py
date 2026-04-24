@@ -49,6 +49,17 @@ VARIANTS = {
         "og_description": "Vrijstaande woning met een zelfstandig tuinappartement op het souterrain. 617 m² perceel, houtgestookte oven, bergzicht.",
         "og_image_alt": "Vrijstaand huis met tuin in Kavrochori, Heraklion, Kreta",
     },
+    "he": {
+        "locale": "he_IL",
+        # Note: Hebrew uses גרש (geresh) / quotation for abbreviations (e.g. מ״ר = sqm).
+        # We use the proper Unicode geresh ״ (U+05F4) instead of ASCII " to avoid
+        # needing to escape within HTML attribute content="...".
+        "title": "בית פרטי עם דירת גן עצמאית — קאברוכורי, הרקליון, כרתים",
+        "description": "בית עצמאי בשטח 262 מ״ר על מגרש של 617 מ״ר ממערב להרקליון. שבע דקות מבית החולים האוניברסיטאי (PAGNI), ממכון המחקר FORTH ומאוניברסיטת כרתים. מתאים לרופאים, חוקרים ואנשי אקדמיה.",
+        "og_title": "בית פרטי — קאברוכורי, הרקליון, כרתים",
+        "og_description": "בית עצמאי עם דירת גן נפרדת במפלס התחתון. מגרש 617 מ״ר, טאבון עצים, נוף להרים.",
+        "og_image_alt": "בית פרטי עם גן בקאברוכורי, הרקליון, כרתים",
+    },
 }
 
 
@@ -88,8 +99,11 @@ def generate_variant(master_html: str, lang: str, cfg: dict) -> str:
     html = master_html
     locale = cfg["locale"]
 
-    # 1. <html lang="el"> -> <html lang="XX">
-    html = html.replace('<html lang="el">', f'<html lang="{lang}">', 1)
+    # 1. <html lang="el"> -> <html lang="XX"> (RTL for Hebrew)
+    if lang == "he":
+        html = html.replace('<html lang="el">', '<html lang="he" dir="rtl">', 1)
+    else:
+        html = html.replace('<html lang="el">', f'<html lang="{lang}">', 1)
     # 2. <body> -> <body class="XX">
     html = html.replace("<body>", f'<body class="{lang}">', 1)
     # 3. canonical + og:url
