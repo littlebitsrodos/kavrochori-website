@@ -535,6 +535,10 @@
     .lightbox-next { right: 0.8rem; }
     .lightbox-thumbs { display: none; }
   }
+  /* Map: trap Leaflet's internal pane z-indexes (markers/tooltips up to 700) inside
+     a local stacking context so they can't paint over the sticky CTA bar below. */
+  #area-map { isolation: isolate; }
+
   /* Sticky CTA bar */
   .sticky-cta {
     position: fixed;
