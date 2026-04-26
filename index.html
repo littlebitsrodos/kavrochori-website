@@ -33,8 +33,9 @@
 <link rel="alternate" hreflang="x-default" href="https://kavrochori.gr/">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
-<!-- Preload LCP hero image (fetched in parallel with CSS instead of waiting for image-set resolution) -->
-<link rel="preload" as="image" href="/images/exterior-street.webp" type="image/webp" fetchpriority="high">
+<!-- Preload LCP hero image (responsive — mobile gets the 800w variant, desktop the full one). -->
+<link rel="preload" as="image" href="/images/exterior-street-800.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
+<link rel="preload" as="image" href="/images/exterior-street.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
 
 <!-- Fonts: load asynchronously to avoid render-blocking; system fonts are used until they arrive -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,7 +206,8 @@
       display: flex;
       flex-direction: column;
       min-height: auto;
-      background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
+      /* Mobile uses an 800w variant (~100 KiB instead of 591 KiB) — the LCP image. */
+      background: image-set(url('/images/exterior-street-800.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
     }
     .hero::after {
       content: '';
@@ -1870,7 +1872,7 @@
     <p lang="de">Raum Kavrochori · Heraklion, Kreta</p>
     <p lang="nl">Omgeving Kavrochori · Heraklion, Kreta</p>
     <p lang="he">אזור קאברוכורי · הרקליון, כרתים</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">© 2026 kavrochori.gr</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr</p>
   </div>
 </footer>
 
@@ -2063,8 +2065,6 @@
       var lang = activeMapLang();
       poiMarkers.forEach(function(t) { t.marker.setTooltipContent(t.poi[lang]); });
     };
-
-    map.invalidateSize();
   });
 </script>
 <style>
