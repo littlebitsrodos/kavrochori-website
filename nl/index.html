@@ -16,6 +16,7 @@
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:locale:alternate" content="nl_NL">
 <meta property="og:locale:alternate" content="he_IL">
+<meta property="og:locale:alternate" content="fr_FR">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kavrochori.gr/nl/">
 <meta property="og:image" content="https://kavrochori.gr/og-image.jpg">
@@ -33,6 +34,7 @@
 <link rel="alternate" hreflang="de" href="https://kavrochori.gr/de/">
 <link rel="alternate" hreflang="nl" href="https://kavrochori.gr/nl/">
 <link rel="alternate" hreflang="he" href="https://kavrochori.gr/he/">
+<link rel="alternate" hreflang="fr" href="https://kavrochori.gr/fr/">
 <link rel="alternate" hreflang="x-default" href="https://kavrochori.gr/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
@@ -727,7 +729,7 @@
   footer a { color: rgba(255,255,255,0.8); }
 
   /* Language visibility — scope to body descendants so we don't hide <html> itself */
-  body [lang="en"], body [lang="de"], body [lang="nl"], body [lang="he"] { display: none; }
+  body [lang="en"], body [lang="de"], body [lang="nl"], body [lang="he"], body [lang="fr"] { display: none; }
   body.en [lang="el"] { display: none; }
   body.en [lang="en"] { display: block; }
   body.en [lang="en"].inline { display: inline; }
@@ -740,11 +742,15 @@
   body.he [lang="el"] { display: none; }
   body.he [lang="he"] { display: block; }
   body.he [lang="he"].inline { display: inline; }
+  body.fr [lang="el"] { display: none; }
+  body.fr [lang="fr"] { display: block; }
+  body.fr [lang="fr"].inline { display: inline; }
   /* Preserve inline display for span/inline elements */
   body span[lang="en"], body a[lang="en"], body strong[lang="en"],
   body span[lang="de"], body a[lang="de"], body strong[lang="de"],
   body span[lang="nl"], body a[lang="nl"], body strong[lang="nl"],
-  body span[lang="he"], body a[lang="he"], body strong[lang="he"] { display: none; }
+  body span[lang="he"], body a[lang="he"], body strong[lang="he"],
+  body span[lang="fr"], body a[lang="fr"], body strong[lang="fr"] { display: none; }
   body.en span[lang="el"], body.en a[lang="el"], body.en strong[lang="el"] { display: none; }
   body.en span[lang="en"], body.en a[lang="en"], body.en strong[lang="en"] { display: inline; }
   body.de span[lang="el"], body.de a[lang="el"], body.de strong[lang="el"] { display: none; }
@@ -753,6 +759,8 @@
   body.nl span[lang="nl"], body.nl a[lang="nl"], body.nl strong[lang="nl"] { display: inline; }
   body.he span[lang="el"], body.he a[lang="el"], body.he strong[lang="el"] { display: none; }
   body.he span[lang="he"], body.he a[lang="he"], body.he strong[lang="he"] { display: inline; }
+  body.fr span[lang="el"], body.fr a[lang="el"], body.fr strong[lang="el"] { display: none; }
+  body.fr span[lang="fr"], body.fr a[lang="fr"], body.fr strong[lang="fr"] { display: inline; }
 
   /* RTL overrides — mirrors LTR-directional rules so the layout doesn't look
      broken under dir="rtl". Latin runs inside Hebrew body copy render LTR via
@@ -836,22 +844,22 @@
 </head>
 <body class="nl">
 
-<a class="skip-link" href="#main"><span lang="el">Μετάβαση στο περιεχόμενο</span><span lang="en">Skip to content</span><span lang="de">Zum Inhalt springen</span><span lang="nl">Naar inhoud</span><span lang="he">דלג לתוכן</span></a>
+<a class="skip-link" href="#main"><span lang="el">Μετάβαση στο περιεχόμενο</span><span lang="en">Skip to content</span><span lang="de">Zum Inhalt springen</span><span lang="nl">Naar inhoud</span><span lang="he">דלג לתוכן</span><span lang="fr">Aller au contenu</span></a>
 
 <nav>
   <div class="container">
-    <div class="brand"><span lang="el" class="inline">Ιδιωτική πώληση</span><span lang="en" class="inline">Private sale</span><span lang="de" class="inline">Privatverkauf</span><span lang="nl" class="inline">Verkoop door eigenaar</span><span lang="he" class="inline">מכירה פרטית</span></div>
+    <div class="brand"><span lang="el" class="inline">Ιδιωτική πώληση</span><span lang="en" class="inline">Private sale</span><span lang="de" class="inline">Privatverkauf</span><span lang="nl" class="inline">Verkoop door eigenaar</span><span lang="he" class="inline">מכירה פרטית</span><span lang="fr" class="inline">Vente entre particuliers</span></div>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#spaces" onclick="closeNav()"><span lang="el">Οι χώροι</span><span lang="en">Spaces</span><span lang="de">Räume</span><span lang="nl">Ruimten</span><span lang="he">החללים</span></a></li>
-      <li><a href="#location" onclick="closeNav()"><span lang="el">Τοποθεσία</span><span lang="en">Location</span><span lang="de">Lage</span><span lang="nl">Ligging</span><span lang="he">מיקום</span></a></li>
-      <li><a href="#gallery" onclick="closeNav()"><span lang="el">Φωτογραφίες</span><span lang="en">Gallery</span><span lang="de">Fotos</span><span lang="nl">Foto's</span><span lang="he">גלריה</span></a></li>
-      <li><a href="#contact" onclick="closeNav()"><span lang="el">Επικοινωνία</span><span lang="en">Contact</span><span lang="de">Kontakt</span><span lang="nl">Contact</span><span lang="he">צור קשר</span></a></li>
+      <li><a href="#spaces" onclick="closeNav()"><span lang="el">Οι χώροι</span><span lang="en">Spaces</span><span lang="de">Räume</span><span lang="nl">Ruimten</span><span lang="he">החללים</span><span lang="fr">Les espaces</span></a></li>
+      <li><a href="#location" onclick="closeNav()"><span lang="el">Τοποθεσία</span><span lang="en">Location</span><span lang="de">Lage</span><span lang="nl">Ligging</span><span lang="he">מיקום</span><span lang="fr">Situation</span></a></li>
+      <li><a href="#gallery" onclick="closeNav()"><span lang="el">Φωτογραφίες</span><span lang="en">Gallery</span><span lang="de">Fotos</span><span lang="nl">Foto's</span><span lang="he">גלריה</span><span lang="fr">Photos</span></a></li>
+      <li><a href="#contact" onclick="closeNav()"><span lang="el">Επικοινωνία</span><span lang="en">Contact</span><span lang="de">Kontakt</span><span lang="nl">Contact</span><span lang="he">צור קשר</span><span lang="fr">Contact</span></a></li>
     </ul>
     <button class="hamburger" aria-label="Menu" onclick="toggleNav()">
       <span></span><span></span><span></span>
     </button>
     <div class="lang-toggle">
-      <button onclick="setLang('el', event)">ΕΛ</button>/<button onclick="setLang('en', event)">EN</button>/<button onclick="setLang('de', event)">DE</button>/<button class="active" onclick="setLang('nl', event)">NL</button>/<button onclick="setLang('he', event)">עב</button>
+      <button onclick="setLang('el', event)">ΕΛ</button>/<button onclick="setLang('en', event)">EN</button>/<button onclick="setLang('de', event)">DE</button>/<button class="active" onclick="setLang('nl', event)">NL</button>/<button onclick="setLang('he', event)">עב</button>/<button onclick="setLang('fr', event)">FR</button>
     </div>
   </div>
 </nav>
@@ -865,24 +873,28 @@
     <h1 lang="de">Maisonette mit Gartenwohnung</h1>
     <h1 lang="nl">Maisonette met tuinappartement</h1>
     <h1 lang="he">מזונט עם דירת גן</h1>
+    <h1 lang="fr">Maison avec appartement de jardin</h1>
 
     <p class="hero-card-location" lang="el">Καβροχώρι, Ηράκλειο Κρήτης</p>
     <p class="hero-card-location" lang="en">Kavrochori, Heraklion, Crete</p>
     <p class="hero-card-location" lang="de">Kavrochori, Heraklion, Kreta</p>
     <p class="hero-card-location" lang="nl">Kavrochori, Heraklion, Kreta</p>
     <p class="hero-card-location" lang="he">קאברוכורי, הרקליון, כרתים</p>
+    <p class="hero-card-location" lang="fr">Kavrochori, Héraklion, Crète</p>
 
     <p class="hero-card-price" lang="el">610.000 €</p>
     <p class="hero-card-price" lang="en">€610,000</p>
     <p class="hero-card-price" lang="de">610.000 €</p>
     <p class="hero-card-price" lang="nl">€ 610.000</p>
     <p class="hero-card-price" lang="he">‎610,000 €‎</p>
+    <p class="hero-card-price" lang="fr">610 000 €</p>
 
     <p class="hero-card-size" lang="el">172 + 90 τ.μ. · οικόπεδο 617 τ.μ.</p>
     <p class="hero-card-size" lang="en">172 + 90 sqm · 617 sqm plot</p>
     <p class="hero-card-size" lang="de">172 + 90 m² · 617 m² Grundstück</p>
     <p class="hero-card-size" lang="nl">172 + 90 m² · 617 m² perceel</p>
     <p class="hero-card-size" lang="he">172 + 90 מ״ר · מגרש של 617 מ״ר</p>
+    <p class="hero-card-size" lang="fr">172 + 90 m² · terrain de 617 m²</p>
 
     <ul class="hero-card-links">
       <li>
@@ -891,6 +903,7 @@
         <a href="mailto:home@kavrochori.gr?subject=Grundriss%20anfragen" lang="de">GRUNDRISS</a>
         <a href="mailto:home@kavrochori.gr?subject=Plattegrond%20opvragen" lang="nl">PLATTEGROND</a>
         <a href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="he">תוכנית</a>
+        <a href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="fr">PLAN</a>
       </li>
       <li>
         <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B5%CE%BD%CE%B5%CF%81%CE%B3%CE%B5%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%80%CE%B9%CF%83%CF%84%CE%BF%CF%80%CE%BF%CE%B9%CE%B7%CF%84%CE%B9%CE%BA%CE%BF%CF%8D" lang="el">ΕΝΕΡΓΕΙΑΚΟ</a>
@@ -898,6 +911,7 @@
         <a href="mailto:home@kavrochori.gr?subject=Energieausweis" lang="de">ENERGIEPASS</a>
         <a href="mailto:home@kavrochori.gr?subject=Energielabel" lang="nl">ENERGIELABEL</a>
         <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
+        <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="fr">DPE</a>
       </li>
       <li>
         <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
@@ -905,6 +919,7 @@
         <a href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
         <a href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
         <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
+        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="fr">BROCHURE</a>
       </li>
     </ul>
 
@@ -914,6 +929,7 @@
       <span lang="de">KONTAKT</span>
       <span lang="nl">CONTACT</span>
       <span lang="he">יצירת קשר</span>
+      <span lang="fr">CONTACT</span>
     </a>
   </aside>
 
@@ -923,6 +939,7 @@
     <span lang="de">Mehr Fotos →</span>
     <span lang="nl">Meer foto's →</span>
     <span lang="he">עוד תמונות ←</span>
+    <span lang="fr">Plus de photos →</span>
   </a>
 </header>
 
@@ -934,11 +951,13 @@
     <span class="section-kicker" lang="de">Das Wesentliche</span>
     <span class="section-kicker" lang="nl">De essentie</span>
     <span class="section-kicker" lang="he">העיקר</span>
+    <span class="section-kicker" lang="fr">L'essentiel</span>
     <h2 class="editorial-heading reveal" lang="el">Έξι πράγματα που δεν αλλάζουν.</h2>
     <h2 class="editorial-heading reveal" lang="en">Six things that don't change.</h2>
     <h2 class="editorial-heading reveal" lang="de">Sechs Dinge, die Bestand haben.</h2>
     <h2 class="editorial-heading reveal" lang="nl">Zes dingen die blijven.</h2>
     <h2 class="editorial-heading reveal" lang="he">שישה דברים שלא משתנים.</h2>
+    <h2 class="editorial-heading reveal" lang="fr">Six choses qui ne changent pas.</h2>
     <div class="essentials-grid">
       <article class="essential reveal" style="--i:0">
         <span class="essential-num">01</span>
@@ -947,11 +966,13 @@
         <h3 lang="de">An der westlichen Achse Heraklions</h3>
         <h3 lang="nl">Aan de westelijke as van Heraklion</h3>
         <h3 lang="he">על הציר המערבי של הרקליון</h3>
+        <h3 lang="fr">Sur l'axe ouest d'Héraklion</h3>
         <p lang="el">Επτά λεπτά δυτικά στο ΠΑΓΝΗ, δεκαπέντε στο κέντρο της πόλης, είκοσι στο αεροδρόμιο.</p>
         <p lang="en">Seven minutes west to the University Hospital, fifteen to the city centre, twenty to the airport.</p>
         <p lang="de">Sieben Minuten westlich zum Universitätsklinikum, fünfzehn ins Stadtzentrum, zwanzig zum Flughafen.</p>
         <p lang="nl">Zeven minuten westelijk naar het universiteitsziekenhuis, vijftien naar het stadscentrum, twintig naar de luchthaven.</p>
         <p lang="he">שבע דקות מערבה לבית החולים האוניברסיטאי, חמש-עשרה דקות למרכז העיר, עשרים דקות לשדה התעופה.</p>
+        <p lang="fr">Sept minutes vers l'ouest pour le CHU, quinze pour le centre-ville, vingt pour l'aéroport.</p>
       </article>
       <article class="essential reveal" style="--i:1">
         <span class="essential-num">02</span>
@@ -960,11 +981,13 @@
         <h3 lang="de">Ein freistehendes Haus</h3>
         <h3 lang="nl">Een vrijstaand huis</h3>
         <h3 lang="he">בית עצמאי ונפרד</h3>
+        <h3 lang="fr">Maison indépendante</h3>
         <p lang="el">Στο δικό της οικόπεδο, χωρίς τοίχους μοιρασμένους με γείτονες.</p>
         <p lang="en">On its own plot, with no walls shared with neighbours.</p>
         <p lang="de">Auf eigenem Grundstück, ohne geteilte Wände mit Nachbarn.</p>
         <p lang="nl">Op een eigen perceel, zonder muren die met buren worden gedeeld.</p>
         <p lang="he">על מגרש פרטי, ללא קירות משותפים עם שכנים.</p>
+        <p lang="fr">Sur son propre terrain, sans murs mitoyens.</p>
       </article>
       <article class="essential reveal" style="--i:2">
         <span class="essential-num">03</span>
@@ -973,11 +996,13 @@
         <h3 lang="de">Eigenständige Versorgung</h3>
         <h3 lang="nl">Zelfvoorzienende voorzieningen</h3>
         <h3 lang="he">תשתיות עצמאיות</h3>
+        <h3 lang="fr">Équipements autonomes</h3>
         <p lang="el">Ρεύμα, νερό και αποχέτευση ιδιωτικά. Νέος ηλιακός θερμοσίφωνας τριπλής απόδοσης, 200 λίτρων (ήλιος, ρεύμα, καλοριφέρ — Μάρτιος 2026), ενεργειακό τζάκι, δεξαμενή νερού 8 κυβικών μέτρων.</p>
         <p lang="en">Private power, water and drainage. New 200-litre triple-source solar water heater (solar, electric, central heating — March 2026), energy-efficient fireplace, 8 m³ water tank.</p>
         <p lang="de">Eigener Strom-, Wasser- und Abwasseranschluss. Neuer 200-Liter-Solarboiler mit dreifacher Energiequelle (Solar, Strom, Zentralheizung — März 2026), energieeffizienter Kaminofen, 8-m³-Wassertank.</p>
         <p lang="nl">Eigen stroom, water en afvoer. Nieuwe 200-liter zonneboiler met drie energiebronnen (zon, stroom, centrale verwarming — maart 2026), energiezuinige haard, watertank van 8 m³.</p>
         <p lang="he">חשמל, מים וביוב פרטיים. דוד שמש חדש בן 200 ליטר עם שלושה מקורות חימום (שמש, חשמל, הסקה מרכזית — מרץ 2026), אח חסכוני באנרגיה ומאגר מים בנפח 8 מ״ק.</p>
+        <p lang="fr">Électricité, eau et assainissement privatifs. Chauffe-eau solaire neuf de 200 litres à triple source (solaire, électrique, chauffage central — mars 2026), poêle à bois performant, citerne d'eau de 8 m³.</p>
       </article>
       <article class="essential reveal" style="--i:3">
         <span class="essential-num">04</span>
@@ -986,11 +1011,13 @@
         <h3 lang="de">In der Nähe des Krankenhauses</h3>
         <h3 lang="nl">Dicht bij het ziekenhuis</h3>
         <h3 lang="he">קרוב לבית החולים</h3>
+        <h3 lang="fr">Proche du CHU</h3>
         <p lang="el">Το ΠΑΓΝΗ, τα σούπερ μάρκετ και οι βασικές υπηρεσίες της πόλης εντός δέκα λεπτών οδήγησης.</p>
         <p lang="en">The University Hospital, supermarkets and the city's essential services within ten minutes by car.</p>
         <p lang="de">Das Universitätsklinikum, Supermärkte und die wesentlichen städtischen Dienste innerhalb von zehn Autominuten.</p>
         <p lang="nl">Het universiteitsziekenhuis, supermarkten en de essentiële stadsvoorzieningen op tien minuten rijden.</p>
         <p lang="he">בית החולים האוניברסיטאי (PAGNI), סופרמרקטים ושירותי העיר החיוניים במרחק עשר דקות נסיעה.</p>
+        <p lang="fr">Le CHU (PAGNI), les supermarchés et les services essentiels de la ville à dix minutes en voiture.</p>
       </article>
       <article class="essential reveal" style="--i:4">
         <span class="essential-num">05</span>
@@ -999,11 +1026,13 @@
         <h3 lang="de">Erdbebennorm '85</h3>
         <h3 lang="nl">Aardbevingsnorm '85</h3>
         <h3 lang="he">תקן רעידות אדמה '85</h3>
+        <h3 lang="fr">Norme parasismique de 1985</h3>
         <p lang="el">Άδεια 1996, υπό τον αναθεωρημένο αντισεισμικό κανονισμό που ακολούθησε τη μεταρρύθμιση του 1985.</p>
         <p lang="en">Built in 1996, under the revised seismic code that followed the 1985 reform.</p>
         <p lang="de">Baugenehmigung 1996, nach der überarbeiteten Erdbebennorm, die auf die Reform von 1985 folgte.</p>
         <p lang="nl">Bouwvergunning 1996, onder de herziene aardbevingsnorm die volgde op de hervorming van 1985.</p>
         <p lang="he">היתר בנייה משנת 1996, על פי תקן רעידות האדמה המעודכן שבא בעקבות הרפורמה של 1985.</p>
+        <p lang="fr">Permis de 1996, sous la norme parasismique révisée issue de la réforme de 1985.</p>
       </article>
       <article class="essential reveal" style="--i:5">
         <span class="essential-num">06</span>
@@ -1012,11 +1041,13 @@
         <h3 lang="de">Exzellente Bauausführung</h3>
         <h3 lang="nl">Uitstekende bouwkwaliteit</h3>
         <h3 lang="he">בנייה יוצאת מן הכלל</h3>
+        <h3 lang="fr">Construction soignée</h3>
         <p lang="el">Πέτρα, μπετόν, ολοκληρωμένες λεπτομέρειες — μια κατασκευή που διατηρείται μέχρι σήμερα χωρίς σημαντικές επισκευές.</p>
         <p lang="en">Stone, concrete, complete finishes — a build that still stands today without major repairs.</p>
         <p lang="de">Stein, Beton, sorgfältige Details — ein Bau, der heute noch ohne größere Reparaturen Bestand hat.</p>
         <p lang="nl">Steen, beton, doorwrochte details — een bouw die vandaag nog staat zonder grote reparaties.</p>
         <p lang="he">אבן, בטון וגימורים מוקפדים — מבנה שעומד היום על תלו ללא תיקונים משמעותיים.</p>
+        <p lang="fr">Pierre, béton, finitions complètes — un bâtiment toujours debout aujourd'hui sans réparations majeures.</p>
       </article>
     </div>
   </div>
@@ -1030,16 +1061,19 @@
     <span class="section-kicker" lang="de">Die Räume</span>
     <span class="section-kicker" lang="nl">De ruimten</span>
     <span class="section-kicker" lang="he">החללים</span>
+    <span class="section-kicker" lang="fr">Les espaces</span>
     <h2 lang="el">Δύο κατοικίες, μία ιδιοκτησία.</h2>
     <h2 lang="en">Two residences, one property.</h2>
     <h2 lang="de">Zwei Wohnungen, eine Immobilie.</h2>
     <h2 lang="nl">Twee woningen, één eigendom.</h2>
     <h2 lang="he">שתי יחידות דיור, נכס אחד.</h2>
+    <h2 lang="fr">Deux logements, une seule propriété.</h2>
     <p class="section-intro" lang="el">Η δομή του ακινήτου προσφέρει σπάνια ευελιξία: μια κύρια μεζονέτα για την οικογένεια και ένα πλήρες αυτόνομο διαμέρισμα κήπου με ξεχωριστή είσοδο — ξενώνας για επισκέπτες, γραφείο εξ αποστάσεως εργασίας, ή πηγή εισοδήματος.</p>
     <p class="section-intro" lang="en">The property offers unusual flexibility: a main maisonette for the family and a complete self-contained garden-level apartment with its own entrance — guest house, home office, or rental income.</p>
     <p class="section-intro" lang="de">Die Immobilie bietet seltene Flexibilität: eine Hauptmaisonette für die Familie und eine vollständig eigenständige Gartenwohnung mit separatem Eingang — Gästehaus, Homeoffice oder Einkommensquelle.</p>
     <p class="section-intro" lang="nl">Het pand biedt zeldzame flexibiliteit: een hoofdmaisonette voor het gezin en een volledig zelfstandig tuinappartement met eigen ingang — logeergelegenheid, thuiswerkruimte of huurinkomsten.</p>
     <p class="section-intro" lang="he">מבנה הנכס מציע גמישות נדירה: מזונט ראשי למשפחה ודירת גן עצמאית ומלאה עם כניסה נפרדת — יחידת אירוח לאורחים, משרד לעבודה מרחוק או מקור הכנסה.</p>
+    <p class="section-intro" lang="fr">Le bien offre une rare flexibilité : une maison principale pour la famille et un appartement de jardin entièrement autonome avec entrée séparée — chambre d'amis, bureau pour le télétravail ou source de revenus locatifs.</p>
 
     <div class="spaces-grid" style="margin-top: 3rem;">
       <div class="space">
@@ -1048,37 +1082,44 @@
         <div class="space-label" lang="de">ERSTES OBERGESCHOSS · 105 m²</div>
         <div class="space-label" lang="nl">EERSTE VERDIEPING · 105 m²</div>
         <div class="space-label" lang="he">קומה א' · 105 מ״ר</div>
+        <div class="space-label" lang="fr">1ER ÉTAGE · 105 m²</div>
         <h3 lang="el">Ζωή &amp; Φιλοξενία</h3>
         <h3 lang="en">Living &amp; Hosting</h3>
         <h3 lang="de">Wohnen &amp; Empfangen</h3>
         <h3 lang="nl">Wonen &amp; Ontvangen</h3>
         <h3 lang="he">מגורים &amp; אירוח</h3>
+        <h3 lang="fr">Vie &amp; Réception</h3>
         <ul>
           <li lang="el">Ενιαίο σαλόνι και κουζίνα</li>
           <li lang="en">Open-plan living room and kitchen</li>
           <li lang="de">Offener Wohn- und Küchenbereich</li>
           <li lang="nl">Open woon- en keukenruimte</li>
           <li lang="he">סלון ומטבח בחלל פתוח</li>
+          <li lang="fr">Salon et cuisine en plan ouvert</li>
           <li lang="el">Τραπεζαρία με ενεργειακό τζάκι</li>
           <li lang="en">Dining area with wood-burning stove</li>
           <li lang="de">Essbereich mit Kaminofen</li>
           <li lang="nl">Eethoek met houtkachel</li>
           <li lang="he">פינת אוכל עם תנור עצים חסכוני</li>
+          <li lang="fr">Salle à manger avec poêle à bois</li>
           <li lang="el">1 υπνοδωμάτιο</li>
           <li lang="en">1 bedroom</li>
           <li lang="de">1 Schlafzimmer</li>
           <li lang="nl">1 slaapkamer</li>
           <li lang="he">חדר שינה אחד</li>
+          <li lang="fr">1 chambre</li>
           <li lang="el">WC επισκεπτών</li>
           <li lang="en">Guest WC</li>
           <li lang="de">Gäste-WC</li>
           <li lang="nl">Gasten-WC</li>
           <li lang="he">שירותי אורחים</li>
+          <li lang="fr">WC invités</li>
           <li lang="el">Είσοδος από πίσω πλευρά και νέα από το μπαλκόνι της κουζίνας</li>
           <li lang="en">Main entrance at rear, plus new entrance via kitchen balcony</li>
           <li lang="de">Haupteingang rückwärtig, plus neuer Eingang über Küchenbalkon</li>
           <li lang="nl">Hoofdingang aan de achterzijde, plus nieuwe ingang via keukenbalkon</li>
           <li lang="he">כניסה ראשית מאחור, וכן כניסה חדשה דרך מרפסת המטבח</li>
+          <li lang="fr">Entrée principale à l'arrière, plus nouvelle entrée par le balcon de la cuisine</li>
         </ul>
       </div>
 
@@ -1088,27 +1129,32 @@
         <div class="space-label" lang="de">ZWEITES OBERGESCHOSS · 67 m²</div>
         <div class="space-label" lang="nl">TWEEDE VERDIEPING · 67 m²</div>
         <div class="space-label" lang="he">קומה ב' · 67 מ״ר</div>
+        <div class="space-label" lang="fr">2E ÉTAGE · 67 m²</div>
         <h3 lang="el">Ιδιωτικοί Χώροι</h3>
         <h3 lang="en">Private Quarters</h3>
         <h3 lang="de">Private Räume</h3>
         <h3 lang="nl">Privévertrekken</h3>
         <h3 lang="he">אגף פרטי</h3>
+        <h3 lang="fr">Espaces privés</h3>
         <ul>
           <li lang="el">2 υπνοδωμάτια</li>
           <li lang="en">2 bedrooms</li>
           <li lang="de">2 Schlafzimmer</li>
           <li lang="nl">2 slaapkamers</li>
           <li lang="he">שני חדרי שינה</li>
+          <li lang="fr">2 chambres</li>
           <li lang="el">Μπάνιο</li>
           <li lang="en">Bathroom</li>
           <li lang="de">Badezimmer</li>
           <li lang="nl">Badkamer</li>
           <li lang="he">חדר רחצה</li>
+          <li lang="fr">Salle de bain</li>
           <li lang="el">Δύο μεγάλα μπαλκόνια με θέα στο βουνό και στο πράσινο</li>
           <li lang="en">Two large balconies with mountain and garden views</li>
           <li lang="de">Zwei große Balkone mit Berg- und Gartenblick</li>
           <li lang="nl">Twee grote balkons met berg- en tuinzicht</li>
           <li lang="he">שתי מרפסות גדולות עם נוף להרים ולירוק</li>
+          <li lang="fr">Deux grands balcons avec vue sur la montagne et la végétation</li>
         </ul>
       </div>
 
@@ -1118,42 +1164,50 @@
         <div class="space-label" lang="de">GARTENEBENE · 90 m²</div>
         <div class="space-label" lang="nl">TUINNIVEAU · 90 m²</div>
         <div class="space-label" lang="he">מפלס הגן · 90 מ״ר</div>
+        <div class="space-label" lang="fr">NIVEAU JARDIN · 90 m²</div>
         <h3 lang="el">Αυτόνομο Διαμέρισμα</h3>
         <h3 lang="en">Self-Contained Apartment</h3>
         <h3 lang="de">Eigenständige Wohnung</h3>
         <h3 lang="nl">Zelfstandig Appartement</h3>
         <h3 lang="he">דירת גן עצמאית</h3>
+        <h3 lang="fr">Appartement autonome</h3>
         <ul>
           <li lang="el">Ξεχωριστή είσοδος από την αυλή</li>
           <li lang="en">Independent entrance from the yard</li>
           <li lang="de">Separater Eingang vom Innenhof</li>
           <li lang="nl">Zelfstandige ingang vanuit de tuin</li>
           <li lang="he">כניסה עצמאית מן החצר</li>
+          <li lang="fr">Entrée indépendante depuis la cour</li>
           <li lang="el">Ενιαίος χώρος καθιστικού &amp; κουζίνας</li>
           <li lang="en">Combined living and kitchen area</li>
           <li lang="de">Kombinierter Wohn- und Küchenbereich</li>
           <li lang="nl">Gecombineerde woon- en keukenruimte</li>
           <li lang="he">חלל פתוח המשלב סלון ומטבח</li>
+          <li lang="fr">Séjour et cuisine en plan ouvert</li>
           <li lang="el">2 υπνοδωμάτια</li>
           <li lang="en">2 bedrooms</li>
           <li lang="de">2 Schlafzimmer</li>
           <li lang="nl">2 slaapkamers</li>
           <li lang="he">שני חדרי שינה</li>
+          <li lang="fr">2 chambres</li>
           <li lang="el">Πλήρες μπάνιο</li>
           <li lang="en">Full bathroom</li>
           <li lang="de">Vollbad</li>
           <li lang="nl">Volledige badkamer</li>
           <li lang="he">חדר רחצה מלא</li>
+          <li lang="fr">Salle de bain complète</li>
           <li lang="el">Ταβάνια 3 μέτρων, φυσικό φως, χωρίς υγρασία</li>
           <li lang="en">3m ceilings, natural light, dry</li>
           <li lang="de">3 m Deckenhöhe, natürliches Licht, trocken</li>
           <li lang="nl">3 m plafondhoogte, natuurlijk licht, droog</li>
           <li lang="he">תקרות בגובה 3 מטרים, אור טבעי, ללא רטיבות</li>
+          <li lang="fr">Plafonds de 3 m, lumière naturelle, aucune humidité</li>
           <li lang="el">Αποθήκη 23 τ.μ.</li>
           <li lang="en">23 sqm storage</li>
           <li lang="de">23 m² Abstellraum</li>
           <li lang="nl">23 m² bergruimte</li>
           <li lang="he">מחסן בשטח 23 מ״ר</li>
+          <li lang="fr">Cellier de 23 m²</li>
         </ul>
       </div>
     </div>
@@ -1169,16 +1223,19 @@
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="de">Nachgewiesene Einnahmen</span>
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="nl">Bewezen inkomsten</span>
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="he">הכנסה מוכחת</span>
+      <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="fr">Revenus avérés</span>
       <h3 lang="el">Τρία χρόνια ως Airbnb</h3>
       <h3 lang="en">Three years as an Airbnb</h3>
       <h3 lang="de">Drei Jahre als Airbnb</h3>
       <h3 lang="nl">Drie jaar als Airbnb</h3>
       <h3 lang="he">שלוש שנים כ-Airbnb</h3>
+      <h3 lang="fr">Trois ans en location Airbnb</h3>
       <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως Airbnb για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες.</p>
       <p lang="en">The garden-level apartment operated successfully as an Airbnb for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers.</p>
       <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Airbnb in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende.</p>
       <p lang="nl">Het tuinappartement werkte drie opeenvolgende jaren succesvol als Airbnb en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers.</p>
       <p lang="he">דירת הגן פעלה בהצלחה כ-Airbnb במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים.</p>
+      <p lang="fr">L'appartement de jardin a été loué avec succès sur Airbnb pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants.</p>
       <div>
         <div class="stat">
           <span class="stat-num">3</span>
@@ -1187,14 +1244,16 @@
           <span class="stat-label" lang="de">Jahre in Betrieb</span>
           <span class="stat-label" lang="nl">Jaar in bedrijf</span>
           <span class="stat-label" lang="he">שנות פעילות</span>
+          <span class="stat-label" lang="fr">Années d'exploitation</span>
         </div>
         <div class="stat">
-          <span class="stat-num"><span lang="el">Πάσχα–Οκτ.</span><span lang="en">Easter–Oct</span><span lang="de">Ostern–Okt.</span><span lang="nl">Pasen–okt.</span><span lang="he">פסחא–אוקט׳</span></span>
+          <span class="stat-num"><span lang="el">Πάσχα–Οκτ.</span><span lang="en">Easter–Oct</span><span lang="de">Ostern–Okt.</span><span lang="nl">Pasen–okt.</span><span lang="he">פסחא–אוקט׳</span><span lang="fr">Pâques–oct.</span></span>
           <span class="stat-label" lang="el">Σεζόν ζήτησης</span>
           <span class="stat-label" lang="en">Peak season</span>
           <span class="stat-label" lang="de">Hochsaison</span>
           <span class="stat-label" lang="nl">Hoogseizoen</span>
           <span class="stat-label" lang="he">עונת השיא</span>
+          <span class="stat-label" lang="fr">Haute saison</span>
         </div>
         <div class="stat">
           <span class="stat-num">★★★★</span>
@@ -1203,6 +1262,7 @@
           <span class="stat-label" lang="de">Gute Bewertungen</span>
           <span class="stat-label" lang="nl">Goede recensies</span>
           <span class="stat-label" lang="he">ביקורות חיוביות</span>
+          <span class="stat-label" lang="fr">Très bons avis</span>
         </div>
       </div>
     </div>
@@ -1217,16 +1277,19 @@
     <span class="section-kicker" lang="de">Außenbereich</span>
     <span class="section-kicker" lang="nl">Buitenruimte</span>
     <span class="section-kicker" lang="he">החצר</span>
+    <span class="section-kicker" lang="fr">L'extérieur</span>
     <h2 lang="el">617 τετραγωνικά ιδιωτικότητας.</h2>
     <h2 lang="en">617 square metres of privacy.</h2>
     <h2 lang="de">617 Quadratmeter Privatsphäre.</h2>
     <h2 lang="nl">617 vierkante meter privacy.</h2>
     <h2 lang="he">617 מטרים רבועים של פרטיות.</h2>
+    <h2 lang="fr">617 mètres carrés d'intimité.</h2>
     <p class="section-intro" lang="el">Μεγάλο οικόπεδο μέσα στον οικισμό, κλειστό από τρεις πλευρές, χωρίς οπτική επαφή με γείτονες. Γρασίδι, μεγάλη δάφνη στο κέντρο, λεμονιές και πορτοκαλιές κατά μήκος της περίφραξης.</p>
     <p class="section-intro" lang="en">A rare in-village plot, enclosed on three sides with no line of sight to neighbours. Lawn, a mature laurel tree at the centre, lemon and orange trees along the perimeter.</p>
     <p class="section-intro" lang="de">Ein seltenes innerörtliches Grundstück, von drei Seiten eingezäunt, ohne Sichtverbindung zu Nachbarn. Rasen, ein alter Lorbeerbaum in der Mitte, Zitronen- und Orangenbäume entlang der Einfriedung.</p>
     <p class="section-intro" lang="nl">Een zeldzaam perceel midden in het dorp, omsloten aan drie zijden zonder zichtlijnen naar buren. Gazon, een volwassen laurierboom in het midden, citroen- en sinaasappelbomen langs de omheining.</p>
     <p class="section-intro" lang="he">מגרש גדול בתוך הכפר, סגור משלושה צדדים ללא קשר עין עם השכנים. דשא, עץ דפנה בוגר במרכז, ועצי לימון ותפוז לאורך הגדר.</p>
+    <p class="section-intro" lang="fr">Un terrain rare en centre-village, clos sur trois côtés, sans vis-à-vis. Pelouse, un grand laurier au centre, citronniers et orangers le long de la clôture.</p>
 
     <div class="features-grid">
       <div class="feature">
@@ -1235,11 +1298,13 @@
         <h3 lang="de">Holzofen</h3>
         <h3 lang="nl">Houtgestookte oven</h3>
         <h3 lang="he">טאבון עצים</h3>
+        <h3 lang="fr">Four à bois</h3>
         <p lang="el">Πλήρως λειτουργικός, κατάλληλος για ψωμί και πίτσα.</p>
         <p lang="en">Fully operational, suitable for bread and pizza.</p>
         <p lang="de">Voll funktionstüchtig, geeignet für Brot und Pizza.</p>
         <p lang="nl">Volledig operationeel, geschikt voor brood en pizza.</p>
         <p lang="he">פעיל באופן מלא, מתאים ללחם ולפיצה.</p>
+        <p lang="fr">Pleinement fonctionnel, adapté au pain et à la pizza.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Parking 3 θέσεων</h3>
@@ -1247,11 +1312,13 @@
         <h3 lang="de">Parkplätze für 3 Autos</h3>
         <h3 lang="nl">Parkeren voor 3 auto's</h3>
         <h3 lang="he">חניה ל-3 רכבים</h3>
+        <h3 lang="fr">Stationnement pour 3 voitures</h3>
         <p lang="el">Στεγασμένο γκαράζ με άνετη είσοδο από επαρχιακό δρόμο.</p>
         <p lang="en">Covered garage with easy access from a quiet local road.</p>
         <p lang="de">Überdachte Garage mit einfachem Zugang von einer ruhigen Ortsstraße.</p>
         <p lang="nl">Overdekte garage met eenvoudige toegang via een rustige lokale weg.</p>
         <p lang="he">חניה מקורה עם גישה נוחה מכביש מקומי שקט.</p>
+        <p lang="fr">Garage couvert avec accès facile depuis une route locale tranquille.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Δυνατότητα πισίνας</h3>
@@ -1259,11 +1326,13 @@
         <h3 lang="de">Pool möglich</h3>
         <h3 lang="nl">Zwembad mogelijk</h3>
         <h3 lang="he">אפשרות לבריכה</h3>
+        <h3 lang="fr">Piscine possible</h3>
         <p lang="el">Το οικόπεδο επιτρέπει την κατασκευή πισίνας.</p>
         <p lang="en">The plot allows for a swimming pool.</p>
         <p lang="de">Das Grundstück ermöglicht den Bau eines Swimmingpools.</p>
         <p lang="nl">Het perceel laat de aanleg van een zwembad toe.</p>
         <p lang="he">המגרש מאפשר בניית בריכת שחייה.</p>
+        <p lang="fr">Le terrain permet la construction d'une piscine.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Ιδιωτικότητα</h3>
@@ -1271,11 +1340,13 @@
         <h3 lang="de">Privatsphäre</h3>
         <h3 lang="nl">Privacy</h3>
         <h3 lang="he">פרטיות</h3>
+        <h3 lang="fr">Intimité</h3>
         <p lang="el">Φυτική περίφραξη, χωρίς θέαση από γείτονες.</p>
         <p lang="en">Planted perimeter, no sightlines from neighbours.</p>
         <p lang="de">Bepflanzte Einfriedung, keine Sichtverbindung zu Nachbarn.</p>
         <p lang="nl">Beplante omheining, geen zichtlijnen vanuit buren.</p>
         <p lang="he">גדר ירוקה מסביב, ללא קשר עין עם השכנים.</p>
+        <p lang="fr">Clôture végétale, sans vis-à-vis avec les voisins.</p>
       </div>
     </div>
   </div>
@@ -1289,177 +1360,180 @@
     <span class="section-kicker" lang="de">Fotos</span>
     <span class="section-kicker" lang="nl">Foto's</span>
     <span class="section-kicker" lang="he">גלריה</span>
+    <span class="section-kicker" lang="fr">Photos</span>
     <h2 lang="el">Μια πρώτη γνωριμία.</h2>
     <h2 lang="en">A first look.</h2>
     <h2 lang="de">Eine erste Begegnung.</h2>
     <h2 lang="nl">Een eerste indruk.</h2>
     <h2 lang="he">מבט ראשון.</h2>
+    <h2 lang="fr">Premier aperçu.</h2>
     <p class="section-intro" lang="el">Φωτογραφίες από τους εξωτερικούς και εσωτερικούς χώρους. Επιπλέον υλικό, κατόψεις και κατ' ιδίαν επίσκεψη είναι διαθέσιμα κατόπιν επικοινωνίας.</p>
     <p class="section-intro" lang="en">Photographs of exterior and interior spaces. Additional material, floor plans, and in-person visits are available upon request.</p>
     <p class="section-intro" lang="de">Fotos der Außen- und Innenräume. Weiteres Material, Grundrisse und Besichtigungen auf Anfrage verfügbar.</p>
     <p class="section-intro" lang="nl">Foto's van buiten- en binnenruimten. Extra materiaal, plattegronden en bezichtigingen op aanvraag beschikbaar.</p>
     <p class="section-intro" lang="he">תמונות של החללים החיצוניים והפנימיים. חומר נוסף, תוכניות קומה וביקור אישי זמינים על פי בקשה.</p>
+    <p class="section-intro" lang="fr">Photographies des espaces extérieurs et intérieurs. Documents complémentaires, plans et visites sur place disponibles sur demande.</p>
 
     <div class="gallery-grid">
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwCw7BuTATEihk84M+SgAP6xjYcOULylihzXWWlsnt+q6q3apEP4dwfkewRcDet+PPwI6Hsz5UYops1mbCbN8BbvNPVauRzIlUzn8qAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/exterior-street.webp 640w, /images/exterior-street.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/exterior-street.jpg 640w, /images/exterior-street.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/exterior-street.jpg" alt="Two-story stone-and-stucco house with garden, viewed from the village street" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/exterior-street.jpg" data-thumb="/images/thumbs/exterior-street.jpg" data-caption-el="Πρόσοψη της κατοικίας από τον δρόμο του χωριού" data-caption-en="Street-side façade of the house with garden" data-caption-de="Straßenseitige Fassade des Hauses mit Garten" data-caption-nl="Straatzijde van het huis met tuin" data-caption-he="חזית הבית מצד רחוב הכפר">
+          <img src="/images/exterior-street.jpg" alt="Two-story stone-and-stucco house with garden, viewed from the village street" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/exterior-street.jpg" data-thumb="/images/thumbs/exterior-street.jpg" data-caption-el="Πρόσοψη της κατοικίας από τον δρόμο του χωριού" data-caption-en="Street-side façade of the house with garden" data-caption-de="Straßenseitige Fassade des Hauses mit Garten" data-caption-nl="Straatzijde van het huis met tuin" data-caption-he="חזית הבית מצד רחוב הכפר" data-caption-fr="Façade côté rue avec jardin">
         </picture>
-        <span class="gallery-caption" lang="el">Πρόσοψη</span><span class="gallery-caption" lang="en">Façade</span><span class="gallery-caption" lang="de">Fassade</span><span class="gallery-caption" lang="nl">Gevel</span><span class="gallery-caption" lang="he">חזית</span>
+        <span class="gallery-caption" lang="el">Πρόσοψη</span><span class="gallery-caption" lang="en">Façade</span><span class="gallery-caption" lang="de">Fassade</span><span class="gallery-caption" lang="nl">Gevel</span><span class="gallery-caption" lang="he">חזית</span><span class="gallery-caption" lang="fr">Façade</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJQBfnApz0SKup9Yb2fVgA+w8Ly7kbwj6s6U7c024RsjuP0i6ZzywGFDZ2ES0pV/1mUp6nUtPwBv/2V2fYAmCpARbtfMuzdfm4fZ8z/qdZrgDAAAA=')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/wood-oven.webp 640w, /images/wood-oven.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/wood-oven.jpg 640w, /images/wood-oven.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/wood-oven.jpg" alt="Traditional wood-fired oven beside a mature lemon tree in the garden" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/wood-oven.jpg" data-thumb="/images/thumbs/wood-oven.jpg" data-caption-el="Λειτουργικός ξυλόφουρνος κάτω από λεμονιά" data-caption-en="Operational wood-fired oven beneath a lemon tree" data-caption-de="Betriebsbereiter Holzofen unter einem Zitronenbaum" data-caption-nl="Werkende houtgestookte oven onder een citroenboom" data-caption-he="טאבון עצים פעיל תחת עץ לימון">
+          <img src="/images/wood-oven.jpg" alt="Traditional wood-fired oven beside a mature lemon tree in the garden" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/wood-oven.jpg" data-thumb="/images/thumbs/wood-oven.jpg" data-caption-el="Λειτουργικός ξυλόφουρνος κάτω από λεμονιά" data-caption-en="Operational wood-fired oven beneath a lemon tree" data-caption-de="Betriebsbereiter Holzofen unter einem Zitronenbaum" data-caption-nl="Werkende houtgestookte oven onder een citroenboom" data-caption-he="טאבון עצים פעיל תחת עץ לימון" data-caption-fr="Four à bois en service sous un citronnier">
         </picture>
-        <span class="gallery-caption" lang="el">Ξυλόφουρνος</span><span class="gallery-caption" lang="en">Wood oven</span><span class="gallery-caption" lang="de">Holzofen</span><span class="gallery-caption" lang="nl">Houtoven</span><span class="gallery-caption" lang="he">טאבון עצים</span>
+        <span class="gallery-caption" lang="el">Ξυλόφουρνος</span><span class="gallery-caption" lang="en">Wood oven</span><span class="gallery-caption" lang="de">Holzofen</span><span class="gallery-caption" lang="nl">Houtoven</span><span class="gallery-caption" lang="he">טאבון עצים</span><span class="gallery-caption" lang="fr">Four à bois</span>
       </div>
       <div class="gallery-item wide" style="background-image:url('data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZACdMoACkZd7JjH+ehgA/rrTQdG4pRLXUE3f1lB3hX5OgYw+DTvP8EeQYrDEzKQgd9l8LJc9UrgQdyXzQ7vMkAjmLw7JsR0uBPgY2/EblKr6sqRB+p4mBVAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/sunroom-wood.webp 640w, /images/sunroom-wood.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/sunroom-wood.jpg 640w, /images/sunroom-wood.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/sunroom-wood.jpg" alt="Enclosed sunroom gallery with exposed timber ceiling and Cretan mountain views" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-wood.jpg" data-thumb="/images/thumbs/sunroom-wood.jpg" data-caption-el="Κλειστή γαλαρία με ξύλινη οροφή και θέα βουνών" data-caption-en="Enclosed gallery with timber ceiling and mountain views" data-caption-de="Überdachte Galerie mit Holzdecke und Bergblick" data-caption-nl="Overdekte galerij met houten plafond en bergzicht" data-caption-he="גלריה סגורה עם תקרת עץ ונוף להרים">
+          <img src="/images/sunroom-wood.jpg" alt="Enclosed sunroom gallery with exposed timber ceiling and Cretan mountain views" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-wood.jpg" data-thumb="/images/thumbs/sunroom-wood.jpg" data-caption-el="Κλειστή γαλαρία με ξύλινη οροφή και θέα βουνών" data-caption-en="Enclosed gallery with timber ceiling and mountain views" data-caption-de="Überdachte Galerie mit Holzdecke und Bergblick" data-caption-nl="Overdekte galerij met houten plafond en bergzicht" data-caption-he="גלריה סגורה עם תקרת עץ ונוף להרים" data-caption-fr="Véranda close avec plafond en bois et vue montagne">
         </picture>
-        <span class="gallery-caption" lang="el">Ξύλινη γαλαρία</span><span class="gallery-caption" lang="en">Wooden gallery</span><span class="gallery-caption" lang="de">Holzgalerie</span><span class="gallery-caption" lang="nl">Houten galerij</span><span class="gallery-caption" lang="he">גלריה מעץ</span>
+        <span class="gallery-caption" lang="el">Ξύλινη γαλαρία</span><span class="gallery-caption" lang="en">Wooden gallery</span><span class="gallery-caption" lang="de">Holzgalerie</span><span class="gallery-caption" lang="nl">Houten galerij</span><span class="gallery-caption" lang="he">גלריה מעץ</span><span class="gallery-caption" lang="fr">Galerie en bois</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwCdMoABilPnOglAQAD+z1mUeaP+qIkTCdqnBL9buJ/w879/iGf9aCrF5ElrVM3/QJ9x2w11j1RoZ71EQ4Atbi2wo3O7SHLpqC/HwH5Bd/t4Zkj/JesWBQQAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/sunroom-detail.webp 640w, /images/sunroom-detail.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/sunroom-detail.jpg 640w, /images/sunroom-detail.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/sunroom-detail.jpg" alt="Sunroom gallery with potted plants, opening onto the dining room" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-detail.jpg" data-thumb="/images/thumbs/sunroom-detail.jpg" data-caption-el="Γαλαρία με φυτά και θέα προς την τραπεζαρία" data-caption-en="Sunroom with plants, opening to the dining area" data-caption-de="Wintergarten mit Pflanzen, Blick zum Esszimmer" data-caption-nl="Wintertuin met planten, uitzicht op de eetkamer" data-caption-he="חדר שמש עם צמחים, נוף לפינת האוכל">
+          <img src="/images/sunroom-detail.jpg" alt="Sunroom gallery with potted plants, opening onto the dining room" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-detail.jpg" data-thumb="/images/thumbs/sunroom-detail.jpg" data-caption-el="Γαλαρία με φυτά και θέα προς την τραπεζαρία" data-caption-en="Sunroom with plants, opening to the dining area" data-caption-de="Wintergarten mit Pflanzen, Blick zum Esszimmer" data-caption-nl="Wintertuin met planten, uitzicht op de eetkamer" data-caption-he="חדר שמש עם צמחים, נוף לפינת האוכל" data-caption-fr="Véranda avec plantes, ouverte sur la salle à manger">
         </picture>
-        <span class="gallery-caption" lang="el">Γαλαρία</span><span class="gallery-caption" lang="en">Sunroom</span><span class="gallery-caption" lang="de">Wintergarten</span><span class="gallery-caption" lang="nl">Wintertuin</span><span class="gallery-caption" lang="he">חדר שמש</span>
+        <span class="gallery-caption" lang="el">Γαλαρία</span><span class="gallery-caption" lang="en">Sunroom</span><span class="gallery-caption" lang="de">Wintergarten</span><span class="gallery-caption" lang="nl">Wintertuin</span><span class="gallery-caption" lang="he">חדר שמש</span><span class="gallery-caption" lang="fr">Véranda</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYgC7FQgAVO5YsDnPNwhgAPI0DeMcAUkAOoq4yUdHoHKStSlTDLluUKf82Ddbpy9ImZPgkgqquXetAPkrK0ELZKOgLgLbg+oh9MJDFbg7VX1BO6bAjulkwAA=')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/living-grand.webp 640w, /images/living-grand.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/living-grand.jpg 640w, /images/living-grand.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/living-grand.jpg" alt="Open-plan central hall with marble staircase and fireplace seating" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-grand.jpg" data-thumb="/images/thumbs/living-grand.jpg" data-caption-el="Κεντρικός χώρος με μαρμάρινη σκάλα" data-caption-en="Central hall with marble staircase and fireplace" data-caption-de="Zentraler Raum mit Marmortreppe und Kamin" data-caption-nl="Centrale hal met marmeren trap en open haard" data-caption-he="חלל מרכזי עם מדרגות שיש ואח">
+          <img src="/images/living-grand.jpg" alt="Open-plan central hall with marble staircase and fireplace seating" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-grand.jpg" data-thumb="/images/thumbs/living-grand.jpg" data-caption-el="Κεντρικός χώρος με μαρμάρινη σκάλα" data-caption-en="Central hall with marble staircase and fireplace" data-caption-de="Zentraler Raum mit Marmortreppe und Kamin" data-caption-nl="Centrale hal met marmeren trap en open haard" data-caption-he="חלל מרכזי עם מדרגות שיש ואח" data-caption-fr="Hall central avec escalier en marbre et cheminée">
         </picture>
-        <span class="gallery-caption" lang="el">Κεντρικός χώρος</span><span class="gallery-caption" lang="en">Central hall</span><span class="gallery-caption" lang="de">Zentraler Raum</span><span class="gallery-caption" lang="nl">Centrale hal</span><span class="gallery-caption" lang="he">חלל מרכזי</span>
+        <span class="gallery-caption" lang="el">Κεντρικός χώρος</span><span class="gallery-caption" lang="en">Central hall</span><span class="gallery-caption" lang="de">Zentraler Raum</span><span class="gallery-caption" lang="nl">Centrale hal</span><span class="gallery-caption" lang="he">חלל מרכזי</span><span class="gallery-caption" lang="fr">Hall central</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYgC7ABTeP8H4tRPT2CAA4f23TLaN1pjUYxDa1U6iRyE58Mb9Y//dzbVWMkplD4Oq6PpNpmzd07HrX/yRRodp5R916ZkfXIwY1jIZI1QYAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/living-fireplace.webp 640w, /images/living-fireplace.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/living-fireplace.jpg 640w, /images/living-fireplace.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/living-fireplace.jpg" alt="Spacious living room with stone fireplace and panoramic olive grove view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-fireplace.jpg" data-thumb="/images/thumbs/living-fireplace.jpg" data-caption-el="Καθιστικό με τζάκι και θέα ελαιώνα" data-caption-en="Living room with fireplace and olive grove view" data-caption-de="Wohnzimmer mit Kamin und Blick auf Olivenhain" data-caption-nl="Woonkamer met open haard en olijfboomgaardzicht" data-caption-he="סלון עם אח ונוף לחורשת זיתים">
+          <img src="/images/living-fireplace.jpg" alt="Spacious living room with stone fireplace and panoramic olive grove view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-fireplace.jpg" data-thumb="/images/thumbs/living-fireplace.jpg" data-caption-el="Καθιστικό με τζάκι και θέα ελαιώνα" data-caption-en="Living room with fireplace and olive grove view" data-caption-de="Wohnzimmer mit Kamin und Blick auf Olivenhain" data-caption-nl="Woonkamer met open haard en olijfboomgaardzicht" data-caption-he="סלון עם אח ונוף לחורשת זיתים" data-caption-fr="Salon avec cheminée et vue sur l'oliveraie">
         </picture>
-        <span class="gallery-caption" lang="el">Καθιστικό με τζάκι</span><span class="gallery-caption" lang="en">Living with fireplace</span><span class="gallery-caption" lang="de">Wohnzimmer mit Kamin</span><span class="gallery-caption" lang="nl">Woonkamer met haard</span><span class="gallery-caption" lang="he">סלון עם אח</span>
+        <span class="gallery-caption" lang="el">Καθιστικό με τζάκι</span><span class="gallery-caption" lang="en">Living with fireplace</span><span class="gallery-caption" lang="de">Wohnzimmer mit Kamin</span><span class="gallery-caption" lang="nl">Woonkamer met haard</span><span class="gallery-caption" lang="he">סלון עם אח</span><span class="gallery-caption" lang="fr">Salon avec cheminée</span>
       </div>
       <div class="gallery-item wide" style="background-image:url('data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJQBOgBEMqSvr1K3WIrjfv9MAA/duzeOfV9w0A4h2D3ZHAfWWNjyheTyvDnDWHuUryoPBgLeumOEvooxPmxSfKIe0Mkzx8ZlVlCKMRvW+YY2gBqAAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/living-open.webp 640w, /images/living-open.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/living-open.jpg 640w, /images/living-open.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/living-open.jpg" alt="Open-plan living and kitchen area with marble floors and garden-facing windows" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-open.jpg" data-thumb="/images/thumbs/living-open.jpg" data-caption-el="Ενιαίος χώρος καθιστικού και κουζίνας" data-caption-en="Open-plan living and kitchen area" data-caption-de="Offener Wohn- und Essbereich mit Küche" data-caption-nl="Open woon-eetkamer met keuken" data-caption-he="סלון ומטבח פתוח בחלל אחד">
+          <img src="/images/living-open.jpg" alt="Open-plan living and kitchen area with marble floors and garden-facing windows" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-open.jpg" data-thumb="/images/thumbs/living-open.jpg" data-caption-el="Ενιαίος χώρος καθιστικού και κουζίνας" data-caption-en="Open-plan living and kitchen area" data-caption-de="Offener Wohn- und Essbereich mit Küche" data-caption-nl="Open woon-eetkamer met keuken" data-caption-he="סלון ומטבח פתוח בחלל אחד" data-caption-fr="Salon et cuisine en plan ouvert">
         </picture>
-        <span class="gallery-caption" lang="el">Ενιαίος χώρος</span><span class="gallery-caption" lang="en">Open living</span><span class="gallery-caption" lang="de">Wohn-Essbereich</span><span class="gallery-caption" lang="nl">Open ruimte</span><span class="gallery-caption" lang="he">חלל פתוח</span>
+        <span class="gallery-caption" lang="el">Ενιαίος χώρος</span><span class="gallery-caption" lang="en">Open living</span><span class="gallery-caption" lang="de">Wohn-Essbereich</span><span class="gallery-caption" lang="nl">Open ruimte</span><span class="gallery-caption" lang="he">חלל פתוח</span><span class="gallery-caption" lang="fr">Espace ouvert</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoUAA8APxFysFAsJqSisAgBgCIJZACsGuAAVYost0ixT/15yUIkAPfX8LXbbWWaxRG0ul4vsVpcmPo0xJ7IFyToUUbt+/IVUFjAQHf4mTSpO1/XbymlL/T5ialIGIgIOwRFAYjMaYq7Vjr8AAA=')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/kitchen.webp 640w, /images/kitchen.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/kitchen.jpg 640w, /images/kitchen.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/kitchen.jpg" alt="Kitchen with solid wood cabinetry, granite countertops, and glass dining table" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/kitchen.jpg" data-thumb="/images/thumbs/kitchen.jpg" data-caption-el="Κουζίνα με ξύλινα ντουλάπια και γρανίτη" data-caption-en="Kitchen with wood cabinetry and granite counters" data-caption-de="Küche mit Holzschränken und Granitarbeitsplatten" data-caption-nl="Keuken met houten kasten en granieten werkbladen" data-caption-he="מטבח עם ארונות עץ ומשטחי גרניט">
+          <img src="/images/kitchen.jpg" alt="Kitchen with solid wood cabinetry, granite countertops, and glass dining table" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/kitchen.jpg" data-thumb="/images/thumbs/kitchen.jpg" data-caption-el="Κουζίνα με ξύλινα ντουλάπια και γρανίτη" data-caption-en="Kitchen with wood cabinetry and granite counters" data-caption-de="Küche mit Holzschränken und Granitarbeitsplatten" data-caption-nl="Keuken met houten kasten en granieten werkbladen" data-caption-he="מטבח עם ארונות עץ ומשטחי גרניט" data-caption-fr="Cuisine avec mobilier bois et plans de travail granit">
         </picture>
-        <span class="gallery-caption" lang="el">Κουζίνα</span><span class="gallery-caption" lang="en">Kitchen</span><span class="gallery-caption" lang="de">Küche</span><span class="gallery-caption" lang="nl">Keuken</span><span class="gallery-caption" lang="he">מטבח</span>
+        <span class="gallery-caption" lang="el">Κουζίνα</span><span class="gallery-caption" lang="en">Kitchen</span><span class="gallery-caption" lang="de">Küche</span><span class="gallery-caption" lang="nl">Keuken</span><span class="gallery-caption" lang="he">מטבח</span><span class="gallery-caption" lang="fr">Cuisine</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwCdABM/D3QTSuv9HAKAAMwmYW6fU+b206gbTDcU4y6zHht2TbIcnLCehzB8YCP+N1aQrbftW7zO8GtOkv+Kt3r0jmMdxHA3yYIA')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/living-hall-alt.webp 640w, /images/living-hall-alt.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/living-hall-alt.jpg 640w, /images/living-hall-alt.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/living-hall-alt.jpg" alt="Central hall viewed from kitchen peninsula, with fireplace and marble staircase" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-hall-alt.jpg" data-thumb="/images/thumbs/living-hall-alt.jpg" data-caption-el="Κεντρικός χώρος από την πλευρά της κουζίνας" data-caption-en="Central hall from the kitchen peninsula" data-caption-de="Zentraler Raum von der Küchentheke aus" data-caption-nl="Centrale hal vanaf het keukenblok" data-caption-he="חלל מרכזי מצד המטבח">
+          <img src="/images/living-hall-alt.jpg" alt="Central hall viewed from kitchen peninsula, with fireplace and marble staircase" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-hall-alt.jpg" data-thumb="/images/thumbs/living-hall-alt.jpg" data-caption-el="Κεντρικός χώρος από την πλευρά της κουζίνας" data-caption-en="Central hall from the kitchen peninsula" data-caption-de="Zentraler Raum von der Küchentheke aus" data-caption-nl="Centrale hal vanaf het keukenblok" data-caption-he="חלל מרכזי מצד המטבח" data-caption-fr="Hall central depuis le coin cuisine">
         </picture>
-        <span class="gallery-caption" lang="el">Κεντρικός χώρος</span><span class="gallery-caption" lang="en">Central hall</span><span class="gallery-caption" lang="de">Zentraler Raum</span><span class="gallery-caption" lang="nl">Centrale hal</span><span class="gallery-caption" lang="he">חלל מרכזי</span>
+        <span class="gallery-caption" lang="el">Κεντρικός χώρος</span><span class="gallery-caption" lang="en">Central hall</span><span class="gallery-caption" lang="de">Zentraler Raum</span><span class="gallery-caption" lang="nl">Centrale hal</span><span class="gallery-caption" lang="he">חלל מרכזי</span><span class="gallery-caption" lang="fr">Hall central</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQBACdASoUAA8APxFysFAsJqSisAgBgCIJYwCsACPai+C7/7i3jk12cADibUYyBGafGz6uq6se6BQTZyw/5iOHxLXMlReQLPT0BMmWP33Xh9mFLFkyDhvLaFddgjvUwAA=')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/hallway-landing.webp 640w, /images/hallway-landing.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/hallway-landing.jpg 640w, /images/hallway-landing.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/hallway-landing.jpg" alt="Upper-floor landing with internal column and access to staircase" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/hallway-landing.jpg" data-thumb="/images/thumbs/hallway-landing.jpg" data-caption-el="Διάδρομος ορόφου με κολώνα και πρόσβαση στη σκάλα" data-caption-en="Upper-floor landing with column and stairs" data-caption-de="Treppenabsatz mit Säule und Treppenzugang" data-caption-nl="Overloop met zuil en trapopgang" data-caption-he="פרוזדור קומה עם עמוד וגישה למדרגות">
+          <img src="/images/hallway-landing.jpg" alt="Upper-floor landing with internal column and access to staircase" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/hallway-landing.jpg" data-thumb="/images/thumbs/hallway-landing.jpg" data-caption-el="Διάδρομος ορόφου με κολώνα και πρόσβαση στη σκάλα" data-caption-en="Upper-floor landing with column and stairs" data-caption-de="Treppenabsatz mit Säule und Treppenzugang" data-caption-nl="Overloop met zuil en trapopgang" data-caption-he="פרוזדור קומה עם עמוד וגישה למדרגות" data-caption-fr="Palier d'étage avec colonne et escalier">
         </picture>
-        <span class="gallery-caption" lang="el">Διάδρομος ορόφου</span><span class="gallery-caption" lang="en">Landing</span><span class="gallery-caption" lang="de">Treppenabsatz</span><span class="gallery-caption" lang="nl">Overloop</span><span class="gallery-caption" lang="he">פרוזדור קומה</span>
+        <span class="gallery-caption" lang="el">Διάδρομος ορόφου</span><span class="gallery-caption" lang="en">Landing</span><span class="gallery-caption" lang="de">Treppenabsatz</span><span class="gallery-caption" lang="nl">Overloop</span><span class="gallery-caption" lang="he">פרוזדור קומה</span><span class="gallery-caption" lang="fr">Palier d'étage</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoUAA8APxFysFAsJqSisAgBgCIJZgCdMoSA2CHmPCsJsvCV2hAA/oCS8ij4OHh5xR6YjjKW4Y8omxxbt9PnVje82f+gXo5ocBqMlqF/UaShIodZyTMsa4zKi2rYLSKdbcgAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bedroom-balcony.webp 640w, /images/bedroom-balcony.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/bedroom-balcony.jpg 640w, /images/bedroom-balcony.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bedroom-balcony.jpg" alt="Bedroom with built-in bookshelves, wardrobe, and French doors to balcony" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-balcony.jpg" data-thumb="/images/thumbs/bedroom-balcony.jpg" data-caption-el="Υπνοδωμάτιο με πρόσβαση σε μπαλκόνι" data-caption-en="Bedroom with balcony access" data-caption-de="Schlafzimmer mit Balkonzugang" data-caption-nl="Slaapkamer met toegang tot balkon" data-caption-he="חדר שינה עם גישה למרפסת">
+          <img src="/images/bedroom-balcony.jpg" alt="Bedroom with built-in bookshelves, wardrobe, and French doors to balcony" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-balcony.jpg" data-thumb="/images/thumbs/bedroom-balcony.jpg" data-caption-el="Υπνοδωμάτιο με πρόσβαση σε μπαλκόνι" data-caption-en="Bedroom with balcony access" data-caption-de="Schlafzimmer mit Balkonzugang" data-caption-nl="Slaapkamer met toegang tot balkon" data-caption-he="חדר שינה עם גישה למרפסת" data-caption-fr="Chambre avec accès au balcon">
         </picture>
-        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span>
+        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span><span class="gallery-caption" lang="fr">Chambre</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC06BUynML9C/LmVXgAAPzjwrg3hVj2LaAlTvYXsr6V3ZKEktgFBkPUj8hy+VzQbDazxJeUx3nbhOgouxkKigNJKQJ56PAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bedroom-secondary.webp 640w, /images/bedroom-secondary.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/bedroom-secondary.jpg 640w, /images/bedroom-secondary.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bedroom-secondary.jpg" alt="Second bedroom with built-in wardrobes, herringbone floor, and full-height mirror" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-secondary.jpg" data-thumb="/images/thumbs/bedroom-secondary.jpg" data-caption-el="Δεύτερο υπνοδωμάτιο με εντοιχισμένες ντουλάπες" data-caption-en="Second bedroom with built-in wardrobes" data-caption-de="Zweites Schlafzimmer mit Einbauschränken" data-caption-nl="Tweede slaapkamer met inbouwkasten" data-caption-he="חדר שינה שני עם ארונות קיר">
+          <img src="/images/bedroom-secondary.jpg" alt="Second bedroom with built-in wardrobes, herringbone floor, and full-height mirror" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-secondary.jpg" data-thumb="/images/thumbs/bedroom-secondary.jpg" data-caption-el="Δεύτερο υπνοδωμάτιο με εντοιχισμένες ντουλάπες" data-caption-en="Second bedroom with built-in wardrobes" data-caption-de="Zweites Schlafzimmer mit Einbauschränken" data-caption-nl="Tweede slaapkamer met inbouwkasten" data-caption-he="חדר שינה שני עם ארונות קיר" data-caption-fr="Deuxième chambre avec placards encastrés">
         </picture>
-        <span class="gallery-caption" lang="el">Δεύτερο υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Second bedroom</span><span class="gallery-caption" lang="de">Zweites Schlafzimmer</span><span class="gallery-caption" lang="nl">Tweede slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה שני</span>
+        <span class="gallery-caption" lang="el">Δεύτερο υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Second bedroom</span><span class="gallery-caption" lang="de">Zweites Schlafzimmer</span><span class="gallery-caption" lang="nl">Tweede slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה שני</span><span class="gallery-caption" lang="fr">Deuxième chambre</span>
       </div>
       <div class="gallery-item tall" style="background-image:url('data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoPABQAPxFysFAsJqSisAgBgCIJYgCdACLGcHLWd9LApnhWAAD0BU46POdung5GUQVg7vL50sFNGTJcQiOVR5BW77YuWGYYAG2+UAxoa4j+gj4dxhOTtagHtD8PqaPFlCXvdIXw3EAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bedroom-compact.webp 640w, /images/bedroom-compact.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/bedroom-compact.jpg 640w, /images/bedroom-compact.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bedroom-compact.jpg" alt="Compact bedroom with wardrobe, suitable for a single bed or office" loading="lazy" decoding="async" width="1440" height="1920" data-full="/images/bedroom-compact.jpg" data-thumb="/images/thumbs/bedroom-compact.jpg" data-caption-el="Μικρό υπνοδωμάτιο ή γραφείο" data-caption-en="Compact bedroom or home office" data-caption-de="Kleines Schlafzimmer oder Arbeitszimmer" data-caption-nl="Kleine slaapkamer of werkkamer" data-caption-he="חדר שינה קטן או חדר עבודה">
+          <img src="/images/bedroom-compact.jpg" alt="Compact bedroom with wardrobe, suitable for a single bed or office" loading="lazy" decoding="async" width="1440" height="1920" data-full="/images/bedroom-compact.jpg" data-thumb="/images/thumbs/bedroom-compact.jpg" data-caption-el="Μικρό υπνοδωμάτιο ή γραφείο" data-caption-en="Compact bedroom or home office" data-caption-de="Kleines Schlafzimmer oder Arbeitszimmer" data-caption-nl="Kleine slaapkamer of werkkamer" data-caption-he="חדר שינה קטן או חדר עבודה" data-caption-fr="Petite chambre ou bureau">
         </picture>
-        <span class="gallery-caption" lang="el">Μικρό υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Compact bedroom</span><span class="gallery-caption" lang="de">Kleines Zimmer</span><span class="gallery-caption" lang="nl">Kleine slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה קומפקטי</span>
+        <span class="gallery-caption" lang="el">Μικρό υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Compact bedroom</span><span class="gallery-caption" lang="de">Kleines Zimmer</span><span class="gallery-caption" lang="nl">Kleine slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה קומפקטי</span><span class="gallery-caption" lang="fr">Petite chambre</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZwAAXJMnoIwAOXLxFtAA8ncXJd3S5H3Iy3LFmfoy3fKsfj43m6ERZcmrfFH3Vgt4CJS0cf8MGTRTva4vTv9za3DyAAAA')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bathroom.webp 640w, /images/bathroom.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/bathroom.jpg 640w, /images/bathroom.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bathroom.jpg" alt="Main bathroom with tiled walls and full-size bathtub" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bathroom.jpg" data-thumb="/images/thumbs/bathroom.jpg" data-caption-el="Κύριο μπάνιο με μπανιέρα" data-caption-en="Main bathroom with full-size bathtub" data-caption-de="Hauptbadezimmer mit Badewanne" data-caption-nl="Hoofdbadkamer met bad" data-caption-he="חדר רחצה ראשי עם אמבטיה">
+          <img src="/images/bathroom.jpg" alt="Main bathroom with tiled walls and full-size bathtub" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bathroom.jpg" data-thumb="/images/thumbs/bathroom.jpg" data-caption-el="Κύριο μπάνιο με μπανιέρα" data-caption-en="Main bathroom with full-size bathtub" data-caption-de="Hauptbadezimmer mit Badewanne" data-caption-nl="Hoofdbadkamer met bad" data-caption-he="חדר רחצה ראשי עם אמבטיה" data-caption-fr="Salle de bain principale avec baignoire">
         </picture>
-        <span class="gallery-caption" lang="el">Μπάνιο</span><span class="gallery-caption" lang="en">Bathroom</span><span class="gallery-caption" lang="de">Badezimmer</span><span class="gallery-caption" lang="nl">Badkamer</span><span class="gallery-caption" lang="he">חדר רחצה</span>
+        <span class="gallery-caption" lang="el">Μπάνιο</span><span class="gallery-caption" lang="en">Bathroom</span><span class="gallery-caption" lang="de">Badezimmer</span><span class="gallery-caption" lang="nl">Badkamer</span><span class="gallery-caption" lang="he">חדר רחצה</span><span class="gallery-caption" lang="fr">Salle de bain</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwC/OBVaTidTnB9Xf+AA3wfUXwLB+Nniu5CB34ObgHOVaCILbd5Z20zZ7hrZH98z38QypmCBHHsbowJLo9QAvAAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/bedroom-wrought.webp 640w, /images/bedroom-wrought.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/bedroom-wrought.jpg 640w, /images/bedroom-wrought.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/bedroom-wrought.jpg" alt="Garden-level bedroom with dark wood wardrobe and grille window" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-wrought.jpg" data-thumb="/images/thumbs/bedroom-wrought.jpg" data-caption-el="Υπνοδωμάτιο με ξύλινη ντουλάπα και παραδοσιακό παράθυρο" data-caption-en="Bedroom with dark wood wardrobe and grille window" data-caption-de="Schlafzimmer mit dunklem Holzschrank und Gitterfenster" data-caption-nl="Slaapkamer met donkere houten kast en tralievenster" data-caption-he="חדר שינה עם ארון עץ כהה וחלון עם סורגים">
+          <img src="/images/bedroom-wrought.jpg" alt="Garden-level bedroom with dark wood wardrobe and grille window" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/bedroom-wrought.jpg" data-thumb="/images/thumbs/bedroom-wrought.jpg" data-caption-el="Υπνοδωμάτιο με ξύλινη ντουλάπα και παραδοσιακό παράθυρο" data-caption-en="Bedroom with dark wood wardrobe and grille window" data-caption-de="Schlafzimmer mit dunklem Holzschrank und Gitterfenster" data-caption-nl="Slaapkamer met donkere houten kast en tralievenster" data-caption-he="חדר שינה עם ארון עץ כהה וחלון עם סורגים" data-caption-fr="Chambre avec armoire bois foncé et fenêtre à grille">
         </picture>
-        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span>
+        <span class="gallery-caption" lang="el">Υπνοδωμάτιο</span><span class="gallery-caption" lang="en">Bedroom</span><span class="gallery-caption" lang="de">Schlafzimmer</span><span class="gallery-caption" lang="nl">Slaapkamer</span><span class="gallery-caption" lang="he">חדר שינה</span><span class="gallery-caption" lang="fr">Chambre</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAwCdASoUAA8APxFysFAsJqSisAgBgCIJZAC7ABA4x3Ot+mMkAPKC1apsZ/+WL5M3dPc3WRV+hRGfKDYTzYbmwQhznOzJ9SMFM3c6XmhajrqEPRRqQssv0I1RuiFuAZnAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/basement-overview.webp 640w, /images/basement-overview.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/basement-overview.jpg 640w, /images/basement-overview.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/basement-overview.jpg" alt="Self-contained garden-level apartment with open-plan living and kitchen" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-overview.jpg" data-thumb="/images/thumbs/basement-overview.jpg" data-caption-el="Διαμέρισμα κήπου — ενιαίος χώρος" data-caption-en="Garden-level apartment — open living area" data-caption-de="Gartenwohnung — offener Wohnbereich" data-caption-nl="Tuinappartement — open woonruimte" data-caption-he="דירת הגן — חלל פתוח">
+          <img src="/images/basement-overview.jpg" alt="Self-contained garden-level apartment with open-plan living and kitchen" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-overview.jpg" data-thumb="/images/thumbs/basement-overview.jpg" data-caption-el="Διαμέρισμα κήπου — ενιαίος χώρος" data-caption-en="Garden-level apartment — open living area" data-caption-de="Gartenwohnung — offener Wohnbereich" data-caption-nl="Tuinappartement — open woonruimte" data-caption-he="דירת הגן — חלל פתוח" data-caption-fr="Appartement de jardin — séjour ouvert">
         </picture>
-        <span class="gallery-caption" lang="el">Διαμέρισμα κήπου</span><span class="gallery-caption" lang="en">Garden apartment</span><span class="gallery-caption" lang="de">Gartenwohnung</span><span class="gallery-caption" lang="nl">Tuinappartement</span><span class="gallery-caption" lang="he">דירת גן</span>
+        <span class="gallery-caption" lang="el">Διαμέρισμα κήπου</span><span class="gallery-caption" lang="en">Garden apartment</span><span class="gallery-caption" lang="de">Gartenwohnung</span><span class="gallery-caption" lang="nl">Tuinappartement</span><span class="gallery-caption" lang="he">דירת גן</span><span class="gallery-caption" lang="fr">Appartement de jardin</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQBACdASoUAA8APxFwsFAsJiSisAgBgCIJaACdMoR4GCBNCe9g2N3pCTFrtgAA+FAHAg0ZizngtVYK6x4hF6X5h6aZIGwYzr4Y03EgWJEUetgbocZ8mHQcCLsaVH2cdmbhfQQKdpr5C73YY+LgAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/basement-kitchen.webp 640w, /images/basement-kitchen.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/basement-kitchen.jpg 640w, /images/basement-kitchen.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/basement-kitchen.jpg" alt="Garden-level apartment kitchen with wood cabinetry and dining area" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-kitchen.jpg" data-thumb="/images/thumbs/basement-kitchen.jpg" data-caption-el="Κουζίνα διαμερίσματος κήπου" data-caption-en="Garden-level apartment kitchen" data-caption-de="Küche der Gartenwohnung" data-caption-nl="Keuken van het tuinappartement" data-caption-he="מטבח של דירת הגן">
+          <img src="/images/basement-kitchen.jpg" alt="Garden-level apartment kitchen with wood cabinetry and dining area" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-kitchen.jpg" data-thumb="/images/thumbs/basement-kitchen.jpg" data-caption-el="Κουζίνα διαμερίσματος κήπου" data-caption-en="Garden-level apartment kitchen" data-caption-de="Küche der Gartenwohnung" data-caption-nl="Keuken van het tuinappartement" data-caption-he="מטבח של דירת הגן" data-caption-fr="Cuisine de l'appartement de jardin">
         </picture>
-        <span class="gallery-caption" lang="el">Κουζίνα κήπου</span><span class="gallery-caption" lang="en">Garden kitchen</span><span class="gallery-caption" lang="de">Gartenküche</span><span class="gallery-caption" lang="nl">Tuinkeuken</span><span class="gallery-caption" lang="he">מטבח דירת הגן</span>
+        <span class="gallery-caption" lang="el">Κουζίνα κήπου</span><span class="gallery-caption" lang="en">Garden kitchen</span><span class="gallery-caption" lang="de">Gartenküche</span><span class="gallery-caption" lang="nl">Tuinkeuken</span><span class="gallery-caption" lang="he">מטבח דירת הגן</span><span class="gallery-caption" lang="fr">Cuisine du jardin</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoUAA8APxFysFAsJqSisAgBgCIJQBOgAmRLcf2qJOwCPQAA/R83Gn4CgFwrw0RweSVyRH0mm2LD1mD0toSv3ieY2duOKkzabt3WI9CRJ6MmYMswDdNmr8Vzu1cV6AAA')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/basement-bedroom.webp 640w, /images/basement-bedroom.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/basement-bedroom.jpg 640w, /images/basement-bedroom.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/basement-bedroom.jpg" alt="Garden-level bedroom with twin beds and access to kitchen" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-bedroom.jpg" data-thumb="/images/thumbs/basement-bedroom.jpg" data-caption-el="Υπνοδωμάτιο διαμερίσματος κήπου" data-caption-en="Garden-level apartment bedroom" data-caption-de="Schlafzimmer der Gartenwohnung" data-caption-nl="Slaapkamer van het tuinappartement" data-caption-he="חדר שינה בדירת הגן">
+          <img src="/images/basement-bedroom.jpg" alt="Garden-level bedroom with twin beds and access to kitchen" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/basement-bedroom.jpg" data-thumb="/images/thumbs/basement-bedroom.jpg" data-caption-el="Υπνοδωμάτιο διαμερίσματος κήπου" data-caption-en="Garden-level apartment bedroom" data-caption-de="Schlafzimmer der Gartenwohnung" data-caption-nl="Slaapkamer van het tuinappartement" data-caption-he="חדר שינה בדירת הגן" data-caption-fr="Chambre de l'appartement de jardin">
         </picture>
-        <span class="gallery-caption" lang="el">Υπνοδωμάτιο κήπου</span><span class="gallery-caption" lang="en">Garden bedroom</span><span class="gallery-caption" lang="de">Gartenschlafzimmer</span><span class="gallery-caption" lang="nl">Tuinslaapkamer</span><span class="gallery-caption" lang="he">חדר שינה בדירת הגן</span>
+        <span class="gallery-caption" lang="el">Υπνοδωμάτιο κήπου</span><span class="gallery-caption" lang="en">Garden bedroom</span><span class="gallery-caption" lang="de">Gartenschlafzimmer</span><span class="gallery-caption" lang="nl">Tuinslaapkamer</span><span class="gallery-caption" lang="he">חדר שינה בדירת הגן</span><span class="gallery-caption" lang="fr">Chambre du jardin</span>
       </div>
       <div class="gallery-item tall" style="background-image:url('data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAwCdASoPABQAPxFysFAsJqSisAgBgCIJQBOgBEOJZGu8Frr2OgAA/IH+IpHAC1qjiJX3tdtOXTkQF3UFfT4aNQo9U/NqbJyEfWdNYljHpsdTCZwEbegQAAA=')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/basement-bathroom.webp 640w, /images/basement-bathroom.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/basement-bathroom.jpg 640w, /images/basement-bathroom.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/basement-bathroom.jpg" alt="Garden-level apartment bathroom with washing machine" loading="lazy" decoding="async" width="1440" height="1920" data-full="/images/basement-bathroom.jpg" data-thumb="/images/thumbs/basement-bathroom.jpg" data-caption-el="Μπάνιο διαμερίσματος κήπου με πλυντήριο" data-caption-en="Garden-level apartment bathroom with washing machine" data-caption-de="Badezimmer der Gartenwohnung mit Waschmaschine" data-caption-nl="Badkamer tuinappartement met wasmachine" data-caption-he="חדר רחצה בדירת הגן עם מכונת כביסה">
+          <img src="/images/basement-bathroom.jpg" alt="Garden-level apartment bathroom with washing machine" loading="lazy" decoding="async" width="1440" height="1920" data-full="/images/basement-bathroom.jpg" data-thumb="/images/thumbs/basement-bathroom.jpg" data-caption-el="Μπάνιο διαμερίσματος κήπου με πλυντήριο" data-caption-en="Garden-level apartment bathroom with washing machine" data-caption-de="Badezimmer der Gartenwohnung mit Waschmaschine" data-caption-nl="Badkamer tuinappartement met wasmachine" data-caption-he="חדר רחצה בדירת הגן עם מכונת כביסה" data-caption-fr="Salle de bain de l'appartement de jardin avec lave-linge">
         </picture>
-        <span class="gallery-caption" lang="el">Μπάνιο κήπου</span><span class="gallery-caption" lang="en">Garden bathroom</span><span class="gallery-caption" lang="de">Gartenbad</span><span class="gallery-caption" lang="nl">Tuinbadkamer</span><span class="gallery-caption" lang="he">חדר רחצה בדירת הגן</span>
+        <span class="gallery-caption" lang="el">Μπάνιο κήπου</span><span class="gallery-caption" lang="en">Garden bathroom</span><span class="gallery-caption" lang="de">Gartenbad</span><span class="gallery-caption" lang="nl">Tuinbadkamer</span><span class="gallery-caption" lang="he">חדר רחצה בדירת הגן</span><span class="gallery-caption" lang="fr">Salle de bain du jardin</span>
       </div>
       <div class="gallery-item wide" style="background-image:url('data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJQBYdg+pTSvSQaEnoBlAAALGTc/W11YG4y782lSePn7sgPvTYtsfHhSesjw9A/VbsiIQ7qLDCdLaNZAgV8LOuA306sWV4vDSHm6xBE0x3sJpbmA/IRgAA')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/terrace-covered.webp 640w, /images/terrace-covered.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/terrace-covered.jpg 640w, /images/terrace-covered.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/terrace-covered.jpg" alt="Covered terrace on columns with garden view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/terrace-covered.jpg" data-thumb="/images/thumbs/terrace-covered.jpg" data-caption-el="Στεγασμένη βεράντα με θέα στον κήπο" data-caption-en="Covered terrace with garden view" data-caption-de="Überdachte Terrasse mit Gartenblick" data-caption-nl="Overdekt terras met tuinzicht" data-caption-he="מרפסת מקורה עם נוף לגן">
+          <img src="/images/terrace-covered.jpg" alt="Covered terrace on columns with garden view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/terrace-covered.jpg" data-thumb="/images/thumbs/terrace-covered.jpg" data-caption-el="Στεγασμένη βεράντα με θέα στον κήπο" data-caption-en="Covered terrace with garden view" data-caption-de="Überdachte Terrasse mit Gartenblick" data-caption-nl="Overdekt terras met tuinzicht" data-caption-he="מרפסת מקורה עם נוף לגן" data-caption-fr="Terrasse couverte avec vue sur le jardin">
         </picture>
-        <span class="gallery-caption" lang="el">Στεγασμένη βεράντα</span><span class="gallery-caption" lang="en">Covered terrace</span><span class="gallery-caption" lang="de">Überdachte Terrasse</span><span class="gallery-caption" lang="nl">Overdekt terras</span><span class="gallery-caption" lang="he">מרפסת מקורה</span>
+        <span class="gallery-caption" lang="el">Στεγασμένη βεράντα</span><span class="gallery-caption" lang="en">Covered terrace</span><span class="gallery-caption" lang="de">Überdachte Terrasse</span><span class="gallery-caption" lang="nl">Overdekt terras</span><span class="gallery-caption" lang="he">מרפסת מקורה</span><span class="gallery-caption" lang="fr">Terrasse couverte</span>
       </div>
     </div>
 
@@ -1488,11 +1562,13 @@
     <span class="section-kicker" lang="de">Technische Daten</span>
     <span class="section-kicker" lang="nl">Technische specificaties</span>
     <span class="section-kicker" lang="he">מפרט טכני</span>
+    <span class="section-kicker" lang="fr">Caractéristiques techniques</span>
     <h2 lang="el">Αυτονομία &amp; υποδομές.</h2>
     <h2 lang="en">Autonomy &amp; utilities.</h2>
     <h2 lang="de">Autonomie &amp; Infrastruktur.</h2>
     <h2 lang="nl">Autonomie &amp; nutsvoorzieningen.</h2>
     <h2 lang="he">עצמאות ותשתיות.</h2>
+    <h2 lang="fr">Autonomie &amp; équipements.</h2>
 
     <div class="features-grid">
       <div class="feature">
@@ -1501,11 +1577,13 @@
         <h3 lang="de">Heizung</h3>
         <h3 lang="nl">Verwarming</h3>
         <h3 lang="he">חימום</h3>
+        <h3 lang="fr">Chauffage</h3>
         <p lang="el">Λέβητας πετρελαίου σε λειτουργία, σε ιδιαίτερο υπόγειο λεβητοστάσιο 7,31 τ.μ. · ενεργειακό τζάκι που ζεσταίνει πραγματικά.</p>
         <p lang="en">Working oil boiler in a dedicated 7.31 sqm underground boiler room, and effective wood-burning stove (primary heat source).</p>
         <p lang="de">Funktionierender Ölheizkessel in separatem unterirdischem Heizraum (7,31 m²) und effektiver Kaminofen (Hauptwärmequelle).</p>
         <p lang="nl">Werkende oliegestookte ketel in aparte ondergrondse stookruimte (7,31 m²) en effectieve houtkachel (primaire warmtebron).</p>
         <p lang="he">דוד סולר פעיל בחדר מכונות תת-קרקעי ייעודי בגודל 7.31 מ״ר, ותנור עצים יעיל (מקור חימום עיקרי).</p>
+        <p lang="fr">Chaudière au fioul en service dans une chaufferie souterraine dédiée de 7,31 m², et poêle à bois efficace (source de chaleur principale).</p>
       </div>
       <div class="feature">
         <h3 lang="el">Κλιματισμός</h3>
@@ -1513,11 +1591,13 @@
         <h3 lang="de">Klimaanlage</h3>
         <h3 lang="nl">Koeling</h3>
         <h3 lang="he">קירור</h3>
+        <h3 lang="fr">Climatisation</h3>
         <p lang="el">4 μονάδες A/C στα υπνοδωμάτια και στον ενιαίο χώρο.</p>
         <p lang="en">4 A/C units across bedrooms and the living area.</p>
         <p lang="de">4 Klimaanlagen in Schlafzimmern und Wohnbereich.</p>
         <p lang="nl">4 airco's in slaapkamers en woonruimte.</p>
         <p lang="he">4 יחידות מיזוג אוויר בחדרי השינה ובחלל המגורים.</p>
+        <p lang="fr">4 unités de climatisation dans les chambres et le séjour.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Ζεστό νερό</h3>
@@ -1525,11 +1605,13 @@
         <h3 lang="de">Warmwasser</h3>
         <h3 lang="nl">Warm water</h3>
         <h3 lang="he">מים חמים</h3>
+        <h3 lang="fr">Eau chaude</h3>
         <p lang="el">Καινούριος ηλιακός θερμοσίφωνας (Μάρτιος 2026).</p>
         <p lang="en">New solar water heater installed March 2026.</p>
         <p lang="de">Neuer Solarwarmwasserbereiter, installiert März 2026.</p>
         <p lang="nl">Nieuwe zonneboiler, geïnstalleerd maart 2026.</p>
         <p lang="he">דוד שמש חדש, הותקן במרץ 2026.</p>
+        <p lang="fr">Chauffe-eau solaire neuf (mars 2026).</p>
       </div>
       <div class="feature">
         <h3 lang="el">Ύδρευση</h3>
@@ -1537,11 +1619,13 @@
         <h3 lang="de">Wasserversorgung</h3>
         <h3 lang="nl">Wateraansluiting</h3>
         <h3 lang="he">אספקת מים</h3>
+        <h3 lang="fr">Alimentation en eau</h3>
         <p lang="el">Δίκτυο + ιδιωτική δεξαμενή αποθήκευσης.</p>
         <p lang="en">Mains supply plus private storage tank.</p>
         <p lang="de">Netzanschluss plus privater Speichertank.</p>
         <p lang="nl">Netwateraansluiting plus privé opslagtank.</p>
         <p lang="he">חיבור לרשת ציבורית בתוספת מאגר מים פרטי.</p>
+        <p lang="fr">Réseau public et citerne de stockage privée.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Ρεύμα</h3>
@@ -1549,11 +1633,13 @@
         <h3 lang="de">Strom</h3>
         <h3 lang="nl">Elektriciteit</h3>
         <h3 lang="he">חשמל</h3>
+        <h3 lang="fr">Électricité</h3>
         <p lang="el">Τριφασική παροχή.</p>
         <p lang="en">Three-phase supply.</p>
         <p lang="de">Dreiphasenversorgung.</p>
         <p lang="nl">Driefasige aansluiting.</p>
         <p lang="he">אספקה תלת-פאזית.</p>
+        <p lang="fr">Alimentation triphasée.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Internet</h3>
@@ -1561,11 +1647,13 @@
         <h3 lang="de">Internet</h3>
         <h3 lang="nl">Internet</h3>
         <h3 lang="he">אינטרנט</h3>
+        <h3 lang="fr">Internet</h3>
         <p lang="el">Fiber διαθέσιμο στην περιοχή.</p>
         <p lang="en">Fibre broadband available.</p>
         <p lang="de">Glasfaser-Breitband verfügbar.</p>
         <p lang="nl">Glasvezel breedband beschikbaar.</p>
         <p lang="he">סיבים אופטיים זמינים באזור.</p>
+        <p lang="fr">Fibre optique disponible dans la zone.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Ενεργειακή κλάση</h3>
@@ -1573,11 +1661,13 @@
         <h3 lang="de">Energiebewertung</h3>
         <h3 lang="nl">Energieprestatie</h3>
         <h3 lang="he">דירוג אנרגטי</h3>
+        <h3 lang="fr">Classe énergétique</h3>
         <p lang="el">Γ. Δυνητικά Β+ με αντλία θερμότητας &amp; μονώσεις.</p>
         <p lang="en">Class C. Potential B+ with heat pump &amp; insulation upgrade.</p>
         <p lang="de">Klasse C. Potenzial B+ mit Wärmepumpe &amp; Dämmung.</p>
         <p lang="nl">Klasse C. Potentieel B+ met warmtepomp &amp; isolatie.</p>
         <p lang="he">דירוג C. פוטנציאל לדירוג B+ עם משאבת חום ושדרוג בידוד.</p>
+        <p lang="fr">Classe C. Potentiel B+ avec pompe à chaleur et amélioration de l'isolation.</p>
       </div>
     </div>
   </div>
@@ -1591,16 +1681,19 @@
     <span class="section-kicker" lang="de">Die Nachbarschaft</span>
     <span class="section-kicker" lang="nl">De buurt</span>
     <span class="section-kicker" lang="he">השכונה</span>
+    <span class="section-kicker" lang="fr">Le quartier</span>
     <h2 lang="el">Οικισμός με υποδομές,<br>όχι απομόνωση.</h2>
     <h2 lang="en">A village with<br>everyday amenities.</h2>
     <h2 lang="de">Ein Dorf mit<br>alltäglichen Annehmlichkeiten.</h2>
     <h2 lang="nl">Een dorp met<br>dagelijkse voorzieningen.</h2>
     <h2 lang="he">כפר עם שירותים,<br>לא מקום מבודד.</h2>
+    <h2 lang="fr">Un village pleinement équipé,<br>pas un coin isolé.</h2>
     <p class="section-intro" lang="el">Το Καβροχώρι έχει τα πάντα σε περπατήσιμη απόσταση — και το αυτοκίνητο σε αφήνει στο κέντρο του Ηρακλείου σε 15 λεπτά.</p>
     <p class="section-intro" lang="en">Kavrochori has everything within walking distance — with Heraklion city centre 15 minutes away by car.</p>
     <p class="section-intro" lang="de">Kavrochori hat alles in Gehweite — und das Stadtzentrum Heraklions ist 15 Minuten mit dem Auto entfernt.</p>
     <p class="section-intro" lang="nl">Kavrochori heeft alles op loopafstand — met het centrum van Heraklion op 15 minuten rijden.</p>
     <p class="section-intro" lang="he">בקאברוכורי הכול במרחק הליכה — ומרכז הרקליון נמצא במרחק 15 דקות נסיעה ברכב.</p>
+    <p class="section-intro" lang="fr">À Kavrochori, tout est à distance de marche — et le centre-ville d'Héraklion n'est qu'à 15 minutes en voiture.</p>
 
     <div class="neighborhood-list">
       <div class="neigh-item">
@@ -1609,6 +1702,7 @@
         <strong lang="de">Metzger &amp; Minimarkt</strong>
         <strong lang="nl">Slager &amp; Minimarkt</strong>
         <strong lang="he">אטליז ומיני-מרקט</strong>
+        <strong lang="fr">Boucherie &amp; supérette</strong>
         <span>200 m</span>
       </div>
       <div class="neigh-item">
@@ -1617,6 +1711,7 @@
         <strong lang="de">Grundschule</strong>
         <strong lang="nl">Basisschool</strong>
         <strong lang="he">בית ספר יסודי</strong>
+        <strong lang="fr">École primaire</strong>
         <span>400 m</span>
       </div>
       <div class="neigh-item">
@@ -1625,6 +1720,7 @@
         <strong lang="de">Supermarkt</strong>
         <strong lang="nl">Supermarkt</strong>
         <strong lang="he">סופרמרקט</strong>
+        <strong lang="fr">Supermarché</strong>
         <span>600 m</span>
       </div>
       <div class="neigh-item">
@@ -1633,11 +1729,13 @@
         <strong lang="de">Kafeneio &amp; Spielplatz</strong>
         <strong lang="nl">Kafeneio &amp; speelplaats</strong>
         <strong lang="he">קפניון (בית קפה מסורתי) וגן שעשועים</strong>
+        <strong lang="fr">Kafenio &amp; aire de jeux</strong>
         <span lang="el">Στο χωριό</span>
         <span lang="en">In the village</span>
         <span lang="de">Im Dorf</span>
         <span lang="nl">In het dorp</span>
         <span lang="he">בכפר</span>
+        <span lang="fr">Dans le village</span>
       </div>
       <div class="neigh-item">
         <strong lang="el">Λεωφορείο προς Ηράκλειο</strong>
@@ -1645,11 +1743,13 @@
         <strong lang="de">Bus nach Heraklion</strong>
         <strong lang="nl">Bus naar Heraklion</strong>
         <strong lang="he">אוטובוס להרקליון</strong>
+        <strong lang="fr">Bus vers Héraklion</strong>
         <span lang="el">Καθημερινό</span>
         <span lang="en">Daily service</span>
         <span lang="de">Täglich</span>
         <span lang="nl">Dagelijkse dienst</span>
         <span lang="he">שירות יומי</span>
+        <span lang="fr">Service quotidien</span>
       </div>
       <div class="neigh-item">
         <strong lang="el">Ατμόσφαιρα</strong>
@@ -1657,11 +1757,13 @@
         <strong lang="de">Atmosphäre</strong>
         <strong lang="nl">Sfeer</strong>
         <strong lang="he">אווירה</strong>
+        <strong lang="fr">Ambiance</strong>
         <span lang="el">Ήσυχη, οικογενειακή</span>
         <span lang="en">Quiet, family-friendly</span>
         <span lang="de">Ruhig, familienfreundlich</span>
         <span lang="nl">Rustig, gezinsvriendelijk</span>
         <span lang="he">שקטה ומשפחתית</span>
+        <span lang="fr">Calme et familiale</span>
       </div>
     </div>
 
@@ -1679,16 +1781,19 @@
     <span class="section-kicker" lang="de">Dokumentation</span>
     <span class="section-kicker" lang="nl">Documentatie</span>
     <span class="section-kicker" lang="he">מסמכים</span>
+    <span class="section-kicker" lang="fr">Documentation</span>
     <h2 lang="el">Έτοιμο για μεταβίβαση.</h2>
     <h2 lang="en">Ready for transfer.</h2>
     <h2 lang="de">Übertragungsbereit.</h2>
     <h2 lang="nl">Klaar voor overdracht.</h2>
     <h2 lang="he">מוכן להעברת בעלות.</h2>
+    <h2 lang="fr">Prêt pour le transfert.</h2>
     <p class="section-intro" lang="el">Ο φάκελος εγγράφων είναι πλήρης και σε ισχύ. Διαθέσιμα κατόπιν επικοινωνίας για υποψήφιους αγοραστές και τους νομικούς τους συμβούλους.</p>
     <p class="section-intro" lang="en">Full documentation is in place and current. Available on request to prospective buyers and their legal advisors.</p>
     <p class="section-intro" lang="de">Die vollständige Dokumentation ist vorhanden und aktuell. Auf Anfrage für Kaufinteressenten und ihre Rechtsberater verfügbar.</p>
     <p class="section-intro" lang="nl">Volledige documentatie is aanwezig en actueel. Op aanvraag beschikbaar voor potentiële kopers en hun juridische adviseurs.</p>
     <p class="section-intro" lang="he">תיק המסמכים מלא ובתוקף. זמין על פי בקשה לקונים פוטנציאליים וליועציהם המשפטיים.</p>
+    <p class="section-intro" lang="fr">Le dossier complet est en règle et à jour. Disponible sur demande pour les acquéreurs potentiels et leurs conseillers juridiques.</p>
 
     <div class="features-grid">
       <div class="feature">
@@ -1697,22 +1802,26 @@
         <h3 lang="de">Eigentumsurkunden</h3>
         <h3 lang="nl">Eigendomsbewijzen</h3>
         <h3 lang="he">שטרי בעלות</h3>
+        <h3 lang="fr">Titres de propriété</h3>
         <p lang="el">Πλήρεις, καταχωρημένοι στο Υποθηκοφυλακείο Ηρακλείου.</p>
         <p lang="en">Complete, registered with the Heraklion Land Registry.</p>
         <p lang="de">Vollständig, eingetragen beim Grundbuchamt Heraklion.</p>
         <p lang="nl">Volledig, geregistreerd bij het Kadaster Heraklion.</p>
         <p lang="he">מלאים ורשומים בלשכת רישום המקרקעין של הרקליון.</p>
+        <p lang="fr">Complets, enregistrés au Bureau des hypothèques d'Héraklion.</p>
         <ul style="list-style:none;padding:0.5rem 0 0;margin:0;">
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Συμβόλαιο αγοράς (1995)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Purchase contract (1995)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Kaufvertrag (1995)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Koopcontract (1995)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>חוזה רכישה (1995)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Acte de vente (1995)</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Δηλωτικό παραχώρησης κοινόχρηστου χώρου (1996)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Declaration of transfer to common use (1996)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Erklärung zur Übertragung in den Gemeingebrauch (1996)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Verklaring van overdracht aan gemeenschappelijk gebruik (1996)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>הצהרה על העברה לשימוש ציבורי (1996)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Déclaration de cession à l'usage commun (1996)</li>
         </ul>
       </div>
       <div class="feature">
@@ -1721,11 +1830,13 @@
         <h3 lang="de">Baugenehmigung</h3>
         <h3 lang="nl">Bouwvergunning</h3>
         <h3 lang="he">היתר בנייה</h3>
+        <h3 lang="fr">Permis de construire</h3>
         <p lang="el">Εκδόθηκε το 1996 από την αρμόδια πολεοδομία.</p>
         <p lang="en">Issued 1996 by the local planning authority.</p>
         <p lang="de">Ausgestellt 1996 von der zuständigen Baubehörde.</p>
         <p lang="nl">Afgegeven in 1996 door de bevoegde bouwdienst.</p>
         <p lang="he">הוצא בשנת 1996 על ידי הרשות המקומית לתכנון ובנייה.</p>
+        <p lang="fr">Délivré en 1996 par le service d'urbanisme compétent.</p>
       </div>
       <div class="feature">
         <h3 lang="el">Τακτοποίηση Ν. 4495/2017</h3>
@@ -1733,42 +1844,50 @@
         <h3 lang="de">Regularisierung (G.4495/2017)</h3>
         <h3 lang="nl">Regularisering (W.4495/2017)</h3>
         <h3 lang="he">הסדרה (חוק 4495/2017)</h3>
+        <h3 lang="fr">Régularisation (loi 4495/2017)</h3>
         <p lang="el">Ολοκληρωμένη: τεχνική έκθεση, στατικός έλεγχος, σχέδια.</p>
         <p lang="en">Complete: technical report, structural check, drawings.</p>
         <p lang="de">Vollständig: technischer Bericht, Statikprüfung, Zeichnungen.</p>
         <p lang="nl">Volledig: technisch rapport, constructieve keuring, tekeningen.</p>
         <p lang="he">שלמה: דו״ח טכני, בדיקה קונסטרוקטיבית, שרטוטים.</p>
+        <p lang="fr">Complète : rapport technique, vérification structurelle, plans.</p>
         <ul style="list-style:none;padding:0.5rem 0 0;margin:0;">
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Δήλωση τακτοποίησης</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Regularisation declaration</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Regularisierungserklärung</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Regulariseringsverklaring</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>הצהרת הסדרה</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Déclaration de régularisation</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Τεχνική έκθεση</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Technical report</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Technischer Bericht</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Technisch rapport</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>דו״ח טכני</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Rapport technique</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Τεχνική έκθεση στατικού ελέγχου</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Structural assessment report</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Statikgutachten</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Constructief beoordelingsrapport</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>דו״ח הערכה קונסטרוקטיבית</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Rapport d'évaluation structurelle</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Κατόψεις (Κ1–Κ4)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Floor plans (K1–K4)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Grundrisse (K1–K4)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Plattegronden (K1–K4)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>תוכניות קומה (K1–K4)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Plans des niveaux (K1–K4)</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Τομές (Τ1–Τ2)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Cross-sections (T1–T2)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Querschnitte (T1–T2)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Doorsneden (T1–T2)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>חתכים (T1–T2)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Coupes (T1–T2)</li>
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Διάγραμμα κάλυψης (Δ1)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Site coverage diagram (D1)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Überbauungsdiagramm (D1)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Bebouwingsdiagram (D1)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>תרשים כיסוי מגרש (D1)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Plan d'emprise au sol (D1)</li>
         </ul>
       </div>
       <div class="feature">
@@ -1777,17 +1896,20 @@
         <h3 lang="de">Topografische Vermessung</h3>
         <h3 lang="nl">Topografisch onderzoek</h3>
         <h3 lang="he">תרשים טופוגרפי</h3>
+        <h3 lang="fr">Plan topographique</h3>
         <p lang="el">Ενημερωμένο (Οκτώβριος 2025).</p>
         <p lang="en">Updated October 2025.</p>
         <p lang="de">Aktualisiert Oktober 2025.</p>
         <p lang="nl">Bijgewerkt oktober 2025.</p>
         <p lang="he">עודכן באוקטובר 2025.</p>
+        <p lang="fr">Mis à jour (octobre 2025).</p>
         <ul style="list-style:none;padding:0.5rem 0 0;margin:0;">
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Τοπογραφικό διάγραμμα (Οκτ 2025)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Topographic survey (Oct 2025)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Topografische Vermessung (Okt. 2025)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Topografisch onderzoek (okt. 2025)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>תרשים טופוגרפי (אוק׳ 2025)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Plan topographique (oct. 2025)</li>
         </ul>
       </div>
       <div class="feature">
@@ -1796,17 +1918,20 @@
         <h3 lang="de">Energieausweis</h3>
         <h3 lang="nl">Energieprestatiecertificaat</h3>
         <h3 lang="he">תעודת ביצועי אנרגיה</h3>
+        <h3 lang="fr">Diagnostic de performance énergétique</h3>
         <p lang="el">Κλάση Γ, ισχύει έως Φεβρουάριος 2032.</p>
         <p lang="en">Class C, valid until February 2032.</p>
         <p lang="de">Klasse C, gültig bis Februar 2032.</p>
         <p lang="nl">Klasse C, geldig tot februari 2032.</p>
         <p lang="he">דירוג C, בתוקף עד פברואר 2032.</p>
+        <p lang="fr">Classe C, valable jusqu'en février 2032.</p>
         <ul style="list-style:none;padding:0.5rem 0 0;margin:0;">
           <li lang="el" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>ΠΕΑ (ισχύς έως 02/2032)</li>
           <li lang="en" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>EPC (valid until 02/2032)</li>
           <li lang="de" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>Energieausweis (gültig bis 02/2032)</li>
           <li lang="nl" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>EPC (geldig tot 02/2032)</li>
           <li lang="he" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>תעודת ביצועי אנרגיה (תוקף עד 02/2032)</li>
+          <li lang="fr" style="font-size:0.82rem;color:var(--text-muted);padding:0.15rem 0 0.15rem 1.1rem;position:relative;"><span style="position:absolute;left:0;color:var(--accent);">—</span>DPE (valable jusqu'au 02/2032)</li>
         </ul>
       </div>
     </div>
@@ -1821,11 +1946,13 @@
     <span class="section-kicker" style="color: rgba(255,255,255,0.88);" lang="de">Kontakt</span>
     <span class="section-kicker" style="color: rgba(255,255,255,0.88);" lang="nl">Contact</span>
     <span class="section-kicker" style="color: rgba(255,255,255,0.88);" lang="he">צור קשר</span>
+    <span class="section-kicker" style="color: rgba(255,255,255,0.88);" lang="fr">Contact</span>
     <h2 lang="el">Μια συζήτηση χωρίς δεσμεύσεις.</h2>
     <h2 lang="en">An informal first conversation.</h2>
     <h2 lang="de">Ein erstes unverbindliches Gespräch.</h2>
     <h2 lang="nl">Een eerste informeel gesprek.</h2>
     <h2 lang="he">שיחה ראשונית, ללא התחייבות.</h2>
+    <h2 lang="fr">Un premier échange sans engagement.</h2>
 
     <div class="contact-grid">
       <div class="contact-info">
@@ -1834,12 +1961,14 @@
         <p lang="de" style="font-size: 1.05rem;">Die Immobilie wird direkt von den Eigentümern verkauft. Kontaktieren Sie uns für weitere Details, Grundrisse, technische Unterlagen oder um eine Besichtigung zu vereinbaren.</p>
         <p lang="nl" style="font-size: 1.05rem;">Het pand wordt rechtstreeks door de eigenaren verkocht. Neem contact op voor meer details, plattegronden, technische documentatie of om een bezichtiging te regelen.</p>
         <p lang="he" style="font-size: 1.05rem;">הנכס נמכר ישירות על ידי הבעלים. צרו קשר לקבלת פרטים נוספים, תוכניות קומה, מסמכים טכניים או לתיאום ביקור באתר.</p>
+        <p lang="fr" style="font-size: 1.05rem;">La vente se fait directement entre particuliers. Contactez-nous pour obtenir plus d'informations, les plans, la documentation technique ou pour organiser une visite sur place.</p>
         <p style="margin-top: 2rem;">
           <strong lang="el">Οι ιδιοκτήτες</strong>
           <strong lang="en">The owners</strong>
           <strong lang="de">Die Eigentümer</strong>
           <strong lang="nl">De eigenaren</strong>
           <strong lang="he">הבעלים</strong>
+          <strong lang="fr">Les propriétaires</strong>
         </p>
         <p>✉ <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a></p>
       </div>
@@ -1855,6 +1984,7 @@
         <label lang="de" for="name">Name</label>
         <label lang="nl" for="name">Naam</label>
         <label lang="he" for="name">שם</label>
+        <label lang="fr" for="name">Nom</label>
         <input type="text" id="name" name="name" required>
 
         <label lang="el" for="email">Email</label>
@@ -1862,6 +1992,7 @@
         <label lang="de" for="email">E-Mail</label>
         <label lang="nl" for="email">E-mail</label>
         <label lang="he" for="email">דוא״ל</label>
+        <label lang="fr" for="email">E-mail</label>
         <input type="email" id="email" name="email" required>
 
         <label lang="el" for="phone">Τηλέφωνο (προαιρετικό)</label>
@@ -1869,6 +2000,7 @@
         <label lang="de" for="phone">Telefon (optional)</label>
         <label lang="nl" for="phone">Telefoon (optioneel)</label>
         <label lang="he" for="phone">טלפון (לא חובה)</label>
+        <label lang="fr" for="phone">Téléphone (facultatif)</label>
         <input type="tel" id="phone" name="phone">
 
         <label lang="el" for="message">Μήνυμα</label>
@@ -1876,6 +2008,7 @@
         <label lang="de" for="message">Nachricht</label>
         <label lang="nl" for="message">Bericht</label>
         <label lang="he" for="message">הודעה</label>
+        <label lang="fr" for="message">Message</label>
         <textarea id="message" name="message" placeholder="" required></textarea>
 
         <button type="submit" lang="el">Αποστολή</button>
@@ -1883,6 +2016,7 @@
         <button type="submit" lang="de">Absenden</button>
         <button type="submit" lang="nl">Versturen</button>
         <button type="submit" lang="he">שליחה</button>
+        <button type="submit" lang="fr">Envoyer</button>
       </form>
     </div>
   </div>
@@ -1896,11 +2030,13 @@
     <p lang="de">Raum Kavrochori · Heraklion, Kreta</p>
     <p lang="nl">Omgeving Kavrochori · Heraklion, Kreta</p>
     <p lang="he">אזור קאברוכורי · הרקליון, כרתים</p>
+    <p lang="fr">Région de Kavrochori · Héraklion, Crète</p>
     <p lang="el" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html">Πολιτική απορρήτου</a></p>
     <p lang="en" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#en">Privacy Policy</a></p>
     <p lang="de" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#de">Datenschutz</a></p>
     <p lang="nl" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#nl">Privacybeleid</a></p>
     <p lang="he" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#he">מדיניות פרטיות</a></p>
+    <p lang="fr" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#fr">Politique de confidentialité</a></p>
   </div>
 </footer>
 
@@ -1916,7 +2052,7 @@
     // Path-based i18n: each language has its own URL (/, /en/, /de/, /nl/).
     // Navigating to the variant URL loads the right <body class="XX"> and
     // lets Google attribute impressions to the matching hreflang target.
-    const paths = { el: '/', en: '/en/', de: '/de/', nl: '/nl/', he: '/he/' };
+    const paths = { el: '/', en: '/en/', de: '/de/', nl: '/nl/', he: '/he/', fr: '/fr/' };
     const target = paths[lang];
     if (target && window.location.pathname !== target) {
       window.location.href = target;
@@ -1938,7 +2074,8 @@
         captionEn: img.dataset.captionEn || img.alt,
         captionDe: img.dataset.captionDe || img.dataset.captionEn || img.alt,
         captionNl: img.dataset.captionNl || img.dataset.captionEn || img.alt,
-        captionHe: img.dataset.captionHe || img.dataset.captionEn || img.alt
+        captionHe: img.dataset.captionHe || img.dataset.captionEn || img.alt,
+        captionFr: img.dataset.captionFr || img.dataset.captionEn || img.alt
       });
       img.closest('.gallery-item').addEventListener('click', () => openLightbox(i));
     });
@@ -1993,6 +2130,7 @@
     else if (lang === 'de') caption = g.captionDe;
     else if (lang === 'nl') caption = g.captionNl;
     else if (lang === 'he') caption = g.captionHe;
+    else if (lang === 'fr') caption = g.captionFr;
     else caption = g.captionEl;
     document.getElementById('lightbox-caption').textContent = caption;
   }
@@ -2062,9 +2200,9 @@
 
     // POI markers
     var pois = [
-      { lat: 35.2997, lng: 25.0856, el: 'ΠΑΓΝΗ', en: 'University Hospital', de: 'Universitätsklinikum', nl: 'Universiteitsziekenhuis', he: 'בית החולים האוניברסיטאי' },
-      { lat: 35.3003, lng: 25.0742, el: 'ΙΤΕ / FORTH', en: 'FORTH', de: 'FORTH', nl: 'FORTH', he: 'FORTH' },
-      { lat: 35.3132, lng: 25.1062, el: 'Πανεπιστήμιο Κρήτης', en: 'Univ. of Crete', de: 'Universität Kreta', nl: 'Universiteit van Kreta', he: 'אוניברסיטת כרתים' }
+      { lat: 35.2997, lng: 25.0856, el: 'ΠΑΓΝΗ', en: 'University Hospital', de: 'Universitätsklinikum', nl: 'Universiteitsziekenhuis', he: 'בית החולים האוניברסיטאי', fr: 'CHU (PAGNI)' },
+      { lat: 35.3003, lng: 25.0742, el: 'ΙΤΕ / FORTH', en: 'FORTH', de: 'FORTH', nl: 'FORTH', he: 'FORTH', fr: 'FORTH' },
+      { lat: 35.3132, lng: 25.1062, el: 'Πανεπιστήμιο Κρήτης', en: 'Univ. of Crete', de: 'Universität Kreta', nl: 'Universiteit van Kreta', he: 'אוניברסיטת כרתים', fr: 'Univ. de Crète' }
     ];
 
     function activeMapLang() {
@@ -2073,6 +2211,7 @@
       if (cl.contains('de')) return 'de';
       if (cl.contains('nl')) return 'nl';
       if (cl.contains('he')) return 'he';
+      if (cl.contains('fr')) return 'fr';
       return 'el';
     }
 
@@ -2172,12 +2311,14 @@
     <span class="sticky-cta-title" lang="de">Maisonette mit Gartenwohnung</span>
     <span class="sticky-cta-title" lang="nl">Maisonette met tuinappartement</span>
     <span class="sticky-cta-title" lang="he">מזונט עם דירת גן</span>
+    <span class="sticky-cta-title" lang="fr">Maison avec appartement de jardin</span>
 
     <span class="sticky-cta-price" lang="el">610.000 €</span>
     <span class="sticky-cta-price" lang="en">€610,000</span>
     <span class="sticky-cta-price" lang="de">610.000 €</span>
     <span class="sticky-cta-price" lang="nl">€ 610.000</span>
     <span class="sticky-cta-price" lang="he">‎610,000 €‎</span>
+    <span class="sticky-cta-price" lang="fr">610 000 €</span>
   </div>
 
   <div class="sticky-cta-docs">
@@ -2186,18 +2327,21 @@
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Grundriss%20anfragen" lang="de">GRUNDRISS</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Plattegrond%20opvragen" lang="nl">PLATTEGROND</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="he">תוכנית</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Floor%20plan%20request" lang="fr">PLAN</a>
 
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CE%B5%CE%BD%CE%B5%CF%81%CE%B3%CE%B5%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%80%CE%B9%CF%83%CF%84%CE%BF%CF%80%CE%BF%CE%B9%CE%B7%CF%84%CE%B9%CE%BA%CE%BF%CF%8D" lang="el">ΕΝΕΡΓΕΙΑΚΟ</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="en">EPC</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Energieausweis" lang="de">ENERGIEPASS</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Energielabel" lang="nl">ENERGIELABEL</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="fr">DPE</a>
 
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="en">BROCHURE</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
+    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="fr">BROCHURE</a>
   </div>
 
   <a class="sticky-cta-primary" href="#contact">
@@ -2206,6 +2350,7 @@
     <span lang="de">KONTAKT</span>
     <span lang="nl">CONTACT</span>
     <span lang="he">יצירת קשר</span>
+    <span lang="fr">CONTACT</span>
   </a>
 </div>
 
