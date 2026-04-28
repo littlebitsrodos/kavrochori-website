@@ -1,5 +1,6 @@
 images/originals/
 .gstack/
+.claude/
 .DS_Store
 *.pdf
 *.eml

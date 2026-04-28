@@ -4,6 +4,30 @@ Static FSBO (for-sale-by-owner) landing page for a residential property in Κα�
 
 Deployed as a static site at kavrochori.gr (GitHub Pages via CNAME).
 
+## Deliberate non-features
+
+This is a single-property landing page with low change frequency and no commercial
+processing. The following are intentionally absent — do **not** propose adding them
+without a clear new reason:
+
+- **Analytics / tracking pixels.** No GA, no GTM, no Plausible. Privacy + simplicity
+  + avoids needing a cookie banner. Owner does not need traffic stats.
+- **Cookie banner.** Direct consequence of "no analytics" — there are no consent-
+  required cookies to disclose.
+- **Service Worker / PWA / `manifest.json`.** One static page; offline value is zero.
+  Adds cache-invalidation footguns in exchange for nothing.
+- **Booking flow / calendar / payment integration.** This is a sale, not a rental.
+  Conversion is "buyer emails owner."
+- **AI chat widget.** Vendor-skewed selection bias on serious property inquiries;
+  buyers want a human at this price point.
+- **`Review` JSON-LD on first-party content.** Google's 2019 self-serving-review
+  rule disallows it. The existing `RealEstateListing` schema is the right type.
+- **Test suite, CI, Lighthouse-CI, error tracking.** Single page, ~weekly edits,
+  visual regression noticed on next visit. Premature for the scope.
+- **`llms.txt`.** Bot logs show ~zero fetches; low signal.
+- **Multiple HTML pages.** `/privacy.html` and `/404.html` are the only exceptions.
+  Anything new should fit on the index or be argued for explicitly.
+
 ## Skill routing
 
 When the user's request matches an available skill, ALWAYS invoke it using the Skill

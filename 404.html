@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — kavrochori.gr</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --text: #2a2a28;
+    --text-muted: #6b6b66;
+    --accent: #5c6d4c;
+    --accent-dark: #3e4c32;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+  .wrap { max-width: 540px; text-align: center; }
+  .code {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(4rem, 14vw, 7rem);
+    line-height: 1;
+    color: var(--accent-dark);
+    margin: 0 0 1rem;
+    letter-spacing: -0.02em;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    color: var(--accent-dark);
+    margin: 0 0 1rem;
+    line-height: 1.25;
+  }
+  p { color: var(--text-muted); line-height: 1.6; margin: 0 0 2rem; }
+  .home {
+    display: inline-block;
+    padding: 0.85rem 1.6rem;
+    background: var(--accent-dark);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s;
+    border-radius: 2px;
+  }
+  .home:hover { background: var(--accent); }
+  .home:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  body [lang="en"], body [lang="de"], body [lang="nl"], body [lang="he"] { display: none; }
+  body.en [lang="el"] { display: none; }
+  body.en [lang="en"] { display: block; }
+  body.de [lang="el"] { display: none; }
+  body.de [lang="de"] { display: block; }
+  body.nl [lang="el"] { display: none; }
+  body.nl [lang="nl"] { display: block; }
+  body.he [lang="el"] { display: none; }
+  body.he [lang="he"] { display: block; }
+  body.he { direction: rtl; }
+</style>
+</head>
+
+<body class="el">
+<main class="wrap">
+  <div class="code">404</div>
+
+  <h1 lang="el">Η σελίδα δεν βρέθηκε.</h1>
+  <h1 lang="en">Page not found.</h1>
+  <h1 lang="de">Seite nicht gefunden.</h1>
+  <h1 lang="nl">Pagina niet gevonden.</h1>
+  <h1 lang="he">העמוד לא נמצא.</h1>
+
+  <p lang="el">Ο σύνδεσμος μπορεί να έχει αλλάξει ή να μην είναι σωστός.</p>
+  <p lang="en">The link may have changed or may not be correct.</p>
+  <p lang="de">Der Link wurde möglicherweise geändert oder ist nicht korrekt.</p>
+  <p lang="nl">De link is mogelijk gewijzigd of niet correct.</p>
+  <p lang="he">ייתכן שהקישור השתנה או שאינו תקין.</p>
+
+  <a class="home" lang="el" href="/">Επιστροφή στην αρχική</a>
+  <a class="home" lang="en" href="/en/">Back to home</a>
+  <a class="home" lang="de" href="/de/">Zurück zur Startseite</a>
+  <a class="home" lang="nl" href="/nl/">Terug naar de startpagina</a>
+  <a class="home" lang="he" href="/he/">חזרה לעמוד הבית</a>
+</main>
+
+<script>
+  (function () {
+    var supported = ['el', 'en', 'de', 'nl', 'he'];
+    // Path hint: if user landed at /en/missing-page, prefer English etc.
+    var seg = (location.pathname.split('/')[1] || '').toLowerCase();
+    var nav = (navigator.language || '').slice(0, 2).toLowerCase();
+    var lang = supported.indexOf(seg) >= 0 ? seg
+             : supported.indexOf(nav) >= 0 ? nav
+             : 'el';
+    document.body.className = lang;
+    document.documentElement.lang = lang;
+    if (lang === 'he') document.documentElement.dir = 'rtl';
+  })();
+</script>
+</body>
+</html>

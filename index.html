@@ -79,6 +79,24 @@
   a:hover { color: var(--accent); }
   img { max-width: 100%; height: auto; display: block; }
 
+  /* A11y: skip link + visible keyboard focus.
+     :focus-visible avoids drawing rings on mouse clicks while keeping them for tab nav. */
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    padding: 0.6rem 1rem;
+    background: var(--accent-dark); color: #fff;
+    text-decoration: none; font-size: 0.9rem;
+    z-index: 10000;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; outline: 2px solid #fff; outline-offset: 2px; }
+  :focus { outline: none; }
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   /* Layout */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
   section { padding: 5rem 0; }
@@ -814,6 +832,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main"><span lang="el">Μετάβαση στο περιεχόμενο</span><span lang="en">Skip to content</span><span lang="de">Zum Inhalt springen</span><span lang="nl">Naar inhoud</span><span lang="he">דלג לתוכן</span></a>
+
 <nav>
   <div class="container">
     <div class="brand"><span lang="el" class="inline">Ιδιωτική πώληση</span><span lang="en" class="inline">Private sale</span><span lang="de" class="inline">Privatverkauf</span><span lang="nl" class="inline">Verkoop door eigenaar</span><span lang="he" class="inline">מכירה פרטית</span></div>
@@ -832,7 +852,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main">
 <!-- HERO -->
 <header class="hero">
   <aside class="hero-card">
@@ -1872,7 +1892,11 @@
     <p lang="de">Raum Kavrochori · Heraklion, Kreta</p>
     <p lang="nl">Omgeving Kavrochori · Heraklion, Kreta</p>
     <p lang="he">אזור קאברוכורי · הרקליון, כרתים</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr</p>
+    <p lang="el" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html">Πολιτική απορρήτου</a></p>
+    <p lang="en" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#en">Privacy Policy</a></p>
+    <p lang="de" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#de">Datenschutz</a></p>
+    <p lang="nl" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#nl">Privacybeleid</a></p>
+    <p lang="he" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#he">מדיניות פרטיות</a></p>
   </div>
 </footer>
 

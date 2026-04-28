@@ -32,10 +32,21 @@
 <link rel="alternate" hreflang="he" href="https://kavrochori.gr/he/">
 <link rel="alternate" hreflang="x-default" href="https://kavrochori.gr/">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+<!-- Preload LCP hero image (responsive — mobile gets the 800w variant, desktop the full one). -->
+<link rel="preload" as="image" href="/images/exterior-street-800.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
+<link rel="preload" as="image" href="/images/exterior-street.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
+
+<!-- Fonts: load asynchronously to avoid render-blocking; system fonts are used until they arrive -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+
+<!-- Leaflet: deferred — only the location section needs it -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""></noscript>
 <style>
   :root {
     --bg: #fafaf7;
@@ -68,10 +79,29 @@
   a:hover { color: var(--accent); }
   img { max-width: 100%; height: auto; display: block; }
 
+  /* A11y: skip link + visible keyboard focus.
+     :focus-visible avoids drawing rings on mouse clicks while keeping them for tab nav. */
+  .skip-link {
+    position: absolute; left: -9999px; top: 0;
+    padding: 0.6rem 1rem;
+    background: var(--accent-dark); color: #fff;
+    text-decoration: none; font-size: 0.9rem;
+    z-index: 10000;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; outline: 2px solid #fff; outline-offset: 2px; }
+  :focus { outline: none; }
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   /* Layout */
   .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
   section { padding: 5rem 0; }
-  section:nth-child(even) { background: var(--bg-alt); }
+  /* Striping is keyed off section order (not DOM position) so wrapping in <main> doesn't flip it. */
+  section:nth-of-type(even) { background: var(--bg-alt); }
 
   /* Nav */
   nav {
@@ -194,7 +224,8 @@
       display: flex;
       flex-direction: column;
       min-height: auto;
-      background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
+      /* Mobile uses an 800w variant (~100 KiB instead of 591 KiB) — the LCP image. */
+      background: image-set(url('/images/exterior-street-800.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
     }
     .hero::after {
       content: '';
@@ -276,7 +307,7 @@
     border: 1px solid var(--border);
     border-top: 2px solid var(--terracotta);
   }
-  .feature h4 { font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--accent-dark); font-weight: 500; }
+  .feature h3 { font-family: 'Inter', sans-serif; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--accent-dark); font-weight: 500; }
   .feature p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
 
   /* Essentials — 6 selling points (above-the-fold packaging) */
@@ -524,6 +555,10 @@
     .lightbox-next { right: 0.8rem; }
     .lightbox-thumbs { display: none; }
   }
+  /* Map: trap Leaflet's internal pane z-indexes (markers/tooltips up to 700) inside
+     a local stacking context so they can't paint over the sticky CTA bar below. */
+  #area-map { isolation: isolate; }
+
   /* Sticky CTA bar */
   .sticky-cta {
     position: fixed;
@@ -742,7 +777,8 @@
   /* Section heading */
   .section-kicker {
     font-size: 0.85rem;
-    color: var(--terracotta);
+    /* Darker terracotta — keeps the accent voice while passing WCAG AA contrast on bg + bg-alt. */
+    color: #8a5c39;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     margin-bottom: 1rem;
@@ -796,6 +832,8 @@
 </head>
 <body class="de">
 
+<a class="skip-link" href="#main"><span lang="el">Μετάβαση στο περιεχόμενο</span><span lang="en">Skip to content</span><span lang="de">Zum Inhalt springen</span><span lang="nl">Naar inhoud</span><span lang="he">דלג לתוכן</span></a>
+
 <nav>
   <div class="container">
     <div class="brand"><span lang="el" class="inline">Ιδιωτική πώληση</span><span lang="en" class="inline">Private sale</span><span lang="de" class="inline">Privatverkauf</span><span lang="nl" class="inline">Verkoop door eigenaar</span><span lang="he" class="inline">מכירה פרטית</span></div>
@@ -814,6 +852,7 @@
   </div>
 </nav>
 
+<main id="main">
 <!-- HERO -->
 <header class="hero">
   <aside class="hero-card">
@@ -1187,11 +1226,11 @@
 
     <div class="features-grid">
       <div class="feature">
-        <h4 lang="el">Ξυλόφουρνος</h4>
-        <h4 lang="en">Wood-fired oven</h4>
-        <h4 lang="de">Holzofen</h4>
-        <h4 lang="nl">Houtgestookte oven</h4>
-        <h4 lang="he">טאבון עצים</h4>
+        <h3 lang="el">Ξυλόφουρνος</h3>
+        <h3 lang="en">Wood-fired oven</h3>
+        <h3 lang="de">Holzofen</h3>
+        <h3 lang="nl">Houtgestookte oven</h3>
+        <h3 lang="he">טאבון עצים</h3>
         <p lang="el">Πλήρως λειτουργικός, κατάλληλος για ψωμί και πίτσα.</p>
         <p lang="en">Fully operational, suitable for bread and pizza.</p>
         <p lang="de">Voll funktionstüchtig, geeignet für Brot und Pizza.</p>
@@ -1199,11 +1238,11 @@
         <p lang="he">פעיל באופן מלא, מתאים ללחם ולפיצה.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Parking 3 θέσεων</h4>
-        <h4 lang="en">Parking for 3 cars</h4>
-        <h4 lang="de">Parkplätze für 3 Autos</h4>
-        <h4 lang="nl">Parkeren voor 3 auto's</h4>
-        <h4 lang="he">חניה ל-3 רכבים</h4>
+        <h3 lang="el">Parking 3 θέσεων</h3>
+        <h3 lang="en">Parking for 3 cars</h3>
+        <h3 lang="de">Parkplätze für 3 Autos</h3>
+        <h3 lang="nl">Parkeren voor 3 auto's</h3>
+        <h3 lang="he">חניה ל-3 רכבים</h3>
         <p lang="el">Στεγασμένο γκαράζ με άνετη είσοδο από επαρχιακό δρόμο.</p>
         <p lang="en">Covered garage with easy access from a quiet local road.</p>
         <p lang="de">Überdachte Garage mit einfachem Zugang von einer ruhigen Ortsstraße.</p>
@@ -1211,11 +1250,11 @@
         <p lang="he">חניה מקורה עם גישה נוחה מכביש מקומי שקט.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Δυνατότητα πισίνας</h4>
-        <h4 lang="en">Pool-ready</h4>
-        <h4 lang="de">Pool möglich</h4>
-        <h4 lang="nl">Zwembad mogelijk</h4>
-        <h4 lang="he">אפשרות לבריכה</h4>
+        <h3 lang="el">Δυνατότητα πισίνας</h3>
+        <h3 lang="en">Pool-ready</h3>
+        <h3 lang="de">Pool möglich</h3>
+        <h3 lang="nl">Zwembad mogelijk</h3>
+        <h3 lang="he">אפשרות לבריכה</h3>
         <p lang="el">Το οικόπεδο επιτρέπει την κατασκευή πισίνας.</p>
         <p lang="en">The plot allows for a swimming pool.</p>
         <p lang="de">Das Grundstück ermöglicht den Bau eines Swimmingpools.</p>
@@ -1223,11 +1262,11 @@
         <p lang="he">המגרש מאפשר בניית בריכת שחייה.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Ιδιωτικότητα</h4>
-        <h4 lang="en">Privacy</h4>
-        <h4 lang="de">Privatsphäre</h4>
-        <h4 lang="nl">Privacy</h4>
-        <h4 lang="he">פרטיות</h4>
+        <h3 lang="el">Ιδιωτικότητα</h3>
+        <h3 lang="en">Privacy</h3>
+        <h3 lang="de">Privatsphäre</h3>
+        <h3 lang="nl">Privacy</h3>
+        <h3 lang="he">פרטיות</h3>
         <p lang="el">Φυτική περίφραξη, χωρίς θέαση από γείτονες.</p>
         <p lang="en">Planted perimeter, no sightlines from neighbours.</p>
         <p lang="de">Bepflanzte Einfriedung, keine Sichtverbindung zu Nachbarn.</p>
@@ -1257,7 +1296,7 @@
     <p class="section-intro" lang="nl">Foto's van buiten- en binnenruimten. Extra materiaal, plattegronden en bezichtigingen op aanvraag beschikbaar.</p>
     <p class="section-intro" lang="he">תמונות של החללים החיצוניים והפנימיים. חומר נוסף, תוכניות קומה וביקור אישי זמינים על פי בקשה.</p>
 
-    <div class="gallery-grid" id="gallery">
+    <div class="gallery-grid">
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwCw7BuTATEihk84M+SgAP6xjYcOULylihzXWWlsnt+q6q3apEP4dwfkewRcDet+PPwI6Hsz5UYops1mbCbN8BbvNPVauRzIlUzn8qAAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/exterior-street.webp 640w, /images/exterior-street.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
@@ -1453,11 +1492,11 @@
 
     <div class="features-grid">
       <div class="feature">
-        <h4 lang="el">Θέρμανση</h4>
-        <h4 lang="en">Heating</h4>
-        <h4 lang="de">Heizung</h4>
-        <h4 lang="nl">Verwarming</h4>
-        <h4 lang="he">חימום</h4>
+        <h3 lang="el">Θέρμανση</h3>
+        <h3 lang="en">Heating</h3>
+        <h3 lang="de">Heizung</h3>
+        <h3 lang="nl">Verwarming</h3>
+        <h3 lang="he">חימום</h3>
         <p lang="el">Λέβητας πετρελαίου σε λειτουργία, σε ιδιαίτερο υπόγειο λεβητοστάσιο 7,31 τ.μ. · ενεργειακό τζάκι που ζεσταίνει πραγματικά.</p>
         <p lang="en">Working oil boiler in a dedicated 7.31 sqm underground boiler room, and effective wood-burning stove (primary heat source).</p>
         <p lang="de">Funktionierender Ölheizkessel in separatem unterirdischem Heizraum (7,31 m²) und effektiver Kaminofen (Hauptwärmequelle).</p>
@@ -1465,11 +1504,11 @@
         <p lang="he">דוד סולר פעיל בחדר מכונות תת-קרקעי ייעודי בגודל 7.31 מ״ר, ותנור עצים יעיל (מקור חימום עיקרי).</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Κλιματισμός</h4>
-        <h4 lang="en">Cooling</h4>
-        <h4 lang="de">Klimaanlage</h4>
-        <h4 lang="nl">Koeling</h4>
-        <h4 lang="he">קירור</h4>
+        <h3 lang="el">Κλιματισμός</h3>
+        <h3 lang="en">Cooling</h3>
+        <h3 lang="de">Klimaanlage</h3>
+        <h3 lang="nl">Koeling</h3>
+        <h3 lang="he">קירור</h3>
         <p lang="el">4 μονάδες A/C στα υπνοδωμάτια και στον ενιαίο χώρο.</p>
         <p lang="en">4 A/C units across bedrooms and the living area.</p>
         <p lang="de">4 Klimaanlagen in Schlafzimmern und Wohnbereich.</p>
@@ -1477,11 +1516,11 @@
         <p lang="he">4 יחידות מיזוג אוויר בחדרי השינה ובחלל המגורים.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Ζεστό νερό</h4>
-        <h4 lang="en">Hot water</h4>
-        <h4 lang="de">Warmwasser</h4>
-        <h4 lang="nl">Warm water</h4>
-        <h4 lang="he">מים חמים</h4>
+        <h3 lang="el">Ζεστό νερό</h3>
+        <h3 lang="en">Hot water</h3>
+        <h3 lang="de">Warmwasser</h3>
+        <h3 lang="nl">Warm water</h3>
+        <h3 lang="he">מים חמים</h3>
         <p lang="el">Καινούριος ηλιακός θερμοσίφωνας (Μάρτιος 2026).</p>
         <p lang="en">New solar water heater installed March 2026.</p>
         <p lang="de">Neuer Solarwarmwasserbereiter, installiert März 2026.</p>
@@ -1489,11 +1528,11 @@
         <p lang="he">דוד שמש חדש, הותקן במרץ 2026.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Ύδρευση</h4>
-        <h4 lang="en">Water supply</h4>
-        <h4 lang="de">Wasserversorgung</h4>
-        <h4 lang="nl">Wateraansluiting</h4>
-        <h4 lang="he">אספקת מים</h4>
+        <h3 lang="el">Ύδρευση</h3>
+        <h3 lang="en">Water supply</h3>
+        <h3 lang="de">Wasserversorgung</h3>
+        <h3 lang="nl">Wateraansluiting</h3>
+        <h3 lang="he">אספקת מים</h3>
         <p lang="el">Δίκτυο + ιδιωτική δεξαμενή αποθήκευσης.</p>
         <p lang="en">Mains supply plus private storage tank.</p>
         <p lang="de">Netzanschluss plus privater Speichertank.</p>
@@ -1501,11 +1540,11 @@
         <p lang="he">חיבור לרשת ציבורית בתוספת מאגר מים פרטי.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Ρεύμα</h4>
-        <h4 lang="en">Power</h4>
-        <h4 lang="de">Strom</h4>
-        <h4 lang="nl">Elektriciteit</h4>
-        <h4 lang="he">חשמל</h4>
+        <h3 lang="el">Ρεύμα</h3>
+        <h3 lang="en">Power</h3>
+        <h3 lang="de">Strom</h3>
+        <h3 lang="nl">Elektriciteit</h3>
+        <h3 lang="he">חשמל</h3>
         <p lang="el">Τριφασική παροχή.</p>
         <p lang="en">Three-phase supply.</p>
         <p lang="de">Dreiphasenversorgung.</p>
@@ -1513,11 +1552,11 @@
         <p lang="he">אספקה תלת-פאזית.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Internet</h4>
-        <h4 lang="en">Internet</h4>
-        <h4 lang="de">Internet</h4>
-        <h4 lang="nl">Internet</h4>
-        <h4 lang="he">אינטרנט</h4>
+        <h3 lang="el">Internet</h3>
+        <h3 lang="en">Internet</h3>
+        <h3 lang="de">Internet</h3>
+        <h3 lang="nl">Internet</h3>
+        <h3 lang="he">אינטרנט</h3>
         <p lang="el">Fiber διαθέσιμο στην περιοχή.</p>
         <p lang="en">Fibre broadband available.</p>
         <p lang="de">Glasfaser-Breitband verfügbar.</p>
@@ -1525,11 +1564,11 @@
         <p lang="he">סיבים אופטיים זמינים באזור.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Ενεργειακή κλάση</h4>
-        <h4 lang="en">Energy rating</h4>
-        <h4 lang="de">Energiebewertung</h4>
-        <h4 lang="nl">Energieprestatie</h4>
-        <h4 lang="he">דירוג אנרגטי</h4>
+        <h3 lang="el">Ενεργειακή κλάση</h3>
+        <h3 lang="en">Energy rating</h3>
+        <h3 lang="de">Energiebewertung</h3>
+        <h3 lang="nl">Energieprestatie</h3>
+        <h3 lang="he">דירוג אנרגטי</h3>
         <p lang="el">Γ. Δυνητικά Β+ με αντλία θερμότητας &amp; μονώσεις.</p>
         <p lang="en">Class C. Potential B+ with heat pump &amp; insulation upgrade.</p>
         <p lang="de">Klasse C. Potenzial B+ mit Wärmepumpe &amp; Dämmung.</p>
@@ -1649,11 +1688,11 @@
 
     <div class="features-grid">
       <div class="feature">
-        <h4 lang="el">Τίτλοι ιδιοκτησίας</h4>
-        <h4 lang="en">Title deeds</h4>
-        <h4 lang="de">Eigentumsurkunden</h4>
-        <h4 lang="nl">Eigendomsbewijzen</h4>
-        <h4 lang="he">שטרי בעלות</h4>
+        <h3 lang="el">Τίτλοι ιδιοκτησίας</h3>
+        <h3 lang="en">Title deeds</h3>
+        <h3 lang="de">Eigentumsurkunden</h3>
+        <h3 lang="nl">Eigendomsbewijzen</h3>
+        <h3 lang="he">שטרי בעלות</h3>
         <p lang="el">Πλήρεις, καταχωρημένοι στο Υποθηκοφυλακείο Ηρακλείου.</p>
         <p lang="en">Complete, registered with the Heraklion Land Registry.</p>
         <p lang="de">Vollständig, eingetragen beim Grundbuchamt Heraklion.</p>
@@ -1673,11 +1712,11 @@
         </ul>
       </div>
       <div class="feature">
-        <h4 lang="el">Οικοδομική Άδεια</h4>
-        <h4 lang="en">Building permit</h4>
-        <h4 lang="de">Baugenehmigung</h4>
-        <h4 lang="nl">Bouwvergunning</h4>
-        <h4 lang="he">היתר בנייה</h4>
+        <h3 lang="el">Οικοδομική Άδεια</h3>
+        <h3 lang="en">Building permit</h3>
+        <h3 lang="de">Baugenehmigung</h3>
+        <h3 lang="nl">Bouwvergunning</h3>
+        <h3 lang="he">היתר בנייה</h3>
         <p lang="el">Εκδόθηκε το 1996 από την αρμόδια πολεοδομία.</p>
         <p lang="en">Issued 1996 by the local planning authority.</p>
         <p lang="de">Ausgestellt 1996 von der zuständigen Baubehörde.</p>
@@ -1685,11 +1724,11 @@
         <p lang="he">הוצא בשנת 1996 על ידי הרשות המקומית לתכנון ובנייה.</p>
       </div>
       <div class="feature">
-        <h4 lang="el">Τακτοποίηση Ν. 4495/2017</h4>
-        <h4 lang="en">Regularisation (L.4495/2017)</h4>
-        <h4 lang="de">Regularisierung (G.4495/2017)</h4>
-        <h4 lang="nl">Regularisering (W.4495/2017)</h4>
-        <h4 lang="he">הסדרה (חוק 4495/2017)</h4>
+        <h3 lang="el">Τακτοποίηση Ν. 4495/2017</h3>
+        <h3 lang="en">Regularisation (L.4495/2017)</h3>
+        <h3 lang="de">Regularisierung (G.4495/2017)</h3>
+        <h3 lang="nl">Regularisering (W.4495/2017)</h3>
+        <h3 lang="he">הסדרה (חוק 4495/2017)</h3>
         <p lang="el">Ολοκληρωμένη: τεχνική έκθεση, στατικός έλεγχος, σχέδια.</p>
         <p lang="en">Complete: technical report, structural check, drawings.</p>
         <p lang="de">Vollständig: technischer Bericht, Statikprüfung, Zeichnungen.</p>
@@ -1729,11 +1768,11 @@
         </ul>
       </div>
       <div class="feature">
-        <h4 lang="el">Τοπογραφικό διάγραμμα</h4>
-        <h4 lang="en">Topographic survey</h4>
-        <h4 lang="de">Topografische Vermessung</h4>
-        <h4 lang="nl">Topografisch onderzoek</h4>
-        <h4 lang="he">תרשים טופוגרפי</h4>
+        <h3 lang="el">Τοπογραφικό διάγραμμα</h3>
+        <h3 lang="en">Topographic survey</h3>
+        <h3 lang="de">Topografische Vermessung</h3>
+        <h3 lang="nl">Topografisch onderzoek</h3>
+        <h3 lang="he">תרשים טופוגרפי</h3>
         <p lang="el">Ενημερωμένο (Οκτώβριος 2025).</p>
         <p lang="en">Updated October 2025.</p>
         <p lang="de">Aktualisiert Oktober 2025.</p>
@@ -1748,11 +1787,11 @@
         </ul>
       </div>
       <div class="feature">
-        <h4 lang="el">Πιστοποιητικό Ενεργειακής Απόδοσης</h4>
-        <h4 lang="en">Energy performance certificate</h4>
-        <h4 lang="de">Energieausweis</h4>
-        <h4 lang="nl">Energieprestatiecertificaat</h4>
-        <h4 lang="he">תעודת ביצועי אנרגיה</h4>
+        <h3 lang="el">Πιστοποιητικό Ενεργειακής Απόδοσης</h3>
+        <h3 lang="en">Energy performance certificate</h3>
+        <h3 lang="de">Energieausweis</h3>
+        <h3 lang="nl">Energieprestatiecertificaat</h3>
+        <h3 lang="he">תעודת ביצועי אנרגיה</h3>
         <p lang="el">Κλάση Γ, ισχύει έως Φεβρουάριος 2032.</p>
         <p lang="en">Class C, valid until February 2032.</p>
         <p lang="de">Klasse C, gültig bis Februar 2032.</p>
@@ -1799,11 +1838,6 @@
           <strong lang="he">הבעלים</strong>
         </p>
         <p>✉ <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a></p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);" lang="el">Τιμή: κατόπιν επικοινωνίας.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);" lang="en">Price: upon request.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);" lang="de">Preis: auf Anfrage.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);" lang="nl">Prijs: op aanvraag.</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255,255,255,0.75);" lang="he">מחיר: לפי פנייה.</p>
       </div>
 
       <form class="contact-form" action="https://formsubmit.co/home@kavrochori.gr" method="POST">
@@ -1849,6 +1883,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="container">
@@ -1857,7 +1892,11 @@
     <p lang="de">Raum Kavrochori · Heraklion, Kreta</p>
     <p lang="nl">Omgeving Kavrochori · Heraklion, Kreta</p>
     <p lang="he">אזור קאברוכורי · הרקליון, כרתים</p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">© 2026 kavrochori.gr</p>
+    <p lang="el" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html">Πολιτική απορρήτου</a></p>
+    <p lang="en" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#en">Privacy Policy</a></p>
+    <p lang="de" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#de">Datenschutz</a></p>
+    <p lang="nl" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#nl">Privacybeleid</a></p>
+    <p lang="he" style="margin-top: 0.5rem; font-size: 0.8rem;">© 2026 kavrochori.gr · <a href="/privacy.html#he">מדיניות פרטיות</a></p>
   </div>
 </footer>
 
@@ -1988,7 +2027,7 @@
   });
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer crossorigin=""></script>
 <script>
   window.addEventListener('load', function() {
     var mapEl = document.getElementById('area-map');
@@ -2050,8 +2089,6 @@
       var lang = activeMapLang();
       poiMarkers.forEach(function(t) { t.marker.setTooltipContent(t.poi[lang]); });
     };
-
-    map.invalidateSize();
   });
 </script>
 <style>
