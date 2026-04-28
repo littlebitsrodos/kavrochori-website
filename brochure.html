@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<title>Μεζονέτα με διαμέρισμα κήπου — Καβροχώρι, Ηράκλειο Κρήτης</title>
+<meta name="description" content="Editorial brochure — μεζονέτα 172 τ.μ. με αυτόνομο διαμέρισμα κήπου 90 τ.μ. στο Καβροχώρι Ηρακλείου.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --bg-alt: #f2efe8;
+    --text: #2a2a28;
+    --text-muted: #6b6b66;
+    --accent: #5c6d4c;
+    --accent-dark: #3e4c32;
+    --terracotta: #b07d54;
+    --border: #d9d5c9;
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { background: var(--bg); }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+  /* A page = exactly one A4 sheet */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  /* ── COVER ─────────────────────────────────────── */
+  .cover {
+    background: #1a1a18;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('images/exterior-street.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.10) 55%, rgba(0,0,0,0.78) 100%);
+    z-index: 1;
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 22mm 26mm;
+  }
+  .cover-mark {
+    position: absolute;
+    top: 22mm;
+    left: 22mm;
+    z-index: 2;
+    color: rgba(255,255,255,0.85);
+  }
+  .cover-mark .kicker { color: rgba(255,255,255,0.7); }
+  .cover-mark .domain {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 500;
+    margin-top: 4mm;
+    letter-spacing: 0.02em;
+  }
+  .cover h1 {
+    font-size: 44pt;
+    line-height: 1.05;
+    font-weight: 500;
+    margin-top: 6mm;
+    color: #fff;
+    max-width: 150mm;
+  }
+  .cover .location {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11pt;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.85);
+    margin-top: 4mm;
+  }
+  .cover .cover-rule {
+    width: 28mm;
+    height: 1px;
+    background: rgba(255,255,255,0.55);
+    margin: 8mm 0 5mm;
+  }
+  .cover .cover-meta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.78);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TEXT PAGE ─────────────────────────────────── */
+  .text-page {
+    padding: 28mm 26mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .text-page .kicker { margin-bottom: 14mm; }
+  .text-page h2 {
+    font-size: 32pt;
+    line-height: 1.08;
+    font-weight: 500;
+    color: var(--accent-dark);
+    max-width: 145mm;
+    margin-bottom: 12mm;
+  }
+  .text-page h3 {
+    font-size: 16pt;
+    color: var(--accent-dark);
+    margin: 8mm 0 3mm;
+    font-weight: 500;
+  }
+  .text-page p {
+    max-width: 148mm;
+    margin-bottom: 5mm;
+    font-size: 10.5pt;
+    line-height: 1.7;
+    color: var(--text);
+  }
+  .text-page p.lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    line-height: 1.4;
+    color: var(--text);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 9mm;
+    max-width: 148mm;
+  }
+  .text-page p.lede::first-letter { color: var(--accent-dark); }
+
+  /* Page footer (folio + property line) */
+  .folio {
+    position: absolute;
+    bottom: 12mm;
+    left: 26mm;
+    right: 26mm;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .folio .slug { color: var(--text-muted); }
+
+  /* ── PHOTO PAGE (full bleed) ───────────────────── */
+  .photo {
+    background: #000;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30mm 26mm 14mm;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%);
+    color: rgba(255,255,255,0.95);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .photo .caption .kicker {
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 3mm;
+    display: block;
+  }
+  .photo .caption .text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 130mm;
+  }
+
+  /* ── PHOTO + TEXT (split) ──────────────────────── */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+  }
+  .split .photo-half {
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  .split .photo-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .split .text-half {
+    padding: 28mm 22mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .split .text-half .kicker { margin-bottom: 10mm; }
+  .split .text-half h2 {
+    font-size: 24pt;
+    line-height: 1.1;
+    color: var(--accent-dark);
+    margin-bottom: 7mm;
+    max-width: 80mm;
+  }
+  .split .text-half p {
+    font-size: 10pt;
+    line-height: 1.65;
+    margin-bottom: 4mm;
+    max-width: 80mm;
+  }
+  .split .text-half ul {
+    list-style: none;
+    margin: 4mm 0 0;
+  }
+  .split .text-half li {
+    font-size: 9.5pt;
+    color: var(--text);
+    padding: 1.4mm 0 1.4mm 4.5mm;
+    position: relative;
+    line-height: 1.5;
+  }
+  .split .text-half li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ── SPEC TABLE ────────────────────────────────── */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14mm;
+    row-gap: 0;
+    margin-top: 4mm;
+    max-width: 158mm;
+  }
+  .spec-row {
+    display: grid;
+    grid-template-columns: 38mm 1fr;
+    column-gap: 4mm;
+    padding: 3.5mm 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .spec-row .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .spec-row .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .spec-row .value small {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    display: block;
+    margin-top: 1mm;
+  }
+
+  /* ── DISTANCES ─────────────────────────────────── */
+  .distances {
+    columns: 2;
+    column-gap: 14mm;
+    margin-top: 6mm;
+    max-width: 158mm;
+  }
+  .distance-row {
+    break-inside: avoid;
+    padding: 3mm 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4mm;
+  }
+  .distance-row .place {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5pt;
+    color: var(--text);
+  }
+  .distance-row .km {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    color: var(--terracotta);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ── DOCUMENTATION ─────────────────────────────── */
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm 12mm;
+    margin-top: 6mm;
+    max-width: 158mm;
+  }
+  .doc-card {
+    border-top: 1.5px solid var(--terracotta);
+    padding-top: 4mm;
+  }
+  .doc-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--accent-dark);
+    margin-bottom: 1.5mm;
+    letter-spacing: 0.02em;
+  }
+  .doc-card p {
+    font-size: 9pt;
+    color: var(--text-muted);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* ── CONTACT (closing) ─────────────────────────── */
+  .contact-page {
+    background: var(--accent-dark);
+    color: #fff;
+    padding: 48mm 26mm 26mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-page .kicker { color: rgba(255,255,255,0.72); margin-bottom: 14mm; }
+  .contact-page h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36pt;
+    line-height: 1.05;
+    font-weight: 500;
+    color: #fff;
+    max-width: 150mm;
+    margin-bottom: 12mm;
+  }
+  .contact-page p {
+    font-size: 11pt;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.88);
+    max-width: 140mm;
+    margin-bottom: 6mm;
+  }
+  .contact-page .price-block {
+    margin-top: 10mm;
+    padding-top: 10mm;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14mm;
+  }
+  .contact-page .price-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 3mm;
+  }
+  .contact-page .price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .contact-page .price-value small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: rgba(255,255,255,0.7);
+    font-weight: 400;
+    margin-top: 2mm;
+    letter-spacing: 0.05em;
+  }
+  .contact-page .domain-mark {
+    margin-top: auto;
+    padding-top: 14mm;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.02em;
+  }
+  .contact-page a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
+
+  /* Print refinements: force background color/image rendering on every element. */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────────────────── PAGE 1 — COVER ───────────────────────── -->
+<section class="page cover">
+  <div class="cover-mark">
+    <span class="kicker">Editorial Brochure</span>
+    <div class="domain">kavrochori.gr</div>
+  </div>
+  <div class="cover-content">
+    <h1>Μεζονέτα<br>με διαμέρισμα κήπου.</h1>
+    <div class="cover-rule"></div>
+    <div class="location">Καβροχώρι · Ηράκλειο Κρήτης</div>
+    <div class="cover-meta" style="margin-top:6mm;">172 + 90 τ.μ. · Οικόπεδο 617 τ.μ. · Έτος κατασκευής 1998</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 2 — INTRO ESSAY ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Εισαγωγή</span>
+  <h2>Ένα σπίτι<br>στο Καβροχώρι.</h2>
+  <p class="lede">Μαρμάρινα δάπεδα και στους τρεις ορόφους, μια κλειστή βεράντα με ξύλινο ταβάνι και θέα στα βουνά, ένας ξυλόφουρνος κάτω από λεμονιά, και ένα διαμέρισμα κήπου με δικιά του είσοδο. Όλα σε ένα οικόπεδο 617 τετραγωνικών στον δυτικό άξονα του Ηρακλείου.</p>
+  <p>Η κατοικία ολοκληρώθηκε το 1998, με οικοδομική άδεια εκδομένη το 1996 υπό τον αναθεωρημένο αντισεισμικό κανονισμό που ακολούθησε τη μεταρρύθμιση του 1985. Σκυρόδεμα και τουβλοδομή, μάρμαρο εσωτερικά, ολοκληρωμένα τελειώματα — σχεδόν τρεις δεκαετίες αργότερα στέκεται χωρίς να έχει χρειαστεί καμία σημαντική επισκευή.</p>
+  <p>Το Καβροχώρι δεν είναι παραθαλάσσιο θέρετρο και δεν είναι προάστιο. Είναι ένα ζωντανό χωριό της επαρχίας Μαλεβιζίου, με σχολείο, παιδικό σταθμό, καφενείο, φούρνο και κατάστημα. Επτά λεπτά οδικώς δυτικά βρίσκεται το ΠΑΓΝΗ, δεκαπέντε το κέντρο της πόλης, είκοσι το αεροδρόμιο. Η Κνωσός είναι σε εικοσάλεπτη απόσταση. Τα βουνά του Μαλεβιζίου φαίνονται από τα μπαλκόνια.</p>
+  <p>Στις σελίδες που ακολουθούν περιγράφουμε όσα δεν φαίνονται από έναν χάρτη: τους χώρους, τον κήπο, τις υποδομές, τα έγγραφα. Είναι ένα σπίτι κατοικήσιμο σήμερα, με τα στοιχεία του σε τάξη, και έτοιμο για μεταβίβαση.</p>
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>02</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 3 — PHOTO: STREET FAÇADE ───────────────────────── -->
+<section class="page photo">
+  <img src="images/exterior-street.jpg" alt="Πρόσοψη">
+  <div class="caption">
+    <span class="kicker">Πρόσοψη</span>
+    <div class="text">Από τον δρόμο του χωριού. Ιδιωτικό οικόπεδο, χωρίς κοινούς τοίχους με γείτονες.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 4 — TWO RESIDENCES (text) ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Οι χώροι</span>
+  <h2>Δύο κατοικίες,<br>μία ιδιοκτησία.</h2>
+  <p>Η δομή του ακινήτου προσφέρει μια σπάνια ευελιξία. Στους δύο κύριους ορόφους εκτείνεται μια μεζονέτα 172 τετραγωνικών — σαλόνι, κουζίνα, τρία υπνοδωμάτια, μπάνιο και WC, με δύο μπαλκόνια στον επάνω όροφο. Στο επίπεδο του κήπου, με δική του είσοδο από την αυλή, ένα αυτόνομο διαμέρισμα 90 τετραγωνικών: σαλονοκουζίνα, δύο υπνοδωμάτια, πλήρες μπάνιο, κελάρι κρασιού.</p>
+  <p>Η διάταξη επιτρέπει τρεις σεναριακές χρήσεις χωρίς οικοδομικές μεταβολές — οικογενειακή κατοικία με ξενώνα, κύρια κατοικία με χώρο εξ αποστάσεως εργασίας, ή κατοικία με συμπληρωματικό εισόδημα από βραχυχρόνια μίσθωση.</p>
+
+  <h3>Α' όροφος · 105 τ.μ.</h3>
+  <p style="font-size:9.8pt;color:var(--text-muted);">Ενιαίο σαλόνι και κουζίνα · τραπεζαρία με ενεργειακό τζάκι · ένα υπνοδωμάτιο · WC επισκεπτών · κλειστή βεράντα με τζαμαρίες και θέα στα βουνά. Δευτερεύουσα είσοδος από το μπαλκόνι της κουζίνας, πλάι στην κύρια.</p>
+
+  <h3>Β' όροφος · 67 τ.μ.</h3>
+  <p style="font-size:9.8pt;color:var(--text-muted);">Δύο υπνοδωμάτια · μπάνιο · δύο μεγάλα μπαλκόνια προς το βουνό και τον κήπο.</p>
+
+  <h3>Ημιυπόγειο κήπου · 90 τ.μ. (+ 23 τ.μ. κελάρι κρασιού)</h3>
+  <p style="font-size:9.8pt;color:var(--text-muted);">Ξεχωριστή είσοδος · ενιαίος χώρος καθιστικού &amp; κουζίνας · δύο υπνοδωμάτια · πλήρες μπάνιο. Ταβάνια 3 μέτρων, μαρμάρινα δάπεδα, φυσικό φως. Λειτούργησε τρία συνεχόμενα χρόνια ως βραχυχρόνια μίσθωση.</p>
+
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>04</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 5 — PHOTO: LIVING GRAND ───────────────────────── -->
+<section class="page photo">
+  <img src="images/living-grand.jpg" alt="Κεντρικός χώρος">
+  <div class="caption">
+    <span class="kicker">Κεντρικός χώρος</span>
+    <div class="text">Μαρμάρινη σκάλα, καθιστικό με τζάκι, ροή προς την τραπεζαρία.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 6 — PHOTO: KITCHEN ───────────────────────── -->
+<section class="page photo">
+  <img src="images/kitchen.jpg" alt="Κουζίνα">
+  <div class="caption">
+    <span class="kicker">Κουζίνα</span>
+    <div class="text">Ξύλινα ντουλάπια, πάγκος γρανίτη, γυάλινο τραπέζι. Ανοίγει στον κεντρικό χώρο.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 7 — PHOTO: SUNROOM ───────────────────────── -->
+<section class="page photo">
+  <img src="images/sunroom-wood.jpg" alt="Κλειστή βεράντα">
+  <div class="caption">
+    <span class="kicker">Κλειστή βεράντα</span>
+    <div class="text">Τζαμαρίες ολόγυρα, ξύλινο ταβάνι, θέα στα βουνά του Μαλεβιζίου — χώρος ανάγνωσης ή γραφείο.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 8 — PHOTO: BEDROOM-BALCONY ───────────────────────── -->
+<section class="page photo">
+  <img src="images/bedroom-balcony.jpg" alt="Υπνοδωμάτιο με μπαλκόνι">
+  <div class="caption">
+    <span class="kicker">Β' Όροφος</span>
+    <div class="text">Υπνοδωμάτιο με εντοιχισμένες βιβλιοθήκες και πρόσβαση στο μπαλκόνι.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 9 — OUTDOOR (text) ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Ο εξωτερικός χώρος</span>
+  <h2>617 τετραγωνικά<br>ιδιωτικότητας.</h2>
+  <p class="lede">Ένα μεγάλο οικόπεδο μέσα στον οικισμό, κλειστό από τρεις πλευρές, χωρίς οπτική επαφή με γείτονες. Γρασίδι, ροδιές πλάι στις δύο εισόδους, πορτοκαλιές στο υπερυψωμένο κομμάτι του κήπου, και μια δάφνη στο κέντρο — μεγάλη όσο για να σηκώσει δεντρόσπιτο.</p>
+
+  <p>Στη μία γωνία, ένας λειτουργικός ξυλόφουρνος κάτω από τη λεμονιά, χτισμένος όπως οι παραδοσιακοί φούρνοι του χωριού — έτοιμος για ψωμί ή πίτσα. Δίπλα του, μια σκεπαστή πέργκολα για το καλοκαιρινό τραπέζι. Στην άλλη πλευρά, στεγασμένο γκαράζ τριών θέσεων με άνετη είσοδο από τον δευτερεύοντα δρόμο.</p>
+
+  <p>Το οικόπεδο επιτρέπει — από πλευράς πολεοδομίας και χωροθέτησης — την κατασκευή πισίνας. Το έδαφος είναι επίπεδο και η περίφραξη φυτεμένη. Για τις ανάγκες ποτίσματος του κήπου υπάρχει δεξαμενή 8 κυβικών μέτρων.</p>
+
+  <h3>Στοιχεία του κήπου</h3>
+  <p style="font-size:9.8pt;color:var(--text-muted);">— Δάφνη στο κέντρο, ροδιές πλάι στις εισόδους, πορτοκαλιές στο υπερυψωμένο κομμάτι, λεμονιά στον ξυλόφουρνο<br>— Λειτουργικός ξυλόφουρνος<br>— Σκεπαστή πέργκολα<br>— Στεγασμένο γκαράζ 3 θέσεων<br>— Δυνατότητα κατασκευής πισίνας<br>— Δεξαμενή νερού 8 κ.μ.</p>
+
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>09</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 10 — PHOTO: WOOD-OVEN ───────────────────────── -->
+<section class="page photo">
+  <img src="images/wood-oven.jpg" alt="Ξυλόφουρνος">
+  <div class="caption">
+    <span class="kicker">Ο κήπος</span>
+    <div class="text">Λειτουργικός ξυλόφουρνος κάτω από τη λεμονιά. Ψωμί, πίτσα, παρέα μαζεμένη.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 11 — PHOTO: TERRACE ───────────────────────── -->
+<section class="page photo">
+  <img src="images/terrace-covered.jpg" alt="Σκεπαστή βεράντα">
+  <div class="caption">
+    <span class="kicker">Βεράντα</span>
+    <div class="text">Σκεπαστός χώρος για το καλοκαιρινό τραπέζι, στραμμένος προς τον κήπο.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 12 — PHOTO: BASEMENT-OVERVIEW ───────────────────────── -->
+<section class="page photo">
+  <img src="images/basement-overview.jpg" alt="Διαμέρισμα κήπου">
+  <div class="caption">
+    <span class="kicker">Διαμέρισμα κήπου</span>
+    <div class="text">Ταβάνια τριών μέτρων, δικός του χώρος, δική του είσοδος από την αυλή.</div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 13 — SPECIFICATION ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Τα στοιχεία</span>
+  <h2>Στοιχεία ταυτότητας.</h2>
+  <p class="lede" style="font-size:13pt;">Όλα τα μετρήσιμα στοιχεία της κατοικίας σε μία σελίδα.</p>
+
+  <div class="spec-grid">
+    <div class="spec-row">
+      <div class="label">Τοποθεσία</div>
+      <div class="value">Καβροχώρι<small>Δ. Μαλεβιζίου, Π.Ε. Ηρακλείου</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Έτος κατασκευής</div>
+      <div class="value">1998<small>Άδεια οικοδόμησης 1996</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Οικόπεδο</div>
+      <div class="value">617 τ.μ.<small>Εντός οικισμού</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Συνολική επιφάνεια</div>
+      <div class="value">262 τ.μ.<small>172 (μεζονέτα) + 90 (διαμέρισμα κήπου)</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Α' όροφος</div>
+      <div class="value">105 τ.μ.<small>Σαλόνι, κουζίνα, 1 υ/δ, WC</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Β' όροφος</div>
+      <div class="value">67 τ.μ.<small>2 υ/δ, μπάνιο, 2 μπαλκόνια</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Ημιυπόγειο</div>
+      <div class="value">90 τ.μ. + 23<small>Αυτόνομο διαμέρισμα + κελάρι κρασιού</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Υπνοδωμάτια</div>
+      <div class="value">5 συνολικά<small>3 στη μεζονέτα · 2 στο διαμέρισμα</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Μπάνια</div>
+      <div class="value">2 + WC</div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Στάθμευση</div>
+      <div class="value">3 θέσεις<small>Στεγασμένο γκαράζ</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Θέρμανση</div>
+      <div class="value">Πετρέλαιο + τζάκι<small>Ενεργειακό τζάκι</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Ζεστό νερό</div>
+      <div class="value">Ηλιακό 200 L<small>Τριπλής απόδοσης (ήλιος, ρεύμα, καλοριφέρ) · 2026</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Νερό</div>
+      <div class="value">Δεξαμενή 8 κ.μ.</div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Ενεργειακή κλάση</div>
+      <div class="value">Γ<small>ΠΕΑ ισχύει έως 02/2032</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Αντισεισμικός κανονισμός</div>
+      <div class="value">Έκδοσης 1985<small>Άδεια υπό τον αναθεωρημένο κανονισμό</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Κατασκευή</div>
+      <div class="value">Σκυρόδεμα + τουβλοδομή<small>Χωρίς σημαντικές επισκευές</small></div>
+    </div>
+    <div class="spec-row">
+      <div class="label">Δάπεδα</div>
+      <div class="value">Μάρμαρο<small>Και στους 3 ορόφους</small></div>
+    </div>
+  </div>
+
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>13</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 14 — LOCATION ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Τοποθεσία</span>
+  <h2>Στον δυτικό άξονα<br>του Ηρακλείου.</h2>
+  <p class="lede">Το Καβροχώρι είναι ένα από τα χωριά του Δήμου Μαλεβιζίου — της περιοχής που απλώνεται από τη βορινή ακτή του Κρητικού πελάγους, με το Φόδελε και την Αγία Πελαγία, μέχρι τα βουνά στα δυτικά του Ηρακλείου.</p>
+
+  <p>Ένα ζωντανό χωριό με σχολείο, παιδικό σταθμό, καφενείο, φούρνο και κατάστημα μέσα στον οικισμό. Δύο μεγάλα σούπερ μάρκετ, φαρμακείο και ιατρικά κέντρα σε λιγότερο από πέντε χιλιόμετρα.</p>
+
+  <h3>Αποστάσεις (οδικώς)</h3>
+  <div class="distances">
+    <div class="distance-row"><span class="place">ΠΑΓΝΗ</span><span class="km">7'</span></div>
+    <div class="distance-row"><span class="place">Κνωσός</span><span class="km">20'</span></div>
+    <div class="distance-row"><span class="place">Κέντρο Ηρακλείου</span><span class="km">15'</span></div>
+    <div class="distance-row"><span class="place">Αεροδρόμιο Ν. Καζαντζάκης</span><span class="km">20'</span></div>
+    <div class="distance-row"><span class="place">Λιμάνι Ηρακλείου</span><span class="km">17'</span></div>
+    <div class="distance-row"><span class="place">Αμμουδάρα (παραλία)</span><span class="km">10'</span></div>
+    <div class="distance-row"><span class="place">Σούπερ μάρκετ</span><span class="km">5'</span></div>
+    <div class="distance-row"><span class="place">Φούρνος / καφενείο</span><span class="km">2' με τα πόδια</span></div>
+  </div>
+
+  <h3 style="margin-top:9mm;">Η περιοχή</h3>
+  <div class="distances">
+    <div class="distance-row"><span class="place">Φόδελε (Θεοτοκόπουλος)</span><span class="km">24'</span></div>
+    <div class="distance-row"><span class="place">Αγία Πελαγία (παραλίες)</span><span class="km">24'</span></div>
+    <div class="distance-row"><span class="place">Λυγαριά (όρμος)</span><span class="km">18'</span></div>
+    <div class="distance-row"><span class="place">Ρογδιά (ταβέρνες)</span><span class="km">18'</span></div>
+    <div class="distance-row"><span class="place">Μονή Σαββαθιανών</span><span class="km">27'</span></div>
+    <div class="distance-row"><span class="place">Στρούμπουλας (βουνό)</span><span class="km">21'</span></div>
+  </div>
+
+  <h3 style="margin-top:9mm;">Συγκοινωνία</h3>
+  <p style="font-size:9.8pt;color:var(--text-muted);">Τακτικά δρομολόγια αστικών &amp; υπεραστικών λεωφορείων στο κέντρο Ηρακλείου και στο αεροδρόμιο. Στάση εντός του χωριού.</p>
+
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>14</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 15 — DOCUMENTATION ───────────────────────── -->
+<section class="page text-page">
+  <span class="kicker">Τεκμηρίωση</span>
+  <h2>Έτοιμο για μεταβίβαση.</h2>
+  <p class="lede">Ο φάκελος εγγράφων είναι πλήρης και σε ισχύ — διαθέσιμος κατόπιν επικοινωνίας για υποψήφιους αγοραστές και τους νομικούς τους συμβούλους.</p>
+
+  <div class="doc-grid">
+    <div class="doc-card">
+      <h4>Τίτλοι ιδιοκτησίας</h4>
+      <p>Πλήρεις, καταχωρημένοι στο Υποθηκοφυλακείο Ηρακλείου. Συμβόλαιο αγοράς (1995), δηλωτικό παραχώρησης κοινόχρηστου χώρου (1996).</p>
+    </div>
+    <div class="doc-card">
+      <h4>Οικοδομική άδεια</h4>
+      <p>Εκδόθηκε το 1996 από την αρμόδια πολεοδομία. Υπό τον αναθεωρημένο αντισεισμικό κανονισμό '85.</p>
+    </div>
+    <div class="doc-card">
+      <h4>Τακτοποίηση Ν. 4495/2017</h4>
+      <p>Ολοκληρωμένη: τεχνική έκθεση, στατικός έλεγχος, κατόψεις (Κ1–Κ4), τομές (Τ1–Τ2), διάγραμμα κάλυψης (Δ1).</p>
+    </div>
+    <div class="doc-card">
+      <h4>Τοπογραφικό διάγραμμα</h4>
+      <p>Ενημερωμένο, Οκτώβριος 2025.</p>
+    </div>
+    <div class="doc-card">
+      <h4>Πιστοποιητικό Ενεργειακής Απόδοσης</h4>
+      <p>Κλάση Γ, σε ισχύ έως Φεβρουάριος 2032.</p>
+    </div>
+    <div class="doc-card">
+      <h4>Κτηματολόγιο</h4>
+      <p>Καταχωρημένο. ΚΑΕΚ διαθέσιμο κατόπιν αιτήματος.</p>
+    </div>
+  </div>
+
+  <div class="folio">
+    <span class="slug">Καβροχώρι · Ηράκλειο</span>
+    <span>15</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 16 — CONTACT (closing) ───────────────────────── -->
+<section class="page contact-page">
+  <span class="kicker">Επικοινωνία</span>
+  <h2>Μια συζήτηση<br>χωρίς δεσμεύσεις.</h2>
+
+  <p>Η πώληση πραγματοποιείται απευθείας από τους ιδιοκτήτες, χωρίς μεσίτη. Επικοινωνήστε για περισσότερες πληροφορίες, κατόψεις, τεχνικά έγγραφα ή για να κλείσετε κατ' ιδίαν επίσκεψη.</p>
+
+  <div class="price-block">
+    <div>
+      <div class="price-label">Τιμή πώλησης</div>
+      <div class="price-value">610.000 €<small>0 % προμήθεια μεσίτη</small></div>
+    </div>
+    <div>
+      <div class="price-label">Επικοινωνία</div>
+      <div class="price-value" style="font-size:14pt;line-height:1.4;">
+        <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>
+        <small>kavrochori.gr</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="domain-mark">
+    Καβροχώρι, Ηράκλειο Κρήτης · 2026
+  </div>
+</section>
+
+</body>
+</html>
