@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (Leaflet), Google Fonts, CARTO/OSM tiles. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self' https://api.binance.com wss://stream.binance.com:9443; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <title>Maison indépendante avec appartement de jardin autonome — Kavrochori, Héraklion, Crète</title>
@@ -171,6 +171,16 @@
     font-weight: 500;
     margin: 0 0 0.25rem;
   }
+  .hero-card-btc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-inline-start: 0.5rem;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-card-btc[hidden] { display: none; }
   .hero-card-size {
     color: var(--text-muted);
     font-size: 0.9rem;
@@ -603,6 +613,16 @@
     color: var(--text-muted);
     white-space: nowrap;
   }
+  .sticky-cta-btc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    opacity: 0.75;
+    white-space: nowrap;
+    margin-inline-start: 0.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .sticky-cta-btc[hidden] { display: none; }
   .sticky-cta-docs { display: flex; gap: 0.6rem; }
   .sticky-cta-doc {
     padding: 0.65rem 1rem;
@@ -882,12 +902,12 @@
     <p class="hero-card-location" lang="he">קאברוכורי, הרקליון, כרתים</p>
     <p class="hero-card-location" lang="fr">Kavrochori, Héraklion, Crète</p>
 
-    <p class="hero-card-price" lang="el">610.000 €</p>
-    <p class="hero-card-price" lang="en">€610,000</p>
-    <p class="hero-card-price" lang="de">610.000 €</p>
-    <p class="hero-card-price" lang="nl">€ 610.000</p>
-    <p class="hero-card-price" lang="he">‎610,000 €‎</p>
-    <p class="hero-card-price" lang="fr">610 000 €</p>
+    <p class="hero-card-price" lang="el">610.000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="en">€610,000<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="de">610.000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="nl">€ 610.000<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="he">‎610,000 €‎<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="fr">610 000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
 
     <p class="hero-card-size" lang="el">172 + 90 τ.μ. · οικόπεδο 617 τ.μ.</p>
     <p class="hero-card-size" lang="en">172 + 90 sqm · 617 sqm plot</p>
@@ -2313,12 +2333,12 @@
     <span class="sticky-cta-title" lang="he">מזונט עם דירת גן</span>
     <span class="sticky-cta-title" lang="fr">Maison avec appartement de jardin</span>
 
-    <span class="sticky-cta-price" lang="el">610.000 €</span>
-    <span class="sticky-cta-price" lang="en">€610,000</span>
-    <span class="sticky-cta-price" lang="de">610.000 €</span>
-    <span class="sticky-cta-price" lang="nl">€ 610.000</span>
-    <span class="sticky-cta-price" lang="he">‎610,000 €‎</span>
-    <span class="sticky-cta-price" lang="fr">610 000 €</span>
+    <span class="sticky-cta-price" lang="el">610.000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="en">€610,000<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="de">610.000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="nl">€ 610.000<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="he">‎610,000 €‎<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="fr">610 000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
   </div>
 
   <div class="sticky-cta-docs">
@@ -2383,6 +2403,84 @@
         update();
       }, { threshold: 0.15 }).observe(contactSection);
     }
+  })();
+</script>
+
+<script>
+  (function() {
+    const targets = document.querySelectorAll('[data-btc-eur]');
+    if (!targets.length) return;
+
+    const WS_URL = 'wss://stream.binance.com:9443/ws/btceur@bookTicker';
+    const REST_URL = 'https://api.binance.com/api/v3/ticker/price?symbol=BTCEUR';
+    const POLL_MS = 15000;
+
+    const fmt = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+      minimumFractionDigits: 8,
+      maximumFractionDigits: 8
+    });
+
+    function render(rate) {
+      if (!rate || !isFinite(rate) || rate <= 0) {
+        targets.forEach(el => { el.hidden = true; });
+        return;
+      }
+      targets.forEach(el => {
+        const eur = Number(el.dataset.btcEur);
+        if (!isFinite(eur) || eur <= 0) { el.hidden = true; return; }
+        const btc = eur / rate;
+        el.textContent = '≈ ' + fmt.format(btc) + ' ₿';
+        el.hidden = false;
+        el.setAttribute('aria-hidden', 'false');
+      });
+    }
+
+    let pollHandle = null;
+    let reconnectDelay = 1000;
+
+    function startPolling() {
+      if (pollHandle) return;
+      const poll = () => fetch(REST_URL, { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(j => {
+          const rate = parseFloat(j && j.price);
+          if (isFinite(rate) && rate > 0) render(rate);
+        })
+        .catch(() => {});
+      poll();
+      pollHandle = setInterval(poll, POLL_MS);
+    }
+
+    function stopPolling() {
+      if (pollHandle) { clearInterval(pollHandle); pollHandle = null; }
+    }
+
+    function connect() {
+      let ws;
+      try { ws = new WebSocket(WS_URL); }
+      catch (_) { startPolling(); return; }
+
+      ws.onopen = () => { reconnectDelay = 1000; stopPolling(); };
+      ws.onmessage = (ev) => {
+        try {
+          const d = JSON.parse(ev.data);
+          const bid = parseFloat(d.b);
+          const ask = parseFloat(d.a);
+          if (isFinite(bid) && isFinite(ask) && bid > 0 && ask > 0) {
+            render((bid + ask) / 2);
+          }
+        } catch (_) {}
+      };
+      ws.onerror = () => { try { ws.close(); } catch (_) {} };
+      ws.onclose = () => {
+        startPolling();
+        setTimeout(connect, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+      };
+    }
+
+    startPolling();
+    connect();
   })();
 </script>
 </body>
