@@ -17,12 +17,14 @@ any subdirectory.
 Usage: python3 sync_i18n.py
 """
 
+import datetime
 import os
 import re
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 MASTER = os.path.join(ROOT, "index.html")
+SITEMAP = os.path.join(ROOT, "sitemap.xml")
 
 VARIANTS = {
     "en": {
@@ -146,6 +148,23 @@ def generate_variant(master_html: str, lang: str, cfg: dict) -> str:
     return html
 
 
+def bump_sitemap_lastmod() -> None:
+    if not os.path.isfile(SITEMAP):
+        return
+    today = datetime.date.today().isoformat()
+    with open(SITEMAP, encoding="utf-8") as f:
+        xml = f.read()
+    new_xml = re.sub(
+        r"<lastmod>\d{4}-\d{2}-\d{2}</lastmod>",
+        f"<lastmod>{today}</lastmod>",
+        xml,
+    )
+    if new_xml != xml:
+        with open(SITEMAP, "w", encoding="utf-8") as f:
+            f.write(new_xml)
+        print(f"Bumped <lastmod> to {today} in {SITEMAP}")
+
+
 def main() -> int:
     if not os.path.isfile(MASTER):
         print(f"ERROR: master not found at {MASTER}", file=sys.stderr)
@@ -171,6 +190,7 @@ def main() -> int:
             f.write(variant)
         print(f"Wrote {outpath}")
 
+    bump_sitemap_lastmod()
     return 0
 
 

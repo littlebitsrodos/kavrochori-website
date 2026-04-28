@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (Leaflet), Google Fonts, CARTO/OSM tiles. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <title>Μεζονέτα με αυτόνομο διαμέρισμα — Ευρύτερη περιοχή Καβροχωρίου, Ηράκλειο Κρήτης</title>
 <meta name="description" content="Ανεξάρτητη κατοικία 262 τ.μ. σε οικόπεδο 617 τ.μ. στα δυτικά του Ηρακλείου. 7 λεπτά από ΠΑΓΝΗ, ΙΤΕ, Πανεπιστήμιο Κρήτης. Ιδανική για γιατρούς, ερευνητές, ακαδημαϊκούς.">
@@ -31,6 +34,7 @@
 <link rel="alternate" hreflang="nl" href="https://kavrochori.gr/nl/">
 <link rel="alternate" hreflang="he" href="https://kavrochori.gr/he/">
 <link rel="alternate" hreflang="x-default" href="https://kavrochori.gr/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
 <!-- Preload LCP hero image (responsive — mobile gets the 800w variant, desktop the full one). -->
@@ -2109,10 +2113,11 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Residence",
+  "@type": "RealEstateListing",
+  "url": "https://kavrochori.gr/",
   "name": "Μεζονέτα με αυτόνομο διαμέρισμα κήπου — Καβροχώρι Γαζίου",
   "description": "Ανεξάρτητη κατοικία 262 τ.μ. (μεζονέτα 172 τ.μ. + διαμέρισμα κήπου 90 τ.μ.) σε οικόπεδο 617 τ.μ. στα δυτικά του Ηρακλείου. 7 λεπτά από ΠΑΓΝΗ, ΙΤΕ, Πανεπιστήμιο Κρήτης. Ξυλόφουρνος, θέα βουνό, ενεργειακή κλάση Γ.",
-  "url": "https://kavrochori.gr/",
+  "datePosted": "2026-04-15",
   "image": [
     "https://kavrochori.gr/images/exterior-street.jpg",
     "https://kavrochori.gr/images/exterior-entrance.jpg",
@@ -2125,33 +2130,37 @@
     "https://kavrochori.gr/images/sunroom-wood.jpg",
     "https://kavrochori.gr/images/wood-oven.jpg"
   ],
-  "floorSize": {
-    "@type": "QuantitativeValue",
-    "value": 262,
-    "unitCode": "MTK"
-  },
-  "yearBuilt": 1998,
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Καβροχώρι, Γάζι",
-    "addressRegion": "Ηράκλειο Κρήτης",
-    "addressCountry": "GR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 35.308,
-    "longitude": 25.047
-  },
-  "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Wood-fired oven", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "3-car parking", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Self-contained apartment", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Oil central heating", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Solar water heater", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Three-phase power", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "Energy class C", "value": true }
-  ]
+  "mainEntity": {
+    "@type": "House",
+    "name": "Μεζονέτα με αυτόνομο διαμέρισμα κήπου",
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 262,
+      "unitCode": "MTK"
+    },
+    "yearBuilt": 1998,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Καβροχώρι, Γάζι",
+      "addressRegion": "Ηράκλειο Κρήτης",
+      "addressCountry": "GR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 35.308,
+      "longitude": 25.047
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Wood-fired oven", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "3-car parking", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Self-contained apartment", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Oil central heating", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Solar water heater", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Three-phase power", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Energy class C", "value": true }
+    ]
+  }
 }
 </script>
 
