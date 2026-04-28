@@ -80,7 +80,7 @@
   }
 
   /* Locale switching — same pattern as index.html */
-  body [lang="en"], body [lang="de"], body [lang="nl"], body [lang="he"] { display: none; }
+  body [lang="en"], body [lang="de"], body [lang="nl"], body [lang="he"], body [lang="fr"] { display: none; }
   body.en [lang="el"] { display: none; }
   body.en [lang="en"] { display: block; }
   body.de [lang="el"] { display: none; }
@@ -89,11 +89,14 @@
   body.nl [lang="nl"] { display: block; }
   body.he [lang="el"] { display: none; }
   body.he [lang="he"] { display: block; }
+  body.fr [lang="el"] { display: none; }
+  body.fr [lang="fr"] { display: block; }
 
   body span[lang="en"], body a[lang="en"],
   body span[lang="de"], body a[lang="de"],
   body span[lang="nl"], body a[lang="nl"],
-  body span[lang="he"], body a[lang="he"] { display: none; }
+  body span[lang="he"], body a[lang="he"],
+  body span[lang="fr"], body a[lang="fr"] { display: none; }
   body.en span[lang="el"], body.en a[lang="el"] { display: none; }
   body.en span[lang="en"], body.en a[lang="en"] { display: inline; }
   body.de span[lang="el"], body.de a[lang="el"] { display: none; }
@@ -102,6 +105,8 @@
   body.nl span[lang="nl"], body.nl a[lang="nl"] { display: inline; }
   body.he span[lang="el"], body.he a[lang="el"] { display: none; }
   body.he span[lang="he"], body.he a[lang="he"] { display: inline; }
+  body.fr span[lang="el"], body.fr a[lang="el"] { display: none; }
+  body.fr span[lang="fr"], body.fr a[lang="fr"] { display: inline; }
 
   body.he { direction: rtl; }
   body.he ul { padding-inline-start: 1.2rem; }
@@ -117,6 +122,7 @@
     <span lang="de">Datenschutzerklärung</span>
     <span lang="nl">Privacybeleid</span>
     <span lang="he">מדיניות פרטיות</span>
+    <span lang="fr">Politique de confidentialité</span>
   </p>
 
   <h1 lang="el">Πώς διαχειριζόμαστε τα στοιχεία σας</h1>
@@ -124,6 +130,7 @@
   <h1 lang="de">Wie wir mit Ihren Daten umgehen</h1>
   <h1 lang="nl">Hoe wij met uw gegevens omgaan</h1>
   <h1 lang="he">איך אנו מטפלים בנתונים שלכם</h1>
+  <h1 lang="fr" id="fr">Comment nous traitons vos données</h1>
 
   <!-- ============ EL ============ -->
   <div lang="el">
@@ -285,6 +292,38 @@
     <p>לשאלות בנושא פרטיות: <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a></p>
   </div>
 
+  <!-- ============ FR ============ -->
+  <div lang="fr">
+    <p><strong>kavrochori.gr</strong> est une page privée de présentation d'un seul bien résidentiel à la vente. Nous n'utilisons aucun outil d'analyse, aucun cookie et aucun traceur tiers.</p>
+
+    <h2>Quelles données nous collectons</h2>
+    <p>Uniquement ce que vous transmettez via le formulaire de contact :</p>
+    <ul>
+      <li>Nom</li>
+      <li>Adresse e-mail</li>
+      <li>Téléphone (facultatif)</li>
+      <li>Le contenu de votre message</li>
+    </ul>
+
+    <h2>Comment le formulaire est transmis</h2>
+    <p>Le formulaire est relayé via le service <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> et transféré à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit ne conserve pas le contenu du message après la transmission. Voir <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">la politique de confidentialité de FormSubmit</a>.</p>
+
+    <h2>Finalité</h2>
+    <p>Vos données servent uniquement à répondre à votre demande concernant le bien. Elles ne sont pas transmises à des agents immobiliers, ne sont pas ajoutées à des listes de diffusion et ne sont pas utilisées à des fins de marketing.</p>
+
+    <h2>Durée de conservation</h2>
+    <p>Jusqu'à la fin de l'échange ou la vente du bien — selon ce qui survient en premier. Les demandes sont ensuite supprimées de la boîte de réception.</p>
+
+    <h2>Vos droits (RGPD)</h2>
+    <p>Vous disposez d'un droit d'accès, de rectification et de suppression des données que vous nous avez transmises. Écrivez à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a> et nous vous répondrons dans un délai de 30 jours.</p>
+
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé sur GitHub Pages. Les serveurs de GitHub enregistrent les adresses IP à des fins de sécurité — nous n'avons pas accès à ces journaux.</p>
+
+    <h2>Contact</h2>
+    <p>Pour toute question relative à la confidentialité : <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a></p>
+  </div>
+
   <hr>
 
   <p class="meta">
@@ -293,6 +332,7 @@
     <span lang="de">Zuletzt aktualisiert: 28. April 2026</span>
     <span lang="nl">Laatst bijgewerkt: 28 april 2026</span>
     <span lang="he">עודכן לאחרונה: 28 באפריל 2026</span>
+    <span lang="fr">Dernière mise à jour : 28 avril 2026</span>
   </p>
 
   <a class="back" lang="el" href="/">← Επιστροφή στην αρχική</a>
@@ -300,13 +340,14 @@
   <a class="back" lang="de" href="/de/">← Zurück zur Startseite</a>
   <a class="back" lang="nl" href="/nl/">← Terug naar de startpagina</a>
   <a class="back" lang="he" href="/he/">← חזרה לעמוד הבית</a>
+  <a class="back" lang="fr" href="/fr/">← Retour à l'accueil</a>
 
 </main>
 
 <script>
   // Pick locale from URL hash (e.g. /privacy.html#en) → fall back to navigator.language → fall back to el.
   (function () {
-    var supported = ['el', 'en', 'de', 'nl', 'he'];
+    var supported = ['el', 'en', 'de', 'nl', 'he', 'fr'];
     var hash = (location.hash || '').replace('#', '').toLowerCase();
     var nav = (navigator.language || '').slice(0, 2).toLowerCase();
     var lang = supported.indexOf(hash) >= 0 ? hash

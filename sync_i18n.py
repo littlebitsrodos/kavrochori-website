@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-sync_i18n.py — regenerate en/, de/, nl/ from master index.html.
+sync_i18n.py — regenerate en/, de/, nl/, he/, fr/ from master index.html.
 
 Run this after editing the master index.html (Greek default) to keep
-the 3 language variants in sync. Each variant is a near-identical copy
+the language variants in sync. Each variant is a near-identical copy
 with:
   - <html lang="XX">
   - <body class="XX">
@@ -61,6 +61,14 @@ VARIANTS = {
         "og_title": "בית פרטי — קאברוכורי, הרקליון, כרתים",
         "og_description": "בית עצמאי עם דירת גן נפרדת במפלס התחתון. מגרש 617 מ״ר, טאבון עצים, נוף להרים.",
         "og_image_alt": "בית פרטי עם גן בקאברוכורי, הרקליון, כרתים",
+    },
+    "fr": {
+        "locale": "fr_FR",
+        "title": "Maison indépendante avec appartement de jardin autonome — Kavrochori, Héraklion, Crète",
+        "description": "Maison indépendante de 262 m² sur un terrain de 617 m² à l'ouest d'Héraklion. À 7 minutes du CHU (PAGNI), de FORTH et de l'Université de Crète. Idéale pour médecins, chercheurs et universitaires.",
+        "og_title": "Maison indépendante — Kavrochori, Héraklion, Crète",
+        "og_description": "Maison individuelle avec appartement de jardin autonome au niveau inférieur. Terrain de 617 m², four à bois, vue sur les montagnes.",
+        "og_image_alt": "Maison avec jardin à Kavrochori, Héraklion, Crète",
     },
 }
 
