@@ -386,10 +386,9 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 180px;
-    gap: 10px;
+    grid-auto-rows: 240px;
+    gap: 12px;
     margin-top: 2rem;
-    grid-auto-flow: dense;
   }
   .gallery-item {
     grid-column: span 4;
@@ -403,9 +402,6 @@
     position: relative;
   }
   .gallery-item picture { display: block; width: 100%; height: 100%; }
-  .gallery-item.large { grid-column: span 6; grid-row: span 2; }
-  .gallery-item.tall { grid-column: span 4; grid-row: span 2; }
-  .gallery-item.wide { grid-column: span 8; grid-row: span 1; }
   .gallery-item img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.5s ease;
@@ -437,9 +433,8 @@
   }
   .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 140px; }
-    .gallery-item { grid-column: span 3; }
-    .gallery-item.large, .gallery-item.tall, .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .gallery-item { grid-column: span 1; }
   }
 
   /* Lightbox */
@@ -1250,12 +1245,12 @@
       <h3 lang="nl">Drie jaar als kortetermijnverhuur</h3>
       <h3 lang="he">שלוש שנים כהשכרה לטווח קצר</h3>
       <h3 lang="fr">Trois ans en location courte durée</h3>
-      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως βραχυχρόνια μίσθωση για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες.</p>
-      <p lang="en">The garden-level apartment operated successfully as a short-term rental for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers.</p>
-      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Kurzzeitvermietung in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende.</p>
-      <p lang="nl">Het tuinappartement werd drie opeenvolgende jaren succesvol als kortetermijnverhuur geëxploiteerd en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers.</p>
-      <p lang="he">דירת הגן פעלה בהצלחה כהשכרה לטווח קצר במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים.</p>
-      <p lang="fr">L'appartement de jardin a été loué avec succès en location courte durée pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants.</p>
+      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως βραχυχρόνια μίσθωση για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες. Συμβάλλει η θέση — 15' από Ηράκλειο και Κνωσό, 10' από την παραλία της Αμμουδάρας.</p>
+      <p lang="en">The garden-level apartment operated successfully as a short-term rental for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers. Location helps — 15 min to Heraklion and Knossos, 10 min to Ammoudara beach.</p>
+      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Kurzzeitvermietung in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende. Die Lage trägt dazu bei — 15 Min. nach Heraklion und Knossos, 10 Min. zum Strand von Ammoudara.</p>
+      <p lang="nl">Het tuinappartement werd drie opeenvolgende jaren succesvol als kortetermijnverhuur geëxploiteerd en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers. De ligging helpt — 15 min van Heraklion en Knossos, 10 min van het strand van Ammoudara.</p>
+      <p lang="he">דירת הגן פעלה בהצלחה כהשכרה לטווח קצר במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים. גם המיקום מסייע — 15 דקות מהרקליון ומכנוסוס, 10 דקות מחוף אמודרה.</p>
+      <p lang="fr">L'appartement de jardin a été loué avec succès en location courte durée pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants. L'emplacement contribue — à 15 min d'Héraklion et de Knossos, à 10 min de la plage d'Ammoudara.</p>
       <div>
         <div class="stat">
           <span class="stat-num">3</span>
@@ -1708,12 +1703,12 @@
     <h2 lang="nl">Een dorp met<br>dagelijkse voorzieningen.</h2>
     <h2 lang="he">כפר עם שירותים,<br>לא מקום מבודד.</h2>
     <h2 lang="fr">Un village pleinement équipé,<br>pas un coin isolé.</h2>
-    <p class="section-intro" lang="el">Το Καβροχώρι έχει τα πάντα σε περπατήσιμη απόσταση — και το αυτοκίνητο σε αφήνει στο κέντρο του Ηρακλείου σε 15 λεπτά.</p>
-    <p class="section-intro" lang="en">Kavrochori has everything within walking distance — with Heraklion city centre 15 minutes away by car.</p>
-    <p class="section-intro" lang="de">Kavrochori hat alles in Gehweite — und das Stadtzentrum Heraklions ist 15 Minuten mit dem Auto entfernt.</p>
-    <p class="section-intro" lang="nl">Kavrochori heeft alles op loopafstand — met het centrum van Heraklion op 15 minuten rijden.</p>
-    <p class="section-intro" lang="he">בקאברוכורי הכול במרחק הליכה — ומרכז הרקליון נמצא במרחק 15 דקות נסיעה ברכב.</p>
-    <p class="section-intro" lang="fr">À Kavrochori, tout est à distance de marche — et le centre-ville d'Héraklion n'est qu'à 15 minutes en voiture.</p>
+    <p class="section-intro" lang="el">Το Καβροχώρι έχει τα πάντα σε περπατήσιμη απόσταση — και το αυτοκίνητο σε αφήνει στο κέντρο του Ηρακλείου σε 15 λεπτά. Δίπλα στο Γάζι, το αναπτυσσόμενο δυτικό προάστιο του Ηρακλείου και κέντρο του Δήμου Μαλεβιζίου· σε 10 λεπτά η παραλία της Αμμουδάρας.</p>
+    <p class="section-intro" lang="en">Kavrochori has everything within walking distance — with Heraklion city centre 15 minutes away by car. Adjacent to Gazi, Heraklion's growing western suburb and the hub of the Municipality of Malevizi; Ammoudara beach is 10 minutes away.</p>
+    <p class="section-intro" lang="de">Kavrochori hat alles in Gehweite — und das Stadtzentrum Heraklions ist 15 Minuten mit dem Auto entfernt. Direkt neben Gazi, dem wachsenden westlichen Vorort Heraklions und Zentrum der Gemeinde Malevizi; der Strand von Ammoudara ist in 10 Minuten erreichbar.</p>
+    <p class="section-intro" lang="nl">Kavrochori heeft alles op loopafstand — met het centrum van Heraklion op 15 minuten rijden. Naast Gazi, de groeiende westelijke voorstad van Heraklion en het centrum van de gemeente Malevizi; het strand van Ammoudara ligt op 10 minuten.</p>
+    <p class="section-intro" lang="he">בקאברוכורי הכול במרחק הליכה — ומרכז הרקליון נמצא במרחק 15 דקות נסיעה ברכב. סמוך לגאזי, הפרבר המערבי המתפתח של הרקליון ומרכז עיריית מאלביזי; חוף אמודרה במרחק 10 דקות.</p>
+    <p class="section-intro" lang="fr">À Kavrochori, tout est à distance de marche — et le centre-ville d'Héraklion n'est qu'à 15 minutes en voiture. Adjacent à Gazi, la banlieue ouest d'Héraklion en pleine croissance et le centre du dème de Malévizi ; la plage d'Ammoudara est à 10 minutes.</p>
 
     <div class="neighborhood-list">
       <div class="neigh-item">
@@ -1758,6 +1753,20 @@
         <span lang="fr">Dans le village</span>
       </div>
       <div class="neigh-item">
+        <strong lang="el">Ταβέρνες</strong>
+        <strong lang="en">Tavernas</strong>
+        <strong lang="de">Tavernen</strong>
+        <strong lang="nl">Taverna's</strong>
+        <strong lang="he">טברנות</strong>
+        <strong lang="fr">Tavernes</strong>
+        <span lang="el">Στο χωριό &amp; τριγύρω</span>
+        <span lang="en">In &amp; around the village</span>
+        <span lang="de">Im Dorf &amp; in der Umgebung</span>
+        <span lang="nl">In en rond het dorp</span>
+        <span lang="he">בכפר ובסביבה</span>
+        <span lang="fr">Au village &amp; aux alentours</span>
+      </div>
+      <div class="neigh-item">
         <strong lang="el">Λεωφορείο προς Ηράκλειο</strong>
         <strong lang="en">Bus to Heraklion</strong>
         <strong lang="de">Bus nach Heraklion</strong>
@@ -1770,6 +1779,20 @@
         <span lang="nl">Dagelijkse dienst</span>
         <span lang="he">שירות יומי</span>
         <span lang="fr">Service quotidien</span>
+      </div>
+      <div class="neigh-item">
+        <strong lang="el">Παραλία Αμμουδάρα</strong>
+        <strong lang="en">Ammoudara beach</strong>
+        <strong lang="de">Strand von Ammoudara</strong>
+        <strong lang="nl">Strand van Ammoudara</strong>
+        <strong lang="he">חוף אמודרה</strong>
+        <strong lang="fr">Plage d'Ammoudara</strong>
+        <span lang="el">10 λεπτά με αυτοκίνητο</span>
+        <span lang="en">10 min by car</span>
+        <span lang="de">10 Min. mit dem Auto</span>
+        <span lang="nl">10 min met de auto</span>
+        <span lang="he">10 דק׳ ברכב</span>
+        <span lang="fr">10 min en voiture</span>
       </div>
       <div class="neigh-item">
         <strong lang="el">Ατμόσφαιρα</strong>

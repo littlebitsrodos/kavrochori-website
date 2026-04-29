@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (Leaflet), Google Fonts, CARTO/OSM tiles. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self' https://api.binance.com wss://stream.binance.com:9443; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <title>בית פרטי עם דירת גן עצמאית — קאברוכורי, הרקליון, כרתים</title>
@@ -171,6 +171,16 @@
     font-weight: 500;
     margin: 0 0 0.25rem;
   }
+  .hero-card-btc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-inline-start: 0.5rem;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-card-btc[hidden] { display: none; }
   .hero-card-size {
     color: var(--text-muted);
     font-size: 0.9rem;
@@ -357,7 +367,7 @@
     margin: 0;
   }
 
-  /* Airbnb highlight */
+  /* Short-term rental highlight */
   .highlight-box {
     background: var(--accent-dark);
     color: #fff;
@@ -376,13 +386,13 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 180px;
-    gap: 10px;
+    grid-auto-rows: 130px;
+    gap: 8px;
     margin-top: 2rem;
     grid-auto-flow: dense;
   }
   .gallery-item {
-    grid-column: span 4;
+    grid-column: span 3;
     grid-row: span 1;
     overflow: hidden;
     border-radius: 6px;
@@ -394,8 +404,8 @@
   }
   .gallery-item picture { display: block; width: 100%; height: 100%; }
   .gallery-item.large { grid-column: span 6; grid-row: span 2; }
-  .gallery-item.tall { grid-column: span 4; grid-row: span 2; }
-  .gallery-item.wide { grid-column: span 8; grid-row: span 1; }
+  .gallery-item.tall { grid-column: span 3; grid-row: span 2; }
+  .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
   .gallery-item img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.5s ease;
@@ -427,9 +437,10 @@
   }
   .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 140px; }
+    .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 110px; }
     .gallery-item { grid-column: span 3; }
-    .gallery-item.large, .gallery-item.tall, .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
+    .gallery-item.large { grid-column: span 6; grid-row: span 2; }
+    .gallery-item.tall, .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
   }
 
   /* Lightbox */
@@ -603,6 +614,16 @@
     color: var(--text-muted);
     white-space: nowrap;
   }
+  .sticky-cta-btc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    opacity: 0.75;
+    white-space: nowrap;
+    margin-inline-start: 0.4rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .sticky-cta-btc[hidden] { display: none; }
   .sticky-cta-docs { display: flex; gap: 0.6rem; }
   .sticky-cta-doc {
     padding: 0.65rem 1rem;
@@ -882,12 +903,12 @@
     <p class="hero-card-location" lang="he">קאברוכורי, הרקליון, כרתים</p>
     <p class="hero-card-location" lang="fr">Kavrochori, Héraklion, Crète</p>
 
-    <p class="hero-card-price" lang="el">610.000 €</p>
-    <p class="hero-card-price" lang="en">€610,000</p>
-    <p class="hero-card-price" lang="de">610.000 €</p>
-    <p class="hero-card-price" lang="nl">€ 610.000</p>
-    <p class="hero-card-price" lang="he">‎610,000 €‎</p>
-    <p class="hero-card-price" lang="fr">610 000 €</p>
+    <p class="hero-card-price" lang="el">610.000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="en">€610,000<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="de">610.000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="nl">€ 610.000<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="he">‎610,000 €‎<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
+    <p class="hero-card-price" lang="fr">610 000 €<span class="hero-card-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></p>
 
     <p class="hero-card-size" lang="el">172 + 90 τ.μ. · οικόπεδο 617 τ.μ.</p>
     <p class="hero-card-size" lang="en">172 + 90 sqm · 617 sqm plot</p>
@@ -1042,12 +1063,12 @@
         <h3 lang="nl">Uitstekende bouwkwaliteit</h3>
         <h3 lang="he">בנייה יוצאת מן הכלל</h3>
         <h3 lang="fr">Construction soignée</h3>
-        <p lang="el">Πέτρα, μπετόν, ολοκληρωμένες λεπτομέρειες — μια κατασκευή που διατηρείται μέχρι σήμερα χωρίς σημαντικές επισκευές.</p>
-        <p lang="en">Stone, concrete, complete finishes — a build that still stands today without major repairs.</p>
-        <p lang="de">Stein, Beton, sorgfältige Details — ein Bau, der heute noch ohne größere Reparaturen Bestand hat.</p>
-        <p lang="nl">Steen, beton, doorwrochte details — een bouw die vandaag nog staat zonder grote reparaties.</p>
-        <p lang="he">אבן, בטון וגימורים מוקפדים — מבנה שעומד היום על תלו ללא תיקונים משמעותיים.</p>
-        <p lang="fr">Pierre, béton, finitions complètes — un bâtiment toujours debout aujourd'hui sans réparations majeures.</p>
+        <p lang="el">Σκυρόδεμα, τουβλοδομή, μαρμάρινα δάπεδα και στους τρεις ορόφους — μια κατασκευή που διατηρείται μέχρι σήμερα χωρίς σημαντικές επισκευές.</p>
+        <p lang="en">Concrete frame, brick infill, marble floors on all three levels — a build that still stands today without major repairs.</p>
+        <p lang="de">Stahlbetonkonstruktion, Ziegelmauerwerk, Marmorböden auf allen drei Ebenen — ein Bau, der heute noch ohne größere Reparaturen Bestand hat.</p>
+        <p lang="nl">Betonconstructie, baksteenmuren, marmeren vloeren op alle drie de niveaus — een bouw die vandaag nog staat zonder grote reparaties.</p>
+        <p lang="he">שלד בטון, קירות לבנים, רצפות שיש בכל שלוש הקומות — מבנה שעומד היום על תלו ללא תיקונים משמעותיים.</p>
+        <p lang="fr">Structure en béton, briques, sols en marbre sur les trois niveaux — un bâtiment toujours debout aujourd'hui sans réparations majeures.</p>
       </article>
     </div>
   </div>
@@ -1202,12 +1223,12 @@
           <li lang="nl">3 m plafondhoogte, natuurlijk licht</li>
           <li lang="he">תקרות בגובה 3 מטרים, אור טבעי</li>
           <li lang="fr">Plafonds de 3 m, lumière naturelle</li>
-          <li lang="el">Αποθήκη 23 τ.μ.</li>
-          <li lang="en">23 sqm storage</li>
-          <li lang="de">23 m² Abstellraum</li>
-          <li lang="nl">23 m² bergruimte</li>
-          <li lang="he">מחסן בשטח 23 מ״ר</li>
-          <li lang="fr">Réserve de 23 m²</li>
+          <li lang="el">Κελάρι κρασιού 23 τ.μ.</li>
+          <li lang="en">23 sqm wine cellar</li>
+          <li lang="de">23 m² Weinkeller</li>
+          <li lang="nl">23 m² wijnkelder</li>
+          <li lang="he">מרתף יין בשטח 23 מ״ר</li>
+          <li lang="fr">Cave à vin de 23 m²</li>
         </ul>
       </div>
     </div>
@@ -1224,18 +1245,18 @@
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="nl">Bewezen inkomsten</span>
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="he">הכנסה מוכחת</span>
       <span style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.75;" lang="fr">Revenus avérés</span>
-      <h3 lang="el">Τρία χρόνια ως Airbnb</h3>
-      <h3 lang="en">Three years as an Airbnb</h3>
-      <h3 lang="de">Drei Jahre als Airbnb</h3>
-      <h3 lang="nl">Drie jaar als Airbnb</h3>
-      <h3 lang="he">שלוש שנים כ-Airbnb</h3>
-      <h3 lang="fr">Trois ans en location Airbnb</h3>
-      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως Airbnb για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες.</p>
-      <p lang="en">The garden-level apartment operated successfully as an Airbnb for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers.</p>
-      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Airbnb in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende.</p>
-      <p lang="nl">Het tuinappartement werkte drie opeenvolgende jaren succesvol als Airbnb en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers.</p>
-      <p lang="he">דירת הגן פעלה בהצלחה כ-Airbnb במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים.</p>
-      <p lang="fr">L'appartement de jardin a été loué avec succès sur Airbnb pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants.</p>
+      <h3 lang="el">Τρία χρόνια βραχυχρόνιας μίσθωσης</h3>
+      <h3 lang="en">Three years as a short-term rental</h3>
+      <h3 lang="de">Drei Jahre als Kurzzeitvermietung</h3>
+      <h3 lang="nl">Drie jaar als kortetermijnverhuur</h3>
+      <h3 lang="he">שלוש שנים כהשכרה לטווח קצר</h3>
+      <h3 lang="fr">Trois ans en location courte durée</h3>
+      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως βραχυχρόνια μίσθωση για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες.</p>
+      <p lang="en">The garden-level apartment operated successfully as a short-term rental for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers.</p>
+      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Kurzzeitvermietung in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende.</p>
+      <p lang="nl">Het tuinappartement werd drie opeenvolgende jaren succesvol als kortetermijnverhuur geëxploiteerd en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers.</p>
+      <p lang="he">דירת הגן פעלה בהצלחה כהשכרה לטווח קצר במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים.</p>
+      <p lang="fr">L'appartement de jardin a été loué avec succès en location courte durée pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants.</p>
       <div>
         <div class="stat">
           <span class="stat-num">3</span>
@@ -1284,12 +1305,12 @@
     <h2 lang="nl">617 vierkante meter privacy.</h2>
     <h2 lang="he">617 מטרים רבועים של פרטיות.</h2>
     <h2 lang="fr">617 mètres carrés d'intimité.</h2>
-    <p class="section-intro" lang="el">Μεγάλο οικόπεδο μέσα στον οικισμό, κλειστό από τρεις πλευρές, χωρίς οπτική επαφή με γείτονες. Γρασίδι, μεγάλη δάφνη στο κέντρο, λεμονιές και πορτοκαλιές κατά μήκος της περίφραξης.</p>
-    <p class="section-intro" lang="en">A rare in-village plot, enclosed on three sides with no line of sight to neighbours. Lawn, a mature laurel tree at the centre, lemon and orange trees along the perimeter.</p>
-    <p class="section-intro" lang="de">Ein seltenes innerörtliches Grundstück, von drei Seiten eingezäunt, ohne Sichtverbindung zu Nachbarn. Rasen, ein alter Lorbeerbaum in der Mitte, Zitronen- und Orangenbäume entlang der Einfriedung.</p>
-    <p class="section-intro" lang="nl">Een zeldzaam perceel midden in het dorp, omsloten aan drie zijden zonder zichtlijnen naar buren. Gazon, een volwassen laurierboom in het midden, citroen- en sinaasappelbomen langs de omheining.</p>
-    <p class="section-intro" lang="he">מגרש גדול בתוך הכפר, סגור משלושה צדדים ללא קשר עין עם השכנים. דשא, עץ דפנה בוגר במרכז, ועצי לימון ותפוז לאורך הגדר.</p>
-    <p class="section-intro" lang="fr">Un terrain rare en centre-village, clos sur trois côtés, sans vis-à-vis. Pelouse, un grand laurier au centre, citronniers et orangers le long de la clôture.</p>
+    <p class="section-intro" lang="el">Μεγάλο οικόπεδο μέσα στον οικισμό, κλειστό από τρεις πλευρές, χωρίς οπτική επαφή με γείτονες. Γρασίδι, ροδιές πλάι στις δύο εισόδους, πορτοκαλιές στο υπερυψωμένο κομμάτι του κήπου, και μια δάφνη στο κέντρο — μεγάλη όσο για να σηκώσει δεντρόσπιτο.</p>
+    <p class="section-intro" lang="en">A rare in-village plot, enclosed on three sides with no line of sight to neighbours. Lawn, pomegranate trees by both entrances, orange trees on the raised section, and a laurel at the centre — large enough to hold a treehouse.</p>
+    <p class="section-intro" lang="de">Ein seltenes innerörtliches Grundstück, von drei Seiten eingezäunt, ohne Sichtverbindung zu Nachbarn. Rasen, Granatapfelbäume an beiden Eingängen, Orangenbäume auf der erhöhten Fläche und ein Lorbeerbaum in der Mitte — groß genug für ein Baumhaus.</p>
+    <p class="section-intro" lang="nl">Een zeldzaam perceel midden in het dorp, omsloten aan drie zijden zonder zichtlijnen naar buren. Gazon, granaatappelbomen bij beide ingangen, sinaasappelbomen op het verhoogde deel, en een laurierboom in het midden — groot genoeg voor een boomhut.</p>
+    <p class="section-intro" lang="he">מגרש גדול בתוך הכפר, סגור משלושה צדדים ללא קשר עין עם השכנים. דשא, עצי רימון משני הכניסות, עצי תפוז במפלס המוגבה, ועץ דפנה במרכז — גדול מספיק לבית עץ.</p>
+    <p class="section-intro" lang="fr">Un terrain rare en centre-village, clos sur trois côtés, sans vis-à-vis. Pelouse, grenadiers près des deux entrées, orangers sur la partie surélevée, et un laurier au centre — assez grand pour accueillir une cabane.</p>
 
     <div class="features-grid">
       <div class="feature">
@@ -1379,7 +1400,7 @@
         <picture>
           <source type="image/webp" srcset="/images/thumbs/exterior-street.webp 640w, /images/exterior-street.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/exterior-street.jpg 640w, /images/exterior-street.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/exterior-street.jpg" alt="Two-story stone-and-stucco house with garden, viewed from the village street" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/exterior-street.jpg" data-thumb="/images/thumbs/exterior-street.jpg" data-caption-el="Πρόσοψη της κατοικίας από τον δρόμο του χωριού" data-caption-en="Street-side façade of the house with garden" data-caption-de="Straßenseitige Fassade des Hauses mit Garten" data-caption-nl="Straatzijde van het huis met tuin" data-caption-he="חזית הבית מצד רחוב הכפר" data-caption-fr="Façade côté rue avec jardin">
+          <img src="/images/exterior-street.jpg" alt="Two-story house with garden, viewed from the village street" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/exterior-street.jpg" data-thumb="/images/thumbs/exterior-street.jpg" data-caption-el="Πρόσοψη της κατοικίας από τον δρόμο του χωριού" data-caption-en="Street-side façade of the house with garden" data-caption-de="Straßenseitige Fassade des Hauses mit Garten" data-caption-nl="Straatzijde van het huis met tuin" data-caption-he="חזית הבית מצד רחוב הכפר" data-caption-fr="Façade côté rue avec jardin">
         </picture>
         <span class="gallery-caption" lang="el">Πρόσοψη</span><span class="gallery-caption" lang="en">Façade</span><span class="gallery-caption" lang="de">Fassade</span><span class="gallery-caption" lang="nl">Gevel</span><span class="gallery-caption" lang="he">חזית</span><span class="gallery-caption" lang="fr">Façade</span>
       </div>
@@ -1395,17 +1416,17 @@
         <picture>
           <source type="image/webp" srcset="/images/thumbs/sunroom-wood.webp 640w, /images/sunroom-wood.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/sunroom-wood.jpg 640w, /images/sunroom-wood.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/sunroom-wood.jpg" alt="Enclosed sunroom gallery with exposed timber ceiling and Cretan mountain views" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-wood.jpg" data-thumb="/images/thumbs/sunroom-wood.jpg" data-caption-el="Κλειστή γαλαρία με ξύλινη οροφή και θέα βουνών" data-caption-en="Enclosed gallery with timber ceiling and mountain views" data-caption-de="Überdachte Galerie mit Holzdecke und Bergblick" data-caption-nl="Overdekte galerij met houten plafond en bergzicht" data-caption-he="גלריה סגורה עם תקרת עץ ונוף להרים" data-caption-fr="Véranda close avec plafond en bois et vue montagne">
+          <img src="/images/sunroom-wood.jpg" alt="Enclosed sunroom with exposed timber ceiling and Cretan mountain views" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-wood.jpg" data-thumb="/images/thumbs/sunroom-wood.jpg" data-caption-el="Κλειστή βεράντα με ξύλινο ταβάνι και θέα βουνών" data-caption-en="Sunroom with timber ceiling and mountain views" data-caption-de="Wintergarten mit Holzdecke und Bergblick" data-caption-nl="Wintertuin met houten plafond en bergzicht" data-caption-he="חדר שמש עם תקרת עץ ונוף להרים" data-caption-fr="Véranda close avec plafond en bois et vue montagne">
         </picture>
-        <span class="gallery-caption" lang="el">Ξύλινη γαλαρία</span><span class="gallery-caption" lang="en">Wooden gallery</span><span class="gallery-caption" lang="de">Holzgalerie</span><span class="gallery-caption" lang="nl">Houten galerij</span><span class="gallery-caption" lang="he">גלריה מעץ</span><span class="gallery-caption" lang="fr">Véranda en bois</span>
+        <span class="gallery-caption" lang="el">Κλειστή βεράντα</span><span class="gallery-caption" lang="en">Sunroom</span><span class="gallery-caption" lang="de">Wintergarten</span><span class="gallery-caption" lang="nl">Wintertuin</span><span class="gallery-caption" lang="he">חדר שמש</span><span class="gallery-caption" lang="fr">Véranda</span>
       </div>
       <div class="gallery-item" style="background-image:url('data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYwCdMoABilPnOglAQAD+z1mUeaP+qIkTCdqnBL9buJ/w879/iGf9aCrF5ElrVM3/QJ9x2w11j1RoZ71EQ4Atbi2wo3O7SHLpqC/HwH5Bd/t4Zkj/JesWBQQAAA==')">
         <picture>
           <source type="image/webp" srcset="/images/thumbs/sunroom-detail.webp 640w, /images/sunroom-detail.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/sunroom-detail.jpg 640w, /images/sunroom-detail.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/sunroom-detail.jpg" alt="Sunroom gallery with potted plants, opening onto the dining room" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-detail.jpg" data-thumb="/images/thumbs/sunroom-detail.jpg" data-caption-el="Γαλαρία με φυτά και θέα προς την τραπεζαρία" data-caption-en="Sunroom with plants, opening to the dining area" data-caption-de="Wintergarten mit Pflanzen, Blick zum Esszimmer" data-caption-nl="Wintertuin met planten, uitzicht op de eetkamer" data-caption-he="חדר שמש עם צמחים, נוף לפינת האוכל" data-caption-fr="Véranda avec plantes, ouverte sur la salle à manger">
+          <img src="/images/sunroom-detail.jpg" alt="Sunroom with potted plants, opening onto the dining room" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/sunroom-detail.jpg" data-thumb="/images/thumbs/sunroom-detail.jpg" data-caption-el="Κλειστή βεράντα με φυτά, θέα προς την τραπεζαρία" data-caption-en="Sunroom with plants, opening to the dining area" data-caption-de="Wintergarten mit Pflanzen, Blick zum Esszimmer" data-caption-nl="Wintertuin met planten, uitzicht op de eetkamer" data-caption-he="חדר שמש עם צמחים, נוף לפינת האוכל" data-caption-fr="Véranda avec plantes, ouverte sur la salle à manger">
         </picture>
-        <span class="gallery-caption" lang="el">Γαλαρία</span><span class="gallery-caption" lang="en">Sunroom</span><span class="gallery-caption" lang="de">Wintergarten</span><span class="gallery-caption" lang="nl">Wintertuin</span><span class="gallery-caption" lang="he">חדר שמש</span><span class="gallery-caption" lang="fr">Véranda</span>
+        <span class="gallery-caption" lang="el">Κλειστή βεράντα</span><span class="gallery-caption" lang="en">Sunroom</span><span class="gallery-caption" lang="de">Wintergarten</span><span class="gallery-caption" lang="nl">Wintertuin</span><span class="gallery-caption" lang="he">חדר שמש</span><span class="gallery-caption" lang="fr">Véranda</span>
       </div>
       <div class="gallery-item large" style="background-image:url('data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAA8APxFysFAsJqSisAgBgCIJYgC7FQgAVO5YsDnPNwhgAPI0DeMcAUkAOoq4yUdHoHKStSlTDLluUKf82Ddbpy9ImZPgkgqquXetAPkrK0ELZKOgLgLbg+oh9MJDFbg7VX1BO6bAjulkwAA=')">
         <picture>
@@ -1419,7 +1440,7 @@
         <picture>
           <source type="image/webp" srcset="/images/thumbs/living-fireplace.webp 640w, /images/living-fireplace.webp 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
           <source type="image/jpeg" srcset="/images/thumbs/living-fireplace.jpg 640w, /images/living-fireplace.jpg 1920w" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px">
-          <img src="/images/living-fireplace.jpg" alt="Spacious living room with stone fireplace and panoramic olive grove view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-fireplace.jpg" data-thumb="/images/thumbs/living-fireplace.jpg" data-caption-el="Καθιστικό με τζάκι και θέα ελαιώνα" data-caption-en="Living room with fireplace and olive grove view" data-caption-de="Wohnzimmer mit Kamin und Blick auf Olivenhain" data-caption-nl="Woonkamer met open haard en olijfboomgaardzicht" data-caption-he="סלון עם אח ונוף לחורשת זיתים" data-caption-fr="Salon avec cheminée et vue sur l'oliveraie">
+          <img src="/images/living-fireplace.jpg" alt="Spacious living room with fireplace and panoramic olive grove view" loading="lazy" decoding="async" width="1920" height="1440" data-full="/images/living-fireplace.jpg" data-thumb="/images/thumbs/living-fireplace.jpg" data-caption-el="Καθιστικό με τζάκι και θέα ελαιώνα" data-caption-en="Living room with fireplace and olive grove view" data-caption-de="Wohnzimmer mit Kamin und Blick auf Olivenhain" data-caption-nl="Woonkamer met open haard en olijfboomgaardzicht" data-caption-he="סלון עם אח ונוף לחורשת זיתים" data-caption-fr="Salon avec cheminée et vue sur l'oliveraie">
         </picture>
         <span class="gallery-caption" lang="el">Καθιστικό με τζάκι</span><span class="gallery-caption" lang="en">Living with fireplace</span><span class="gallery-caption" lang="de">Wohnzimmer mit Kamin</span><span class="gallery-caption" lang="nl">Woonkamer met haard</span><span class="gallery-caption" lang="he">סלון עם אח</span><span class="gallery-caption" lang="fr">Salon avec cheminée</span>
       </div>
@@ -2313,12 +2334,12 @@
     <span class="sticky-cta-title" lang="he">מזונט עם דירת גן</span>
     <span class="sticky-cta-title" lang="fr">Maison avec appartement de jardin</span>
 
-    <span class="sticky-cta-price" lang="el">610.000 €</span>
-    <span class="sticky-cta-price" lang="en">€610,000</span>
-    <span class="sticky-cta-price" lang="de">610.000 €</span>
-    <span class="sticky-cta-price" lang="nl">€ 610.000</span>
-    <span class="sticky-cta-price" lang="he">‎610,000 €‎</span>
-    <span class="sticky-cta-price" lang="fr">610 000 €</span>
+    <span class="sticky-cta-price" lang="el">610.000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="en">€610,000<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="de">610.000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="nl">€ 610.000<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="he">‎610,000 €‎<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
+    <span class="sticky-cta-price" lang="fr">610 000 €<span class="sticky-cta-btc" data-btc-eur="610000" hidden aria-hidden="true"></span></span>
   </div>
 
   <div class="sticky-cta-docs">
@@ -2383,6 +2404,84 @@
         update();
       }, { threshold: 0.15 }).observe(contactSection);
     }
+  })();
+</script>
+
+<script>
+  (function() {
+    const targets = document.querySelectorAll('[data-btc-eur]');
+    if (!targets.length) return;
+
+    const WS_URL = 'wss://stream.binance.com:9443/ws/btceur@bookTicker';
+    const REST_URL = 'https://api.binance.com/api/v3/ticker/price?symbol=BTCEUR';
+    const POLL_MS = 15000;
+
+    const fmt = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+      minimumFractionDigits: 8,
+      maximumFractionDigits: 8
+    });
+
+    function render(rate) {
+      if (!rate || !isFinite(rate) || rate <= 0) {
+        targets.forEach(el => { el.hidden = true; });
+        return;
+      }
+      targets.forEach(el => {
+        const eur = Number(el.dataset.btcEur);
+        if (!isFinite(eur) || eur <= 0) { el.hidden = true; return; }
+        const btc = eur / rate;
+        el.textContent = '≈ ' + fmt.format(btc) + ' ₿';
+        el.hidden = false;
+        el.setAttribute('aria-hidden', 'false');
+      });
+    }
+
+    let pollHandle = null;
+    let reconnectDelay = 1000;
+
+    function startPolling() {
+      if (pollHandle) return;
+      const poll = () => fetch(REST_URL, { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(j => {
+          const rate = parseFloat(j && j.price);
+          if (isFinite(rate) && rate > 0) render(rate);
+        })
+        .catch(() => {});
+      poll();
+      pollHandle = setInterval(poll, POLL_MS);
+    }
+
+    function stopPolling() {
+      if (pollHandle) { clearInterval(pollHandle); pollHandle = null; }
+    }
+
+    function connect() {
+      let ws;
+      try { ws = new WebSocket(WS_URL); }
+      catch (_) { startPolling(); return; }
+
+      ws.onopen = () => { reconnectDelay = 1000; stopPolling(); };
+      ws.onmessage = (ev) => {
+        try {
+          const d = JSON.parse(ev.data);
+          const bid = parseFloat(d.b);
+          const ask = parseFloat(d.a);
+          if (isFinite(bid) && isFinite(ask) && bid > 0 && ask > 0) {
+            render((bid + ask) / 2);
+          }
+        } catch (_) {}
+      };
+      ws.onerror = () => { try { ws.close(); } catch (_) {} };
+      ws.onclose = () => {
+        startPolling();
+        setTimeout(connect, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30000);
+      };
+    }
+
+    startPolling();
+    connect();
   })();
 </script>
 </body>
