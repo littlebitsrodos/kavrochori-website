@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<title>Μεζονέτα με αυτόνομο διαμέρισμα — Καβροχώρι, Ηράκλειο · Agency Pack</title>
+<meta name="description" content="Φάκελος συνεργασίας μεσίτη αγοραστή — μεζονέτα 172 τ.μ. με αυτόνομο διαμέρισμα κήπου 90 τ.μ. στο Καβροχώρι Ηρακλείου.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf7;
+    --bg-alt: #f2efe8;
+    --text: #2a2a28;
+    --text-muted: #6b6b66;
+    --accent: #5c6d4c;
+    --accent-dark: #3e4c32;
+    --terracotta: #b07d54;
+    --border: #d9d5c9;
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { background: var(--bg); }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+    overflow: hidden;
+    background: var(--bg);
+    padding: 18mm 18mm 14mm;
+    display: flex;
+    flex-direction: column;
+  }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+
+  .kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  /* ── HEADER ─────────────────────────────────────── */
+  .header { margin-bottom: 8mm; }
+  .header .kicker { margin-bottom: 4mm; }
+  .header h1 {
+    font-size: 28pt;
+    line-height: 1.05;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 2mm;
+  }
+  .header .subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10pt;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+  .header .domain {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--terracotta);
+    margin-top: 2mm;
+  }
+
+  hr.rule {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 5mm 0;
+  }
+
+  /* ── STAT GRID (big numbers) ────────────────────── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-row.secondary { border-top: 0; }
+  .stat {
+    padding: 6mm 4mm;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: 0; }
+  .stat .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26pt;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .stat.small .number { font-size: 18pt; }
+  .stat .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── SECTION ─────────────────────────────────────── */
+  section.block { margin-top: 7mm; }
+  section.block .kicker { margin-bottom: 3mm; display: block; }
+
+  /* ── TABLES ─────────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+  }
+  table thead th {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: left;
+    padding: 2mm 3mm 2mm 0;
+    border-bottom: 1px solid var(--border);
+  }
+  table thead th:last-child { text-align: right; padding-right: 0; }
+  table tbody td {
+    padding: 2.6mm 3mm 2.6mm 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table tbody tr:nth-child(even) td { background: var(--bg-alt); }
+  table tbody tr td:first-child { padding-left: 2mm; }
+  table tbody tr td:last-child {
+    text-align: right;
+    padding-right: 2mm;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11pt;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  table.levels tbody td:first-child { font-weight: 500; width: 32mm; }
+  table.levels tbody td:nth-child(2) { color: var(--text); }
+  table.distances tbody td:first-child { font-weight: 500; width: 110mm; }
+  table.distances tbody td:last-child { color: var(--terracotta); }
+
+  /* ── CHARACTERISTICS ─────────────────────────────── */
+  .chars {
+    columns: 2;
+    column-gap: 10mm;
+    margin-top: 1mm;
+  }
+  .chars p {
+    break-inside: avoid;
+    padding: 1.6mm 0;
+    font-size: 9pt;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  .chars p::before {
+    content: "·";
+    color: var(--terracotta);
+    margin-right: 2mm;
+    font-weight: 700;
+  }
+
+  /* ── STATUS TABLE ─────────────────────────────────── */
+  table.status tbody td:first-child { font-weight: 400; }
+  table.status tbody td:last-child {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    font-weight: 500;
+    color: var(--accent-dark);
+  }
+  table.status tbody td:last-child.pending {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── TERMS BLOCK ────────────────────────────────── */
+  .terms {
+    background: var(--bg-alt);
+    border-left: 3px solid var(--terracotta);
+    padding: 5mm 6mm;
+    margin-top: 3mm;
+  }
+  .terms h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 3mm;
+  }
+  .terms dl {
+    display: grid;
+    grid-template-columns: 50mm 1fr;
+    gap: 2.4mm 6mm;
+  }
+  .terms dt {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    padding-top: 0.5mm;
+  }
+  .terms dd {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* ── PRICE & CONTACT ─────────────────────────────── */
+  .price-block {
+    margin-top: 8mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10mm;
+    align-items: end;
+    padding-top: 6mm;
+    border-top: 1px solid var(--border);
+  }
+  .price-block .price-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 2mm;
+  }
+  .price-block .price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32pt;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .price-block .price-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    margin-top: 2mm;
+  }
+  .price-block .contact {
+    text-align: right;
+  }
+  .price-block .contact a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+  }
+  .price-block .contact .domain-link {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    color: var(--text-muted);
+    margin-top: 2mm;
+    border: 0;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────── */
+  .footer {
+    margin-top: auto;
+    padding-top: 6mm;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────────────────── PAGE 1 ───────────────────────── -->
+<section class="page">
+  <header class="header">
+    <span class="kicker">Ακίνητο προς πώληση · Συνεργασία με μεσίτη αγοραστή</span>
+    <h1>Μεζονέτα με αυτόνομο διαμέρισμα</h1>
+    <div class="subtitle">Ευρύτερη περιοχή Καβροχωρίου · Ηράκλειο · Κρήτη</div>
+    <div class="domain">kavrochori.gr</div>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat"><span class="number">262</span><span class="label">τ.μ. συνολικά</span></div>
+    <div class="stat"><span class="number">617</span><span class="label">τ.μ. οικόπεδο</span></div>
+    <div class="stat"><span class="number">1998</span><span class="label">έτος κατασκευής</span></div>
+    <div class="stat"><span class="number">Γ / C</span><span class="label">ενεργειακή κλάση</span></div>
+  </div>
+
+  <div class="stat-row secondary">
+    <div class="stat small"><span class="number">5</span><span class="label">υπνοδωμάτια</span></div>
+    <div class="stat small"><span class="number">3</span><span class="label">μπάνια / WC</span></div>
+    <div class="stat small"><span class="number">2</span><span class="label">θέσεις parking</span></div>
+    <div class="stat small"><span class="number">2</span><span class="label">αυτοτελείς κατοικίες</span></div>
+  </div>
+
+  <section class="block">
+    <span class="kicker">Επίπεδα &amp; Επιφάνειες</span>
+    <table class="levels">
+      <thead>
+        <tr><th>Επίπεδο</th><th>Χρήση</th><th>τ.μ.</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Α΄ Όροφος</td>
+          <td>Σαλόνι, κουζίνα, τραπεζαρία, 1 υπνοδωμάτιο, WC, κλειστή βεράντα</td>
+          <td>105</td>
+        </tr>
+        <tr>
+          <td>Β΄ Όροφος</td>
+          <td>2 υπνοδωμάτια, μπάνιο, 2 μπαλκόνια, θέα βουνό</td>
+          <td>67</td>
+        </tr>
+        <tr>
+          <td>Ημιυπόγειο</td>
+          <td>Αυτόνομο διαμέρισμα · 2 υπνοδ., πλήρες μπάνιο, ιδ. είσοδος</td>
+          <td>90</td>
+        </tr>
+        <tr>
+          <td>Κελάρι κρασιού</td>
+          <td>Βοηθητικός χώρος επιπέδου ημιυπογείου</td>
+          <td>23</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block">
+    <span class="kicker">Τοποθεσία &amp; Αποστάσεις</span>
+    <table class="distances">
+      <thead>
+        <tr><th>Προορισμός</th><th>ΙΧ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ΠΑΓΝΗ — Πανεπιστημιακό Νοσοκομείο</td><td>7΄</td></tr>
+        <tr><td>ΙΤΕ / FORTH · Πανεπιστήμιο Κρήτης</td><td>7΄</td></tr>
+        <tr><td>Κέντρο Ηρακλείου</td><td>15΄</td></tr>
+        <tr><td>Λιμάνι Ηρακλείου</td><td>17΄</td></tr>
+        <tr><td>Αμμουδάρα (παραλία)</td><td>10΄</td></tr>
+        <tr><td>Κνωσός</td><td>20΄</td></tr>
+        <tr><td>Αεροδρόμιο Ν. Καζαντζάκης</td><td>20΄</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="block">
+    <span class="kicker">Χαρακτηριστικά</span>
+    <div class="chars">
+      <p>Δύο αυτοτελείς κατοικίες σε μία ιδιοκτησία</p>
+      <p>Χωρίς κοινόχρηστους τοίχους με γείτονες</p>
+      <p>Σκυρόδεμα + τουβλοδομή · αντισεισμικός '85</p>
+      <p>Μαρμάρινα δάπεδα και στους 3 ορόφους</p>
+      <p>Ταβάνια 3 μέτρων στο ημιυπόγειο</p>
+      <p>Ενεργειακό τζάκι · κεντρική θέρμανση πετρελαίου</p>
+      <p>A/C σε όλα τα υπνοδωμάτια &amp; ενιαίο χώρο</p>
+      <p>Νέος ηλιακός 200 L τριπλής πηγής (2026)</p>
+      <p>Στεγασμένο γκαράζ 2 θέσεων</p>
+      <p>Λειτουργικός ξυλόφουρνος στον κήπο</p>
+      <p>Δάφνη, ροδιές, πορτοκαλιές, λεμονιά</p>
+      <p>Δεξαμενή νερού 8 κ.μ. (+ 1 κ.μ. στο δώμα)</p>
+      <p>Δυνατότητα κατασκευής πισίνας</p>
+      <p>3 χρόνια ως βραχυχρόνια μίσθωση (Πάσχα–Οκτ.)</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span>Καβροχώρι · Ηράκλειο</span>
+    <span>kavrochori.gr · 1/2</span>
+  </div>
+</section>
+
+<!-- ───────────────────────── PAGE 2 ───────────────────────── -->
+<section class="page">
+  <section class="block" style="margin-top:0;">
+    <span class="kicker">Νομικό &amp; Τεχνικό Προφίλ</span>
+    <table class="status">
+      <tbody>
+        <tr><td>Τίτλοι ιδιοκτησίας</td><td>Σε τάξη</td></tr>
+        <tr><td>Τοπογραφικό διάγραμμα</td><td>Ενημερωμένο, Οκτ. 2025</td></tr>
+        <tr><td>Τακτοποίηση Ν. 4495/2017</td><td>Ολοκληρωμένη</td></tr>
+        <tr><td>Πιστοποιητικό Ενεργειακής Απόδοσης</td><td>Κλάση Γ · ισχύει έως 02/2032</td></tr>
+        <tr><td>Δήλωση Ε9</td><td>Σε τάξη</td></tr>
+        <tr><td>Ηλεκτρονική Ταυτότητα Κτιρίου (ΗΤΚ)</td><td class="pending">Σε εξέλιξη</td></tr>
+        <tr><td>Κτηματολόγιο</td><td class="pending">Σε εξέλιξη</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:8.5pt;color:var(--text-muted);margin-top:3mm;line-height:1.5;">
+      Πλήρης φάκελος (οικοδομική άδεια 1996, τεχνική έκθεση Ν. 4495/2017, στατικός έλεγχος, κατόψεις Κ1–Κ4, τομές Τ1–Τ2, διάγραμμα κάλυψης, ΠΕΑ, τίτλοι, ΚΑΕΚ) διαθέσιμος για τον μηχανικό &amp; τον νομικό σύμβουλο του αγοραστή κατόπιν επικοινωνίας.
+    </p>
+  </section>
+
+  <section class="block">
+    <span class="kicker">Όροι Συνεργασίας</span>
+    <div class="terms">
+      <dl>
+        <dt>Φύση συνεργασίας</dt>
+        <dd>Μη αποκλειστική · δεκτές προσφορές μέσω μεσίτη αγοραστή</dd>
+
+        <dt>Προμήθεια μεσίτη</dt>
+        <dd>2% επί του τιμήματος, καταβάλλεται από τον αγοραστή — δεν επιβαρύνει τον πωλητή</dd>
+
+        <dt>Επίδειξη ακινήτου</dt>
+        <dd>Κατόπιν συνεννόησης · υπογραφή δήλωσης επίδειξης πριν την επίσκεψη</dd>
+
+        <dt>Επικοινωνία</dt>
+        <dd>Απευθείας με τους ιδιοκτήτες (στοιχεία στο τέλος του εντύπου)</dd>
+
+        <dt>Διαπραγμάτευση</dt>
+        <dd>Όλες οι προσφορές διαβιβάζονται στους ιδιοκτήτες · απάντηση εντός εύλογου χρόνου</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="price-block">
+      <div>
+        <div class="price-label">Τιμή πώλησης</div>
+        <div class="price-value">€ 610.000</div>
+        <div class="price-note">Πλήρης φάκελος εγγράφων διαθέσιμος κατόπιν επικοινωνίας.</div>
+      </div>
+      <div class="contact">
+        <div class="price-label">Επικοινωνία</div>
+        <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>
+        <a href="https://kavrochori.gr" class="domain-link">kavrochori.gr</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span>Καβροχώρι · Ηράκλειο · 2026</span>
+    <span>kavrochori.gr · 2/2</span>
+  </div>
+</section>
+
+</body>
+</html>
