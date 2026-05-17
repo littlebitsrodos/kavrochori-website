@@ -6,7 +6,46 @@ Working list. Group headings are thematic, not strict order. The ⭐ item is pri
 
 ## ⭐ Priority #1
 
+### 18. First 2-week Market Feedback Read
+
+Στόχος: να μαζευτούν 2 εβδομάδες πραγματικών σημάτων πριν πειράξουμε ξανά το site ή το positioning.
+
+Deliverable:
+- Κάθε inquiry καταγράφεται στο ιδιωτικό tracker.
+- Σύντομη εβδομαδιαία ανάγνωση: sources, γλώσσες, buyer types, αντιρρήσεις, visits, price signals.
+- Απόφαση μετά τις 2 εβδομάδες: κρατάμε ως έχει, αλλάζουμε CTA/positioning, ή επισπεύδουμε photo/listing launch.
+
+Definition of done:
+- Υπάρχει τουλάχιστον μία καθαρή ανάγνωση market feedback.
+- Δεν γίνεται αλλαγή τιμής χωρίς πραγματικά signals.
+- Τα επόμενα site changes προκύπτουν από επαναλαμβανόμενες ερωτήσεις/αντιρρήσεις, όχι από polish.
+
+---
+
+## Done / Reference
+
+### 17. Lead Feedback Tracker
+
+Status: completed 2026-05-18. Το template υπάρχει, τα private lead files αγνοούνται από git, και το `strategy.md` έχει γυρίσει σε soft launch / market feedback.
+
+Στόχος: κάθε πραγματικό inquiry να γίνεται μάθημα αγοράς, όχι απλώς email που απαντήθηκε.
+
+Deliverable:
+- Template στηλών για leads.
+- Ιδιωτικό αρχείο/spreadsheet εκτός public repo για πραγματικά στοιχεία.
+- Εβδομαδιαία ανάγνωση: sources, γλώσσες, buyer types, αντιρρήσεις, visits, price signals.
+
+Definition of done:
+- Το template υπάρχει.
+- Τα πραγματικά lead data δεν μπορούν να γίνουν commit κατά λάθος.
+- Το `strategy.md` λέει ξεκάθαρα ότι βρισκόμαστε σε soft launch / market feedback.
+
+---
+
 ### 15. Brochure PDF (editorial, a la The Modern House)
+
+Status: completed. Κρατάμε τα notes ως reference για μελλοντικό redesign ή photo upgrade.
+
 Reference: <https://themodernhouse.com/api/listings/orwell-studios-iii/pdf>
 
 Στόχος: downloadable PDF brochure σε editorial ύφος — όχι σαλεσάτος flyer.

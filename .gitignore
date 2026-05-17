@@ -4,3 +4,8 @@ images/originals/
 .DS_Store
 *.pdf
 *.eml
+
+# Private lead data / PII. Keep real inquiries outside the public Pages site.
+lead-feedback-private.csv
+leads-private.csv
+*.private.csv
