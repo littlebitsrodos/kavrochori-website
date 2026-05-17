@@ -6,19 +6,22 @@ Working list. Group headings are thematic, not strict order. The ⭐ item is pri
 
 ## ⭐ Priority #1
 
-### 18. First 2-week Market Feedback Read
+### 18. First Controlled Exposure
 
-Στόχος: να μαζευτούν 2 εβδομάδες πραγματικών σημάτων πριν πειράξουμε ξανά το site ή το positioning.
+Στόχος: να γίνει η πρώτη ελεγχόμενη έξοδος του ακινήτου στην αγορά πριν περιμένουμε πραγματικά leads.
+
+Σημερινή παραδοχή: το ακίνητο δεν έχει βγει δημόσια σε Spitogatos / idealista / Indomio, δεν έχει σταλεί σε μεσίτες, και δεν έχει ξεκινήσει κανονική περίοδος market feedback.
 
 Deliverable:
-- Κάθε inquiry καταγράφεται στο ιδιωτικό tracker.
-- Σύντομη εβδομαδιαία ανάγνωση: sources, γλώσσες, buyer types, αντιρρήσεις, visits, price signals.
-- Απόφαση μετά τις 2 εβδομάδες: κρατάμε ως έχει, αλλάζουμε CTA/positioning, ή επισπεύδουμε photo/listing launch.
+- Απόφαση για πρώτο κανάλι exposure: πολύ περιορισμένη ιδιωτική διανομή, ή αναμονή μέχρι photo upgrade + listings.
+- Αν γίνει ιδιωτική διανομή, κάθε inquiry καταγράφεται στο ιδιωτικό tracker.
+- Σύντομη ανάγνωση μετά τις πρώτες 2 εβδομάδες από την πρώτη πραγματική διανομή, όχι από σήμερα.
 
 Definition of done:
-- Υπάρχει τουλάχιστον μία καθαρή ανάγνωση market feedback.
+- Υπάρχει καθαρή ημερομηνία πρώτης διανομής ή συνειδητή απόφαση να περιμένουμε φωτογραφίες.
+- Το 2-week feedback read ξεκινάει μόνο αφού το site/brochure μοιραστεί σε πραγματικούς εξωτερικούς ανθρώπους.
 - Δεν γίνεται αλλαγή τιμής χωρίς πραγματικά signals.
-- Τα επόμενα site changes προκύπτουν από επαναλαμβανόμενες ερωτήσεις/αντιρρήσεις, όχι από polish.
+- Τα επόμενα site changes προκύπτουν από επαναλαμβανόμενες ερωτήσεις/αντιρρήσεις, όχι από polish ή από απουσία traffic.
 
 ---
 
@@ -26,7 +29,7 @@ Definition of done:
 
 ### 17. Lead Feedback Tracker
 
-Status: completed 2026-05-18. Το template υπάρχει, τα private lead files αγνοούνται από git, και το `strategy.md` έχει γυρίσει σε soft launch / market feedback.
+Status: completed 2026-05-18. Το template υπάρχει, τα private lead files αγνοούνται από git, και το `strategy.md` έχει γυρίσει σε pre-public readiness / controlled exposure.
 
 Στόχος: κάθε πραγματικό inquiry να γίνεται μάθημα αγοράς, όχι απλώς email που απαντήθηκε.
 
@@ -38,7 +41,7 @@ Deliverable:
 Definition of done:
 - Το template υπάρχει.
 - Τα πραγματικά lead data δεν μπορούν να γίνουν commit κατά λάθος.
-- Το `strategy.md` λέει ξεκάθαρα ότι βρισκόμαστε σε soft launch / market feedback.
+- Το `strategy.md` λέει ξεκάθαρα ότι βρισκόμαστε σε pre-public readiness / controlled exposure.
 
 ---
 
