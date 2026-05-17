@@ -386,13 +386,12 @@
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 130px;
-    gap: 8px;
+    grid-auto-rows: 240px;
+    gap: 12px;
     margin-top: 2rem;
-    grid-auto-flow: dense;
   }
   .gallery-item {
-    grid-column: span 3;
+    grid-column: span 4;
     grid-row: span 1;
     overflow: hidden;
     border-radius: 6px;
@@ -403,9 +402,6 @@
     position: relative;
   }
   .gallery-item picture { display: block; width: 100%; height: 100%; }
-  .gallery-item.large { grid-column: span 6; grid-row: span 2; }
-  .gallery-item.tall { grid-column: span 3; grid-row: span 2; }
-  .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
   .gallery-item img {
     width: 100%; height: 100%; object-fit: cover;
     transition: transform 0.5s ease;
@@ -437,10 +433,8 @@
   }
   .gallery-item:hover .gallery-caption { opacity: 1; transform: translateY(0); }
   @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 110px; }
-    .gallery-item { grid-column: span 3; }
-    .gallery-item.large { grid-column: span 6; grid-row: span 2; }
-    .gallery-item.tall, .gallery-item.wide { grid-column: span 6; grid-row: span 1; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; }
+    .gallery-item { grid-column: span 1; }
   }
 
   /* Lightbox */
@@ -744,6 +738,17 @@
     transition: transform 0.2s;
   }
   .contact-form button:hover { transform: translateY(-1px); }
+  .contact-fallback {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.88);
+  }
+  .contact-fallback a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.55);
+  }
+  .contact-fallback a:hover { text-decoration-color: #fff; }
 
   /* Footer */
   footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
@@ -1251,12 +1256,12 @@
       <h3 lang="nl">Drie jaar als kortetermijnverhuur</h3>
       <h3 lang="he">שלוש שנים כהשכרה לטווח קצר</h3>
       <h3 lang="fr">Trois ans en location courte durée</h3>
-      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως βραχυχρόνια μίσθωση για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες.</p>
-      <p lang="en">The garden-level apartment operated successfully as a short-term rental for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers.</p>
-      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Kurzzeitvermietung in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende.</p>
-      <p lang="nl">Het tuinappartement werd drie opeenvolgende jaren succesvol als kortetermijnverhuur geëxploiteerd en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers.</p>
-      <p lang="he">דירת הגן פעלה בהצלחה כהשכרה לטווח קצר במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים.</p>
-      <p lang="fr">L'appartement de jardin a été loué avec succès en location courte durée pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants.</p>
+      <p lang="el">Το διαμέρισμα κήπου λειτούργησε επιτυχώς ως βραχυχρόνια μίσθωση για τρία συνεχόμενα χρόνια. Το κοινό που φιλοξενήθηκε ήταν ακριβώς αυτό που κάνει το Καβροχώρι ελκυστικό: ακαδημαϊκοί, αρχαιολόγοι λόγω Κνωσού, και επιλεκτικοί τουρίστες. Συμβάλλει η θέση — 15' από Ηράκλειο και Κνωσό, 10' από την παραλία της Αμμουδάρας.</p>
+      <p lang="en">The garden-level apartment operated successfully as a short-term rental for three consecutive years, hosting exactly the audience that makes Kavrochori attractive: academics, archaeologists drawn to Knossos, and discerning travellers. Location helps — 15 min to Heraklion and Knossos, 10 min to Ammoudara beach.</p>
+      <p lang="de">Die Gartenwohnung war drei aufeinanderfolgende Jahre erfolgreich als Kurzzeitvermietung in Betrieb und beherbergte genau das Publikum, das Kavrochori attraktiv macht: Akademiker, Archäologen wegen Knossos und anspruchsvolle Reisende. Die Lage trägt dazu bei — 15 Min. nach Heraklion und Knossos, 10 Min. zum Strand von Ammoudara.</p>
+      <p lang="nl">Het tuinappartement werd drie opeenvolgende jaren succesvol als kortetermijnverhuur geëxploiteerd en ontving precies het publiek dat Kavrochori aantrekkelijk maakt: academici, archeologen vanwege Knossos en veeleisende reizigers. De ligging helpt — 15 min van Heraklion en Knossos, 10 min van het strand van Ammoudara.</p>
+      <p lang="he">דירת הגן פעלה בהצלחה כהשכרה לטווח קצר במשך שלוש שנים רצופות ואירחה בדיוק את הקהל שהופך את קאברוכורי לאטרקטיבית: אנשי אקדמיה, ארכיאולוגים שהגיעו בשל כנוסוס ומטיילים איכותיים. גם המיקום מסייע — 15 דקות מהרקליון ומכנוסוס, 10 דקות מחוף אמודרה.</p>
+      <p lang="fr">L'appartement de jardin a été loué avec succès en location courte durée pendant trois années consécutives, accueillant exactement le public qui rend Kavrochori attrayant : universitaires, archéologues venus pour Knossos et voyageurs exigeants. L'emplacement contribue — à 15 min d'Héraklion et de Knossos, à 10 min de la plage d'Ammoudara.</p>
       <div>
         <div class="stat">
           <span class="stat-num">3</span>
@@ -1709,12 +1714,12 @@
     <h2 lang="nl">Een dorp met<br>dagelijkse voorzieningen.</h2>
     <h2 lang="he">כפר עם שירותים,<br>לא מקום מבודד.</h2>
     <h2 lang="fr">Un village pleinement équipé,<br>pas un coin isolé.</h2>
-    <p class="section-intro" lang="el">Το Καβροχώρι έχει τα πάντα σε περπατήσιμη απόσταση — και το αυτοκίνητο σε αφήνει στο κέντρο του Ηρακλείου σε 15 λεπτά.</p>
-    <p class="section-intro" lang="en">Kavrochori has everything within walking distance — with Heraklion city centre 15 minutes away by car.</p>
-    <p class="section-intro" lang="de">Kavrochori hat alles in Gehweite — und das Stadtzentrum Heraklions ist 15 Minuten mit dem Auto entfernt.</p>
-    <p class="section-intro" lang="nl">Kavrochori heeft alles op loopafstand — met het centrum van Heraklion op 15 minuten rijden.</p>
-    <p class="section-intro" lang="he">בקאברוכורי הכול במרחק הליכה — ומרכז הרקליון נמצא במרחק 15 דקות נסיעה ברכב.</p>
-    <p class="section-intro" lang="fr">À Kavrochori, tout est à distance de marche — et le centre-ville d'Héraklion n'est qu'à 15 minutes en voiture.</p>
+    <p class="section-intro" lang="el">Το Καβροχώρι έχει τα πάντα σε περπατήσιμη απόσταση — και το αυτοκίνητο σε αφήνει στο κέντρο του Ηρακλείου σε 15 λεπτά. Δίπλα στο Γάζι, το αναπτυσσόμενο δυτικό προάστιο του Ηρακλείου και κέντρο του Δήμου Μαλεβιζίου· σε 10 λεπτά η παραλία της Αμμουδάρας.</p>
+    <p class="section-intro" lang="en">Kavrochori has everything within walking distance — with Heraklion city centre 15 minutes away by car. Adjacent to Gazi, Heraklion's growing western suburb and the hub of the Municipality of Malevizi; Ammoudara beach is 10 minutes away.</p>
+    <p class="section-intro" lang="de">Kavrochori hat alles in Gehweite — und das Stadtzentrum Heraklions ist 15 Minuten mit dem Auto entfernt. Direkt neben Gazi, dem wachsenden westlichen Vorort Heraklions und Zentrum der Gemeinde Malevizi; der Strand von Ammoudara ist in 10 Minuten erreichbar.</p>
+    <p class="section-intro" lang="nl">Kavrochori heeft alles op loopafstand — met het centrum van Heraklion op 15 minuten rijden. Naast Gazi, de groeiende westelijke voorstad van Heraklion en het centrum van de gemeente Malevizi; het strand van Ammoudara ligt op 10 minuten.</p>
+    <p class="section-intro" lang="he">בקאברוכורי הכול במרחק הליכה — ומרכז הרקליון נמצא במרחק 15 דקות נסיעה ברכב. סמוך לגאזי, הפרבר המערבי המתפתח של הרקליון ומרכז עיריית מאלביזי; חוף אמודרה במרחק 10 דקות.</p>
+    <p class="section-intro" lang="fr">À Kavrochori, tout est à distance de marche — et le centre-ville d'Héraklion n'est qu'à 15 minutes en voiture. Adjacent à Gazi, la banlieue ouest d'Héraklion en pleine croissance et le centre du dème de Malévizi ; la plage d'Ammoudara est à 10 minutes.</p>
 
     <div class="neighborhood-list">
       <div class="neigh-item">
@@ -1727,13 +1732,18 @@
         <span>200 m</span>
       </div>
       <div class="neigh-item">
-        <strong lang="el">Δημοτικό σχολείο</strong>
-        <strong lang="en">Primary school</strong>
-        <strong lang="de">Grundschule</strong>
-        <strong lang="nl">Basisschool</strong>
-        <strong lang="he">בית ספר יסודי</strong>
-        <strong lang="fr">École primaire</strong>
-        <span>400 m</span>
+        <strong lang="el">Νηπιαγωγείο</strong>
+        <strong lang="en">Kindergarten</strong>
+        <strong lang="de">Kindergarten</strong>
+        <strong lang="nl">Kleuterschool</strong>
+        <strong lang="he">גן ילדים</strong>
+        <strong lang="fr">École maternelle</strong>
+        <span lang="el">Στο χωριό</span>
+        <span lang="en">In the village</span>
+        <span lang="de">Im Dorf</span>
+        <span lang="nl">In het dorp</span>
+        <span lang="he">בכפר</span>
+        <span lang="fr">Dans le village</span>
       </div>
       <div class="neigh-item">
         <strong lang="el">Σούπερ μάρκετ</strong>
@@ -1759,6 +1769,20 @@
         <span lang="fr">Dans le village</span>
       </div>
       <div class="neigh-item">
+        <strong lang="el">Ταβέρνες</strong>
+        <strong lang="en">Tavernas</strong>
+        <strong lang="de">Tavernen</strong>
+        <strong lang="nl">Taverna's</strong>
+        <strong lang="he">טברנות</strong>
+        <strong lang="fr">Tavernes</strong>
+        <span lang="el">Στο χωριό &amp; τριγύρω</span>
+        <span lang="en">In &amp; around the village</span>
+        <span lang="de">Im Dorf &amp; in der Umgebung</span>
+        <span lang="nl">In en rond het dorp</span>
+        <span lang="he">בכפר ובסביבה</span>
+        <span lang="fr">Au village &amp; aux alentours</span>
+      </div>
+      <div class="neigh-item">
         <strong lang="el">Λεωφορείο προς Ηράκλειο</strong>
         <strong lang="en">Bus to Heraklion</strong>
         <strong lang="de">Bus nach Heraklion</strong>
@@ -1771,6 +1795,20 @@
         <span lang="nl">Dagelijkse dienst</span>
         <span lang="he">שירות יומי</span>
         <span lang="fr">Service quotidien</span>
+      </div>
+      <div class="neigh-item">
+        <strong lang="el">Παραλία Αμμουδάρα</strong>
+        <strong lang="en">Ammoudara beach</strong>
+        <strong lang="de">Strand von Ammoudara</strong>
+        <strong lang="nl">Strand van Ammoudara</strong>
+        <strong lang="he">חוף אמודרה</strong>
+        <strong lang="fr">Plage d'Ammoudara</strong>
+        <span lang="el">10 λεπτά με αυτοκίνητο</span>
+        <span lang="en">10 min by car</span>
+        <span lang="de">10 Min. mit dem Auto</span>
+        <span lang="nl">10 min met de auto</span>
+        <span lang="he">10 דק׳ ברכב</span>
+        <span lang="fr">10 min en voiture</span>
       </div>
       <div class="neigh-item">
         <strong lang="el">Ατμόσφαιρα</strong>
@@ -2038,6 +2076,12 @@
         <button type="submit" lang="nl">Versturen</button>
         <button type="submit" lang="he">שליחה</button>
         <button type="submit" lang="fr">Envoyer</button>
+        <p class="contact-fallback" lang="el">Εναλλακτικά, στείλτε μας απευθείας email στο <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="en">Alternatively, email us directly at <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="de">Alternativ schreiben Sie uns direkt an <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="nl">U kunt ons ook direct mailen op <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="he">אפשר גם לשלוח לנו אימייל ישירות לכתובת <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="fr">Vous pouvez aussi nous écrire directement à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
       </form>
     </div>
   </div>

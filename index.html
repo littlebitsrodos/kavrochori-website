@@ -738,6 +738,17 @@
     transition: transform 0.2s;
   }
   .contact-form button:hover { transform: translateY(-1px); }
+  .contact-fallback {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.88);
+  }
+  .contact-fallback a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.55);
+  }
+  .contact-fallback a:hover { text-decoration-color: #fff; }
 
   /* Footer */
   footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 2.5rem 0; text-align: center; font-size: 0.85rem; }
@@ -2065,6 +2076,12 @@
         <button type="submit" lang="nl">Versturen</button>
         <button type="submit" lang="he">שליחה</button>
         <button type="submit" lang="fr">Envoyer</button>
+        <p class="contact-fallback" lang="el">Εναλλακτικά, στείλτε μας απευθείας email στο <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="en">Alternatively, email us directly at <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="de">Alternativ schreiben Sie uns direkt an <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="nl">U kunt ons ook direct mailen op <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="he">אפשר גם לשלוח לנו אימייל ישירות לכתובת <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
+        <p class="contact-fallback" lang="fr">Vous pouvez aussi nous écrire directement à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>.</p>
       </form>
     </div>
   </div>
