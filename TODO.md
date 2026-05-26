@@ -13,8 +13,10 @@ Working list. Group headings are thematic, not strict order. The ⭐ item is pri
 Σημερινή παραδοχή: το ακίνητο δεν έχει βγει δημόσια σε Spitogatos / idealista / Indomio, δεν έχει σταλεί σε μεσίτες, και δεν έχει ξεκινήσει κανονική περίοδος market feedback.
 
 Deliverable:
-- Απόφαση για πρώτο κανάλι exposure: πολύ περιορισμένη ιδιωτική διανομή, ή αναμονή μέχρι photo upgrade + listings.
-- Αν γίνει ιδιωτική διανομή, κάθε inquiry καταγράφεται στο ιδιωτικό tracker.
+- Απόφαση: προχωράμε με πολύ περιορισμένη ιδιωτική διανομή τώρα, χωρίς να περιμένουμε photo upgrade + listings.
+- Exposure pack: `controlled-exposure-pack.md`.
+- Ιδιωτικό tracker: private file outside this public repo.
+- Κάθε inquiry καταγράφεται στο ιδιωτικό tracker.
 - Σύντομη ανάγνωση μετά τις πρώτες 2 εβδομάδες από την πρώτη πραγματική διανομή, όχι από σήμερα.
 
 Definition of done:
