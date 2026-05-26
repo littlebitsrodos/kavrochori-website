@@ -247,7 +247,7 @@ The buyer should feel they're reading an editorial feature about a property. The
 ## Files
 
 ```
-website/
+kavrochori-website/
 ├── index.html       main file — all CSS and JS inline
 ├── images/          JPG/PNG property photos
 └── DESIGN.md        this file
