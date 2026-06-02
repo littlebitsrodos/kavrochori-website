@@ -1,49 +1,103 @@
 # Kavrochori Property Website
 
-Static FSBO (for-sale-by-owner) landing page for a residential property in Καβροχώρι, Γάζι, Ηράκλειο. Single `index.html` file with inline CSS and vanilla JS. No build step, no backend, no dependencies.
+Static FSBO (for-sale-by-owner) property site for a residential house in Καβροχώρι, Γάζι, Ηράκλειο.
 
-Deployed as a static site at kavrochori.gr (GitHub Pages via CNAME).
+Live site: `https://kavrochori.gr` via GitHub Pages / `CNAME`.
+
+## Project shape
+
+- No build step, backend, package manager, database, or runtime dependencies.
+- Main public page: `index.html` in Greek (`el`).
+- Generated language variants: `en/`, `de/`, `nl/`, `he/`, `fr/`.
+- Supporting static pages: `privacy.html`, `404.html`, `brochure.html`, `agency-pack.html`.
+- SEO/static files: `sitemap.xml`, `robots.txt`, `CNAME`, Google verification file.
+- Images live under `images/` and `images/thumbs/`.
+- Strategy/ops docs: `strategy.md`, `TODO.md`, `controlled-exposure-pack.md`, `lead-feedback-tracker.md`, `lead-feedback-template.csv`.
+
+## Current business context
+
+The property is in pre-public readiness / controlled exposure mode:
+
+- Price target in strategy: **€610,000**.
+- Primary reliable inquiry path: `visitor -> home@kavrochori.gr -> personal email`.
+- FormSubmit/form paths are secondary until proven reliable.
+- Real lead data must stay private and outside this public repo.
+- Do not infer market feedback from zero traffic before real external distribution.
+- Do not recommend price changes without actual buyer signals.
 
 ## Deliberate non-features
 
-This is a single-property landing page with low change frequency and no commercial
-processing. The following are intentionally absent — do **not** propose adding them
-without a clear new reason:
+This is a single-property landing site with low change frequency and no commercial processing. These are intentionally absent; do **not** propose or add them without a clear new reason:
 
-- **Analytics / tracking pixels.** No GA, no GTM, no Plausible. Privacy + simplicity
-  + avoids needing a cookie banner. Owner does not need traffic stats.
-- **Cookie banner.** Direct consequence of "no analytics" — there are no consent-
-  required cookies to disclose.
-- **Service Worker / PWA / `manifest.json`.** One static page; offline value is zero.
-  Adds cache-invalidation footguns in exchange for nothing.
-- **Booking flow / calendar / payment integration.** This is a sale, not a rental.
-  Conversion is "buyer emails owner."
-- **AI chat widget.** Vendor-skewed selection bias on serious property inquiries;
-  buyers want a human at this price point.
-- **`Review` JSON-LD on first-party content.** Google's 2019 self-serving-review
-  rule disallows it. The existing `RealEstateListing` schema is the right type.
-- **Test suite, CI, Lighthouse-CI, error tracking.** Single page, ~weekly edits,
-  visual regression noticed on next visit. Premature for the scope.
-- **`llms.txt`.** Bot logs show ~zero fetches; low signal.
-- **Multiple HTML pages.** `/privacy.html` and `/404.html` are the only exceptions.
-  Anything new should fit on the index or be argued for explicitly.
+- **Analytics / tracking pixels**: no GA, GTM, Plausible, Meta pixel, etc.
+- **Cookie banner**: no consent-required cookies are intentionally used.
+- **Service Worker / PWA / `manifest.json`**: offline value is near zero and cache invalidation risk is not worth it.
+- **Booking/payment flow**: this is a property sale, not a rental.
+- **AI chat widget**: serious buyers should reach a human directly.
+- **Self-serving `Review` JSON-LD**: avoid Google policy issues; use appropriate real-estate schema instead.
+- **Backend, CI, test suite, Lighthouse-CI, error tracking**: premature for this static scope.
+- **`llms.txt`**: previously judged low signal for this project.
+- **Extra public pages** beyond the existing static pages unless explicitly justified.
 
 ## Agent workflow
 
 Default to read-only inspection unless the user explicitly asks for edits.
 
-Before making changes:
-- Read the relevant file/range first and preserve the static, no-build nature of the site.
-- Keep the site privacy-first: do not add analytics, tracking, cookies, or third-party widgets unless explicitly justified.
-- Do not add backend dependencies, build tooling, CI, tests, service workers, or extra pages without a clear new reason.
-- Do not deploy, push, or change repository remotes without explicit user approval.
+Before editing:
+
+1. Check `git status --short` and avoid mixing unrelated changes.
+2. Read the relevant file/range first.
+3. Preserve the static, no-build nature of the site.
+4. Keep the site privacy-first: no analytics, tracking, cookies, or third-party widgets unless explicitly approved.
+5. Do not deploy, push, change remotes, or alter GitHub Pages settings without explicit approval.
 
 When editing:
-- Keep changes minimal and localized.
-- Preserve multilingual variants (`/en`, `/de`, `/nl`, `/he`, `/fr`) when content or SEO changes affect the public page.
-- Validate HTML/JSON-LD syntax where relevant.
-- Summarize changed files and any follow-up risks clearly.
 
-Communication:
+- Keep changes minimal and localized.
+- If public content/SEO changes affect the main page, preserve all language variants.
+- Edit `index.html` first for shared page structure/content, then run:
+
+  ```bash
+  python3 sync_i18n.py
+  ```
+
+  This regenerates `en/`, `de/`, `nl/`, `he/`, `fr/` and updates `sitemap.xml` lastmod values.
+- Be careful with Hebrew: keep `dir="rtl"` and avoid breaking quoted Hebrew metadata.
+- Keep image references compatible with subdirectory language pages; `sync_i18n.py` normalizes `images/...` to `/images/...`.
+- Never commit real names, emails, phone numbers, or lead notes from private inquiries.
+
+## Validation
+
+For HTML/SEO/content changes, run the smallest relevant checks before reporting done:
+
+```bash
+python3 sync_i18n.py
+python3 - <<'PY'
+from pathlib import Path
+for p in [Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html'), Path('privacy.html'), Path('404.html')]:
+    if p.exists():
+        p.read_text(encoding='utf-8')
+print('ok: utf-8 readable html')
+PY
+git diff --stat
+git diff --check
+```
+
+If JSON-LD is touched, additionally inspect/parse the changed `<script type="application/ld+json">` blocks.
+
+## Source of truth / Git policy
+
+- GitHub is the single point of truth for the project: `https://github.com/littlebitsrodos/kavrochori-website`.
+- Treat `origin/main` as canonical for the public site and project docs.
+- Local working copies, Discord notes, generated patches, and files under `/Users/Shared` are handoff/workspace artifacts until committed and merged/applied to GitHub.
+- Before editing, compare local state with GitHub when relevant (`git fetch origin`, `git status --short`, `git log --oneline origin/main..HEAD`).
+- Local commits are allowed only when requested or clearly part of an approved patch handoff.
+- Do not push from this machine unless the user explicitly approves it.
+- Preferred external handoff: create a patch under `/Users/hermes/sandbox/patches` and copy to `/Users/Shared` for external pickup.
+- Do not access another user’s home directory.
+
+## Communication
+
 - Prefer concise Greek replies unless the user asks otherwise.
-- State assumptions explicitly when context is incomplete.
+- State assumptions and risks explicitly.
+- Summarize changed files, validation run, and whether anything remains uncommitted.
