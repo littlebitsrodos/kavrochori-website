@@ -30,7 +30,7 @@ VARIANTS = {
     "en": {
         "locale": "en_US",
         "title": "Maisonette with self-contained garden apartment — Kavrochori, Heraklion, Crete",
-        "description": "Independent 262 sqm home on a 617 sqm plot west of Heraklion. 7 minutes from the University Hospital (PAGNI), FORTH, and the University of Crete. Ideal for doctors, researchers, and academics.",
+        "description": "Independent 262 sqm home on a 617 sqm plot west of Heraklion. 7 minutes from hospital and research institutions (PAGNI, FORTH). Ideal for doctors, researchers, and academics.",
         "og_title": "Maisonette — Kavrochori, Heraklion, Crete",
         "og_description": "Independent home with a self-contained garden-level apartment. 617 sqm plot, wood-fired oven, mountain views.",
         "og_image_alt": "Maisonette with garden in Kavrochori, Heraklion, Crete",
@@ -38,7 +38,7 @@ VARIANTS = {
     "de": {
         "locale": "de_DE",
         "title": "Freistehendes Haus mit eigenständiger Gartenwohnung — Kavrochori, Heraklion, Kreta",
-        "description": "Freistehendes Wohnhaus, 262 m² auf 617 m² Grundstück westlich von Heraklion. 7 Minuten vom Universitätsklinikum, FORTH und der Universität Kreta. Ideal für Ärzte, Forscher und Akademiker.",
+        "description": "Freistehendes Wohnhaus, 262 m² auf 617 m² Grundstück westlich von Heraklion. 7 Minuten zu Klinik und Forschung (PAGNI, FORTH). Ideal für Ärzte, Forscher und Akademiker.",
         "og_title": "Freistehendes Haus — Kavrochori, Heraklion, Kreta",
         "og_description": "Freistehendes Haus mit eigenständiger Gartenwohnung im Souterrain. 617 m² Grundstück, Holzofen, Bergblick.",
         "og_image_alt": "Freistehendes Haus mit Garten in Kavrochori, Heraklion, Kreta",
@@ -46,7 +46,7 @@ VARIANTS = {
     "nl": {
         "locale": "nl_NL",
         "title": "Vrijstaand huis met zelfstandig tuinappartement — Kavrochori, Heraklion, Kreta",
-        "description": "Vrijstaand huis, 262 m² op 617 m² perceel ten westen van Heraklion. 7 minuten van het Universiteitsziekenhuis (PAGNI), FORTH en de Universiteit van Kreta. Ideaal voor artsen, onderzoekers en academici.",
+        "description": "Vrijstaand huis, 262 m² op 617 m² perceel ten westen van Heraklion. 7 minuten van ziekenhuis en onderzoek (PAGNI, FORTH). Ideaal voor artsen, onderzoekers en academici.",
         "og_title": "Vrijstaand huis — Kavrochori, Heraklion, Kreta",
         "og_description": "Vrijstaande woning met een zelfstandig tuinappartement op het souterrain. 617 m² perceel, houtgestookte oven, bergzicht.",
         "og_image_alt": "Vrijstaand huis met tuin in Kavrochori, Heraklion, Kreta",
@@ -57,7 +57,7 @@ VARIANTS = {
         # We use the proper Unicode geresh ״ (U+05F4) instead of ASCII " to avoid
         # needing to escape within HTML attribute content="...".
         "title": "בית פרטי עם דירת גן עצמאית — קאברוכורי, הרקליון, כרתים",
-        "description": "בית עצמאי בשטח 262 מ״ר על מגרש של 617 מ״ר ממערב להרקליון. שבע דקות מבית החולים האוניברסיטאי (PAGNI), ממכון המחקר FORTH ומאוניברסיטת כרתים. מתאים לרופאים, חוקרים ואנשי אקדמיה.",
+        "description": "בית עצמאי בשטח 262 מ״ר על מגרש של 617 מ״ר ממערב להרקליון. שבע דקות מבית החולים וממוסדות המחקר (PAGNI, FORTH). מתאים לרופאים, חוקרים ואנשי אקדמיה.",
         "og_title": "בית פרטי — קאברוכורי, הרקליון, כרתים",
         "og_description": "בית עצמאי עם דירת גן נפרדת במפלס התחתון. מגרש 617 מ״ר, טאבון עצים, נוף להרים.",
         "og_image_alt": "בית פרטי עם גן בקאברוכורי, הרקליון, כרתים",
@@ -65,7 +65,7 @@ VARIANTS = {
     "fr": {
         "locale": "fr_FR",
         "title": "Maison indépendante avec appartement de jardin autonome — Kavrochori, Héraklion, Crète",
-        "description": "Maison indépendante de 262 m² sur un terrain de 617 m² à l'ouest d'Héraklion. À 7 minutes du CHU (PAGNI), de FORTH et de l'Université de Crète. Idéale pour médecins, chercheurs et universitaires.",
+        "description": "Maison indépendante de 262 m² sur un terrain de 617 m² à l'ouest d'Héraklion. À 7 minutes du CHU et de la recherche (PAGNI, FORTH). Idéale pour médecins, chercheurs et universitaires.",
         "og_title": "Maison indépendante — Kavrochori, Héraklion, Crète",
         "og_description": "Maison individuelle avec appartement de jardin autonome au niveau inférieur. Terrain de 617 m², four à bois, vue sur les montagnes.",
         "og_image_alt": "Maison avec jardin à Kavrochori, Héraklion, Crète",
