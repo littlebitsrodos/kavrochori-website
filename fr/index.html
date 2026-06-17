@@ -198,7 +198,7 @@
   }
   .hero-card-links a {
     font-size: 0.72rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
@@ -207,20 +207,34 @@
     transition: opacity 0.2s;
   }
   .hero-card-links a:hover { opacity: 0.6; }
+  .hero-card-actions {
+    display: grid;
+    gap: 0.75rem;
+  }
   .hero-card-cta {
     display: block;
     text-align: center;
     padding: 0.95rem 1rem;
     font-size: 0.78rem;
-    letter-spacing: 0.16em;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text);
+    color: var(--bg);
     text-decoration: none;
     border: 1px solid var(--text);
-    background: transparent;
+    background: var(--text);
     transition: background 0.2s, color 0.2s;
   }
-  .hero-card-cta:hover { background: var(--text); color: var(--bg); }
+  .hero-card-cta:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+  .hero-card-cta-secondary {
+    color: var(--text);
+    background: transparent;
+  }
+  .hero-card-cta-secondary:hover {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+  }
   .hero-more-photos {
     position: absolute;
     bottom: 2rem;
@@ -621,10 +635,15 @@
   }
   .sticky-cta-btc[hidden] { display: none; }
   .sticky-cta-docs { display: flex; gap: 0.6rem; }
+  .sticky-cta-actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: stretch;
+  }
   .sticky-cta-doc {
     padding: 0.65rem 1rem;
     font-size: 0.7rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
@@ -640,7 +659,9 @@
   .sticky-cta-primary {
     padding: 0.75rem 1.5rem;
     font-size: 0.78rem;
-    letter-spacing: 0.16em;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--bg);
     text-decoration: none;
@@ -649,7 +670,25 @@
     transition: background 0.2s, color 0.2s;
   }
   .sticky-cta-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
-  @media (max-width: 1024px) {
+  .sticky-cta-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .sticky-cta-secondary:hover {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+  @media (max-width: 1200px) {
     .sticky-cta-docs { display: none; }
   }
   @media (max-width: 768px) {
@@ -658,11 +697,17 @@
       padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
     }
     .sticky-cta-meta { display: none; }
+    .sticky-cta-actions {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+    }
     .sticky-cta-primary {
       flex: 1;
       text-align: center;
       padding: 0.85rem 1rem;
     }
+    .sticky-cta-secondary { display: none; }
   }
   @media print {
     .sticky-cta { display: none; }
@@ -947,24 +992,26 @@
         <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
         <a href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="fr">DPE</a>
       </li>
-      <li>
-        <a href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
-        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="en">BROCHURE</a>
-        <a href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
-        <a href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
-        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
-        <a href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="fr">BROCHURE</a>
-      </li>
     </ul>
 
-    <a class="hero-card-cta" href="#contact">
-      <span lang="el">ΕΠΙΚΟΙΝΩΝΙΑ</span>
-      <span lang="en">CONTACT</span>
-      <span lang="de">KONTAKT</span>
-      <span lang="nl">CONTACT</span>
-      <span lang="he">יצירת קשר</span>
-      <span lang="fr">CONTACT</span>
-    </a>
+    <div class="hero-card-actions">
+      <a class="hero-card-cta" href="#contact">
+        <span lang="el">Αιτηθείτε Ιδιωτική Ξενάγηση</span>
+        <span lang="en">Request a Private Viewing</span>
+        <span lang="de">Private Besichtigung anfragen</span>
+        <span lang="nl">Vraag een privébezichtiging aan</span>
+        <span lang="he">בקשו סיור פרטי</span>
+        <span lang="fr">Demander une visite privée</span>
+      </a>
+      <a class="hero-card-cta hero-card-cta-secondary" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CF%88%CE%B7%CF%86%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%86%CE%B1%CE%BA%CE%AD%CE%BB%CE%BF%CF%85%20%CE%B1%CE%BA%CE%B9%CE%BD%CE%AE%CF%84%CE%BF%CF%85">
+        <span lang="el">Πρόσβαση στον Ψηφιακό Φάκελο Ακινήτου</span>
+        <span lang="en">Access Property Dossier</span>
+        <span lang="de">Immobilienmappe anfordern</span>
+        <span lang="nl">Woningdossier aanvragen</span>
+        <span lang="he">גישה לתיק הנכס</span>
+        <span lang="fr">Accès au dossier du bien</span>
+      </a>
+    </div>
   </aside>
 
   <a class="hero-more-photos" href="#gallery" onclick="openLightbox(0); return false;">
@@ -2528,23 +2575,26 @@
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Energielabel" lang="nl">ENERGIELABEL</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="he">תעודה אנרגטית</a>
     <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=EPC%20request" lang="fr">DPE</a>
-
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20brochure" lang="el">BROCHURE</a>
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="en">BROCHURE</a>
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brosch%C3%BCre" lang="de">BROSCHÜRE</a>
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure" lang="nl">BROCHURE</a>
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="he">ברושור</a>
-    <a class="sticky-cta-doc" href="mailto:home@kavrochori.gr?subject=Brochure%20request" lang="fr">BROCHURE</a>
   </div>
 
-  <a class="sticky-cta-primary" href="#contact">
-    <span lang="el">ΕΠΙΚΟΙΝΩΝΙΑ</span>
-    <span lang="en">CONTACT</span>
-    <span lang="de">KONTAKT</span>
-    <span lang="nl">CONTACT</span>
-    <span lang="he">יצירת קשר</span>
-    <span lang="fr">CONTACT</span>
-  </a>
+  <div class="sticky-cta-actions">
+    <a class="sticky-cta-secondary" href="mailto:home@kavrochori.gr?subject=%CE%91%CE%AF%CF%84%CE%B7%CE%BC%CE%B1%20%CF%88%CE%B7%CF%86%CE%B9%CE%B1%CE%BA%CE%BF%CF%8D%20%CF%86%CE%B1%CE%BA%CE%AD%CE%BB%CE%BF%CF%85%20%CE%B1%CE%BA%CE%B9%CE%BD%CE%AE%CF%84%CE%BF%CF%85">
+      <span lang="el">Πρόσβαση στον Ψηφιακό Φάκελο Ακινήτου</span>
+      <span lang="en">Access Property Dossier</span>
+      <span lang="de">Immobilienmappe anfordern</span>
+      <span lang="nl">Woningdossier aanvragen</span>
+      <span lang="he">גישה לתיק הנכס</span>
+      <span lang="fr">Accès au dossier du bien</span>
+    </a>
+    <a class="sticky-cta-primary" href="#contact">
+      <span lang="el">Αιτηθείτε Ιδιωτική Ξενάγηση</span>
+      <span lang="en">Request a Private Viewing</span>
+      <span lang="de">Private Besichtigung anfragen</span>
+      <span lang="nl">Vraag een privébezichtiging aan</span>
+      <span lang="he">בקשו סיור פרטי</span>
+      <span lang="fr">Demander une visite privée</span>
+    </a>
+  </div>
 </div>
 
 <script>
