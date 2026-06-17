@@ -45,11 +45,12 @@ Default to read-only inspection unless the user explicitly asks for edits.
 
 Before editing:
 
-1. Check `git status --short` and avoid mixing unrelated changes.
-2. Read the relevant file/range first.
-3. Preserve the static, no-build nature of the site.
-4. Keep the site privacy-first: no analytics, tracking, cookies, or third-party widgets unless explicitly approved.
-5. Do not deploy, push, change remotes, or alter GitHub Pages settings without explicit approval.
+1. From `/Users/hermes/projects/kavrochori-website`, always sync from GitHub first: run `git status --short --branch` and `git pull --ff-only` before doing site work.
+2. Avoid mixing unrelated local changes. If the pull is blocked by local changes or divergence, stop and report the state before editing.
+3. Read the relevant file/range first.
+4. Preserve the static, no-build nature of the site.
+5. Keep the site privacy-first: no analytics, tracking, cookies, or third-party widgets unless explicitly approved.
+6. Do not deploy, push, change remotes, or alter GitHub Pages settings without explicit approval.
 
 When editing:
 
