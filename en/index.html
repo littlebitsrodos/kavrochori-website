@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (Leaflet), Google Fonts, CARTO/OSM tiles. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self' https://api.binance.com wss://stream.binance.com:9443; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (lazy Leaflet), CARTO/OSM tiles. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self' https://api.binance.com wss://stream.binance.com:9443; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="index, follow">
 <title>Maisonette with self-contained garden apartment — Kavrochori, Heraklion, Crete</title>
@@ -43,16 +43,6 @@
 <link rel="preload" as="image" href="/images/exterior-street-800.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
 <link rel="preload" as="image" href="/images/exterior-street.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
 
-<!-- Fonts: load asynchronously to avoid render-blocking; system fonts are used until they arrive -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-
-<!-- Leaflet: deferred — only the location section needs it -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""></noscript>
 <style>
   :root {
     --bg: #fafaf7;
@@ -137,11 +127,23 @@
   /* Hero — Editorial Cover with Floating Card */
   .hero {
     padding: 0;
-    background: url('/images/exterior-street.jpg') center 40% / cover no-repeat;
-    background: image-set(url('/images/exterior-street.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 40% / cover no-repeat;
+    background: #ece8df;
     min-height: 88vh;
     position: relative;
     isolation: isolate;
+    overflow: hidden;
+  }
+  .hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
   }
   .hero-card {
     position: absolute;
@@ -240,16 +242,16 @@
       display: flex;
       flex-direction: column;
       min-height: auto;
-      /* Mobile uses an 800w variant (~100 KiB instead of 591 KiB) — the LCP image. */
-      background: image-set(url('/images/exterior-street-800.webp') type('image/webp'), url('/images/exterior-street.jpg') type('image/jpeg')) center 30% / cover no-repeat;
     }
-    .hero::after {
-      content: '';
-      display: block;
+    .hero-media {
+      position: relative;
+      order: 2;
       height: 55vh;
     }
+    .hero-media img { object-position: center 30%; }
     .hero-card {
       position: static;
+      order: 1;
       max-width: none;
       margin: 0;
       padding: 2rem 1.25rem;
@@ -894,6 +896,11 @@
 <main id="main">
 <!-- HERO -->
 <header class="hero">
+  <picture class="hero-media" aria-hidden="true">
+    <source type="image/webp" media="(max-width: 768px)" srcset="/images/exterior-street-800.webp">
+    <source type="image/webp" srcset="/images/exterior-street.webp">
+    <img src="/images/exterior-street-800.webp" alt="" width="800" height="600" fetchpriority="high" decoding="async">
+  </picture>
   <aside class="hero-card">
     <h1 lang="el">Μεζονέτα με διαμέρισμα κήπου</h1>
     <h1 lang="en">Maisonette with garden-level apartment</h1>
@@ -2318,70 +2325,107 @@
   });
 </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer crossorigin=""></script>
 <script>
-  window.addEventListener('load', function() {
+  (function() {
     var mapEl = document.getElementById('area-map');
-    if (!mapEl || typeof L === 'undefined') return;
+    var leafletRequested = false;
+    var mapInitialized = false;
+    if (!mapEl) return;
 
-    var map = L.map('area-map', {
-      center: [35.308, 25.047],
-      zoom: 12,
-      zoomControl: true,
-      scrollWheelZoom: false
-    });
+    function loadLeaflet() {
+      if (leafletRequested) return;
+      leafletRequested = true;
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 19
-    }).addTo(map);
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      css.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+      css.crossOrigin = '';
+      document.head.appendChild(css);
 
-    // Shaded area circle — centred on Kavrochori village
-    L.circle([35.308, 25.047], {
-      radius: 3200,
-      color: '#5c6d4c',
-      fillColor: '#5c6d4c',
-      fillOpacity: 0.13,
-      weight: 2,
-      dashArray: '6 4'
-    }).addTo(map);
-
-    // POI markers
-    var pois = [
-      { lat: 35.2997, lng: 25.0856, el: 'ΠΑΓΝΗ', en: 'University Hospital', de: 'Universitätsklinikum', nl: 'Universiteitsziekenhuis', he: 'בית החולים האוניברסיטאי', fr: 'CHU (PAGNI)' },
-      { lat: 35.3003, lng: 25.0742, el: 'ΙΤΕ / FORTH', en: 'FORTH', de: 'FORTH', nl: 'FORTH', he: 'FORTH', fr: 'FORTH' },
-      { lat: 35.3132, lng: 25.1062, el: 'Πανεπιστήμιο Κρήτης', en: 'Univ. of Crete', de: 'Universität Kreta', nl: 'Universiteit van Kreta', he: 'אוניברסיטת כרתים', fr: 'Univ. de Crète' }
-    ];
-
-    function activeMapLang() {
-      var cl = document.body.classList;
-      if (cl.contains('en')) return 'en';
-      if (cl.contains('de')) return 'de';
-      if (cl.contains('nl')) return 'nl';
-      if (cl.contains('he')) return 'he';
-      if (cl.contains('fr')) return 'fr';
-      return 'el';
+      var script = document.createElement('script');
+      script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+      script.crossOrigin = '';
+      script.onload = initMap;
+      document.head.appendChild(script);
     }
 
-    var poiMarkers = [];
-    pois.forEach(function(p) {
-      var dot = L.circleMarker([p.lat, p.lng], {
-        radius: 5,
-        color: '#3e4c32',
-        fillColor: '#3e4c32',
-        fillOpacity: 1,
-        weight: 0
-      }).addTo(map);
-      dot.bindTooltip(p[activeMapLang()], { permanent: true, direction: 'right', offset: [8, 0], className: 'map-poi-label' });
-      poiMarkers.push({ marker: dot, poi: p });
-    });
+    function initMap() {
+      if (mapInitialized || typeof L === 'undefined') return;
+      mapInitialized = true;
 
-    window.updateMapLabels = function() {
-      var lang = activeMapLang();
-      poiMarkers.forEach(function(t) { t.marker.setTooltipContent(t.poi[lang]); });
-    };
-  });
+      var map = L.map('area-map', {
+        center: [35.308, 25.047],
+        zoom: 12,
+        zoomControl: true,
+        scrollWheelZoom: false
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+
+      // Shaded area circle — centred on Kavrochori village
+      L.circle([35.308, 25.047], {
+        radius: 3200,
+        color: '#5c6d4c',
+        fillColor: '#5c6d4c',
+        fillOpacity: 0.13,
+        weight: 2,
+        dashArray: '6 4'
+      }).addTo(map);
+
+      // POI markers
+      var pois = [
+        { lat: 35.2997, lng: 25.0856, el: 'ΠΑΓΝΗ', en: 'University Hospital', de: 'Universitätsklinikum', nl: 'Universiteitsziekenhuis', he: 'בית החולים האוניברסיטאי', fr: 'CHU (PAGNI)' },
+        { lat: 35.3003, lng: 25.0742, el: 'ΙΤΕ / FORTH', en: 'FORTH', de: 'FORTH', nl: 'FORTH', he: 'FORTH', fr: 'FORTH' },
+        { lat: 35.3132, lng: 25.1062, el: 'Πανεπιστήμιο Κρήτης', en: 'Univ. of Crete', de: 'Universität Kreta', nl: 'Universiteit van Kreta', he: 'אוניברסיטת כרתים', fr: 'Univ. de Crète' }
+      ];
+
+      function activeMapLang() {
+        var cl = document.body.classList;
+        if (cl.contains('en')) return 'en';
+        if (cl.contains('de')) return 'de';
+        if (cl.contains('nl')) return 'nl';
+        if (cl.contains('he')) return 'he';
+        if (cl.contains('fr')) return 'fr';
+        return 'el';
+      }
+
+      var poiMarkers = [];
+      pois.forEach(function(p) {
+        var dot = L.circleMarker([p.lat, p.lng], {
+          radius: 5,
+          color: '#3e4c32',
+          fillColor: '#3e4c32',
+          fillOpacity: 1,
+          weight: 0
+        }).addTo(map);
+        dot.bindTooltip(p[activeMapLang()], { permanent: true, direction: 'right', offset: [8, 0], className: 'map-poi-label' });
+        poiMarkers.push({ marker: dot, poi: p });
+      });
+
+      window.updateMapLabels = function() {
+        var lang = activeMapLang();
+        poiMarkers.forEach(function(t) { t.marker.setTooltipContent(t.poi[lang]); });
+      };
+    }
+
+    if ('IntersectionObserver' in window) {
+      var mapObserver = new IntersectionObserver(function(entries) {
+        if (entries.some(function(entry) { return entry.isIntersecting; })) {
+          mapObserver.disconnect();
+          loadLeaflet();
+        }
+      }, { rootMargin: '500px 0px' });
+      mapObserver.observe(mapEl);
+    } else {
+      window.addEventListener('load', loadLeaflet, { once: true });
+    }
+  })();
 </script>
 <style>
   .map-poi-label {
