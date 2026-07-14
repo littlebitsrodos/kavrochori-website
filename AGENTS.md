@@ -7,10 +7,10 @@ Live site: `https://kavrochori.gr` via GitHub Pages / `CNAME`.
 ## Project shape
 
 - No build step, backend, package manager, database, or runtime dependencies.
-- Main public page: `index.html` in Greek (`el`).
+- Main public page and source of shared structure/content: `index.html` in Greek (`el`).
 - Generated language variants: `en/`, `de/`, `nl/`, `he/`, `fr/`.
 - Supporting static pages: `privacy.html`, `404.html`, `brochure.html`, `agency-pack.html`.
-- SEO/static files: `sitemap.xml`, `robots.txt`, `CNAME`, Google verification file.
+- SEO/static files: `sitemap.xml`, `robots.txt`, `CNAME`, `google482fce562e91ba4b.html`, favicons, and `og-image.jpg`.
 - Images live under `images/` and `images/thumbs/`.
 - Strategy/ops docs: `strategy.md`, `TODO.md`, `controlled-exposure-pack.md`, `lead-feedback-tracker.md`, `lead-feedback-template.csv`.
 
@@ -24,6 +24,7 @@ The property is in pre-public readiness / controlled exposure mode:
 - Real lead data must stay private and outside this public repo.
 - Do not infer market feedback from zero traffic before real external distribution.
 - Do not recommend price changes without actual buyer signals.
+- Priority #1 is first controlled exposure, not generic polish; see `TODO.md` and `controlled-exposure-pack.md`.
 
 ## Deliberate non-features
 
@@ -39,18 +40,41 @@ This is a single-property landing site with low change frequency and no commerci
 - **`llms.txt`**: previously judged low signal for this project.
 - **Extra public pages** beyond the existing static pages unless explicitly justified.
 
+## Source of truth / workspace policy
+
+- GitHub is the single point of truth: `https://github.com/littlebitsrodos/kavrochori-website`.
+- Treat `origin/main` as canonical for the public site and project docs.
+- Before any edit, update the clean local source checkout from GitHub:
+
+  ```bash
+  cd /Users/hermes/projects/kavrochori-website
+  git status --short --branch
+  git pull --ff-only
+  ```
+
+  If that checkout is unavailable on this Mac, check `/Users/hermes/Projects/kavrochori-website` before declaring it missing.
+- Do **not** work directly on `main`. Create a task branch/worktree under `/Users/hermes/workspaces/<task-name>` for edits, for example:
+
+  ```bash
+  git worktree add -b agent/<task-name> /Users/hermes/workspaces/<task-name> main
+  ```
+
+- If `git pull --ff-only` is blocked by local changes or divergence, stop and report the state before editing.
+- Do not push, deploy, change remotes, or alter GitHub Pages settings without explicit approval.
+- Do not access another user’s home directory.
+- Do not use `/Users/Shared` unless the user explicitly asks for a handoff there. Preferred local scratch/patch output is under `/Users/hermes/sandbox/patches`.
+
 ## Agent workflow
 
 Default to read-only inspection unless the user explicitly asks for edits.
 
 Before editing:
 
-1. From `/Users/hermes/projects/kavrochori-website`, always sync from GitHub first: run `git status --short --branch` and `git pull --ff-only` before doing site work.
-2. Avoid mixing unrelated local changes. If the pull is blocked by local changes or divergence, stop and report the state before editing.
-3. Read the relevant file/range first.
-4. Preserve the static, no-build nature of the site.
-5. Keep the site privacy-first: no analytics, tracking, cookies, or third-party widgets unless explicitly approved.
-6. Do not deploy, push, change remotes, or alter GitHub Pages settings without explicit approval.
+1. Verify branch/worktree with `git status --short --branch`.
+2. Read the relevant file/range first.
+3. Preserve the static, no-build nature of the site.
+4. Keep the site privacy-first: no analytics, tracking, cookies, or third-party widgets unless explicitly approved.
+5. Keep real lead data, private names, phone numbers, emails, and inquiry notes out of this public repo.
 
 When editing:
 
@@ -63,13 +87,24 @@ When editing:
   ```
 
   This regenerates `en/`, `de/`, `nl/`, `he/`, `fr/` and updates `sitemap.xml` lastmod values.
+- Do not hand-edit generated language pages for shared content unless the task is specifically about variant-only metadata or language-specific markup.
+- If metadata for language variants changes, update `sync_i18n.py` first, then run `python3 sync_i18n.py`.
 - Be careful with Hebrew: keep `dir="rtl"` and avoid breaking quoted Hebrew metadata.
 - Keep image references compatible with subdirectory language pages; `sync_i18n.py` normalizes `images/...` to `/images/...`.
-- Never commit real names, emails, phone numbers, or lead notes from private inquiries.
+- Price, area, room-count, contact, and JSON-LD changes must be checked across every public surface they affect.
 
 ## Validation
 
-For HTML/SEO/content changes, run the smallest relevant checks before reporting done:
+Use the smallest check set that proves the change.
+
+For **AGENTS/docs-only changes**:
+
+```bash
+git diff --check
+git diff --stat
+```
+
+For **HTML/SEO/content changes**:
 
 ```bash
 python3 sync_i18n.py
@@ -84,21 +119,52 @@ git diff --stat
 git diff --check
 ```
 
-If JSON-LD is touched, additionally inspect/parse the changed `<script type="application/ld+json">` blocks.
+If JSON-LD is touched, additionally parse every changed `<script type="application/ld+json">` block before reporting done:
 
-## Source of truth / Git policy
+```bash
+python3 - <<'PY'
+from html.parser import HTMLParser
+from pathlib import Path
+import json
 
-- GitHub is the single point of truth for the project: `https://github.com/littlebitsrodos/kavrochori-website`.
-- Treat `origin/main` as canonical for the public site and project docs.
-- Local working copies, Discord notes, generated patches, and files under `/Users/Shared` are handoff/workspace artifacts until committed and merged/applied to GitHub.
-- Before editing, compare local state with GitHub when relevant (`git fetch origin`, `git status --short`, `git log --oneline origin/main..HEAD`).
-- Local commits are allowed only when requested or clearly part of an approved patch handoff.
-- Do not push from this machine unless the user explicitly approves it.
-- Preferred external handoff: create a patch under `/Users/hermes/sandbox/patches` and copy to `/Users/Shared` for external pickup.
-- Do not access another user’s home directory.
+class LDParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_ld = False
+        self.blocks = []
+        self.buf = []
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'script' and attrs.get('type') == 'application/ld+json':
+            self.in_ld = True
+            self.buf = []
+    def handle_data(self, data):
+        if self.in_ld:
+            self.buf.append(data)
+    def handle_endtag(self, tag):
+        if tag == 'script' and self.in_ld:
+            self.blocks.append(''.join(self.buf))
+            self.in_ld = False
 
-## Communication
+for p in [Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html')]:
+    if not p.exists():
+        continue
+    parser = LDParser()
+    parser.feed(p.read_text(encoding='utf-8'))
+    for block in parser.blocks:
+        json.loads(block)
+print('ok: json-ld parses')
+PY
+```
 
-- Prefer concise Greek replies unless the user asks otherwise.
-- State assumptions and risks explicitly.
-- Summarize changed files, validation run, and whether anything remains uncommitted.
+For **privacy/contact changes**, also search the diff for accidental tracking/private-data leaks and verify `home@kavrochori.gr` / `mailto:` remains present where expected.
+
+## Reporting
+
+Final replies should be concise Greek and include:
+
+- branch/worktree path,
+- changed files,
+- validation commands actually run,
+- whether anything remains uncommitted,
+- whether push/deploy/live verification was not done because it was not approved.
