@@ -7,8 +7,9 @@ Live site: `https://kavrochori.gr` via GitHub Pages / `CNAME`.
 ## Project shape
 
 - No build step, backend, package manager, database, or runtime dependencies.
-- Main public page and source of shared structure/content: `index.html` in Greek (`el`).
-- Generated language variants: `en/`, `de/`, `nl/`, `he/`, `fr/`.
+- Editable listing source (all languages): `index.source.html`. It is not the public homepage (`noindex`, disallowed in `robots.txt`).
+- Published Greek page: `index.html`, generated from that source with only Greek copy in the DOM.
+- Generated language variants: `en/`, `de/`, `nl/`, `he/`, `fr/` — each keeps only its own language (one `h1`).
 - Supporting static pages: `privacy.html`, `404.html`, `brochure.html`, `agency-pack.html`.
 - SEO/static files: `sitemap.xml`, `robots.txt`, `CNAME`, `google482fce562e91ba4b.html`, favicons, and `og-image.jpg`.
 - Images live under `images/` and `images/thumbs/`.
@@ -80,14 +81,14 @@ When editing:
 
 - Keep changes minimal and localized.
 - If public content/SEO changes affect the main page, preserve all language variants.
-- Edit `index.html` first for shared page structure/content, then run:
+- Edit `index.source.html` first for shared listing structure/content, then run:
 
   ```bash
   python3 sync_i18n.py
   ```
 
-  This regenerates `en/`, `de/`, `nl/`, `he/`, `fr/` and updates `sitemap.xml` lastmod values.
-- Do not hand-edit generated language pages for shared content unless the task is specifically about variant-only metadata or language-specific markup.
+  This regenerates `index.html`, `en/`, `de/`, `nl/`, `he/`, `fr/` (one language in the DOM each) and updates `sitemap.xml` lastmod values.
+- Do not hand-edit generated language pages, including the published `index.html`, unless the task is specifically about variant-only metadata or language-specific markup. Re-run the script after source edits.
 - If metadata for language variants changes, update `sync_i18n.py` first, then run `python3 sync_i18n.py`.
 - Be careful with Hebrew: keep `dir="rtl"` and avoid breaking quoted Hebrew metadata.
 - Keep image references compatible with subdirectory language pages; `sync_i18n.py` normalizes `images/...` to `/images/...`.
@@ -110,7 +111,7 @@ For **HTML/SEO/content changes**:
 python3 sync_i18n.py
 python3 - <<'PY'
 from pathlib import Path
-for p in [Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html'), Path('privacy.html'), Path('404.html')]:
+for p in [Path('index.source.html'), Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html'), Path('privacy.html'), Path('404.html')]:
     if p.exists():
         p.read_text(encoding='utf-8')
 print('ok: utf-8 readable html')
@@ -146,7 +147,7 @@ class LDParser(HTMLParser):
             self.blocks.append(''.join(self.buf))
             self.in_ld = False
 
-for p in [Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html')]:
+for p in [Path('index.source.html'), Path('index.html'), *Path('.').glob('*/index.html'), Path('brochure.html'), Path('agency-pack.html')]:
     if not p.exists():
         continue
     parser = LDParser()
