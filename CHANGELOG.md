@@ -1,5 +1,33 @@
 # Changelog
 
+## 2026-11-06 — Χάρτης: tiles OpenStreetMap αντί για CARTO
+
+Οι αλλαγές είναι σε κλάδο/PR. Το `main` και το live `https://kavrochori.gr` δεν πειράχτηκαν. Δεν αλλάζει DNS, Cloudflare, GitHub Pages ή οτιδήποτε live. Merge μόνο με νέο ρητό OK του Γιώργου.
+
+### Γιατί
+
+Στο live ο Leaflet φορτώνει (unpkg, HTTP 200), αλλά το CARTO Voyager
+
+`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`
+
+απαντά HTTP 200 με υδατογράφημα «API KEY REQUIRED» / carto.com/basemaps/apikey. Δρόμοι και ακτογραμμή δεν φαίνονται. Οι δείκτες και ο διακεκομμένος κύκλος μένουν. Δεν μπήκε κλειδί CARTO.
+
+### Τι άλλαξε
+
+Η πηγή είναι το `index.source.html`. Το `python3 sync_i18n.py` ξαναγράφει `/`, `/en/`, `/de/`, `/nl/`, `/he/`, `/fr/`.
+
+Το layer είναι το ακριβές URL της πολιτικής tiles του OSMF:
+
+`https://tile.openstreetmap.org/{z}/{x}/{y}.png`
+
+Χωρίς `{s}`, χωρίς retina `{r}`, χωρίς API key. Το `maxZoom` μένει 19. Η απόδοση είναι «Leaflet | © OpenStreetMap contributors» (το «Leaflet» το προσθέτει η βιβλιοθήκη· ο σύνδεσμος πάει στο `openstreetmap.org/copyright`). Το CARTO έφυγε από την απόδοση.
+
+Το CSP `img-src` είχε `https://*.basemaps.cartocdn.com` και `https://*.tile.openstreetmap.org`. Το wildcard δεν ταιριάζει στον host `tile.openstreetmap.org` χωρίς υποτομέα, που είναι το URL που ζητά η πολιτική. Το `img-src` έγινε `https://tile.openstreetmap.org`. Το `referrer` μένει `strict-origin-when-cross-origin`, ώστε ο browser να στέλνει Referer (origin της σελίδας), όπως ζητά η πολιτική, και να κρατά cache τα tiles. Ένας χάρτης αγγελίας, που φορτώνει μόνο όταν πλησιάζει η ενότητα, είναι η ελαφριά χρήση που επιτρέπει το `tile.openstreetmap.org`. Δεν γίνεται prefetch ούτε κατέβασμα για offline.
+
+### Τι δεν άλλαξε
+
+Κέντρο `[35.308, 25.047]`, zoom 12, κύκλος ακτίνας 3200 μ. με διακεκομμένη γραμμή, και οι δείκτες ΠΑΓΝΗ, ΙΤΕ / FORTH, Πανεπιστήμιο Κρήτης (συντεταγμένες και ετικέτες). Τιμή, φόρμα, `mailto:home@kavrochori.gr`, γλώσσες, JSON-LD. Το `sitemap.xml` είχε ήδη `lastmod` 2026-11-06.
+
 ## 2026-11-06 — Διορθώσεις από τον τεχνικό έλεγχο
 
 Οι αλλαγές είναι σε κλάδο/PR. Το `main` και το live `https://kavrochori.gr` δεν πειράχτηκαν.
