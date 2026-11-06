@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>404 — kavrochori.gr</title>
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -21,11 +17,13 @@
     --text-muted: #6b6b66;
     --accent: #5c6d4c;
     --accent-dark: #3e4c32;
+    --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; }
   body {
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 300;
     color: var(--text);
     background: var(--bg);
@@ -38,7 +36,7 @@
   }
   .wrap { max-width: 540px; text-align: center; }
   .code {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 500;
     font-size: clamp(4rem, 14vw, 7rem);
     line-height: 1;
@@ -47,7 +45,7 @@
     letter-spacing: -0.02em;
   }
   h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 500;
     font-size: clamp(1.4rem, 3vw, 1.8rem);
     color: var(--accent-dark);
@@ -89,11 +87,13 @@
 <main class="wrap">
   <div class="code">404</div>
 
-  <h1 lang="el">Η σελίδα δεν βρέθηκε.</h1>
-  <h1 lang="en">Page not found.</h1>
-  <h1 lang="de">Seite nicht gefunden.</h1>
-  <h1 lang="nl">Pagina niet gevonden.</h1>
-  <h1 lang="he">העמוד לא נמצא.</h1>
+  <h1>
+    <span lang="el">Η σελίδα δεν βρέθηκε.</span>
+    <span lang="en">Page not found.</span>
+    <span lang="de">Seite nicht gefunden.</span>
+    <span lang="nl">Pagina niet gevonden.</span>
+    <span lang="he">העמוד לא נמצא.</span>
+  </h1>
 
   <p lang="el">Ο σύνδεσμος μπορεί να έχει αλλάξει ή να μην είναι σωστός.</p>
   <p lang="en">The link may have changed or may not be correct.</p>
