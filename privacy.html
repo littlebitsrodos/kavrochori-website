@@ -3,17 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Privacy Policy — kavrochori.gr</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://kavrochori.gr/privacy.html">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -23,11 +19,13 @@
     --accent: #5c6d4c;
     --accent-dark: #3e4c32;
     --rule: #e6e3dc;
+    --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 300;
     color: var(--text);
     background: var(--bg);
@@ -47,7 +45,7 @@
     margin-bottom: 0.6rem;
   }
   h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 500;
     font-size: clamp(2rem, 4.5vw, 3rem);
     line-height: 1.15;
@@ -55,7 +53,7 @@
     color: var(--accent-dark);
   }
   h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: var(--font-serif);
     font-weight: 500;
     font-size: 1.4rem;
     color: var(--accent-dark);
@@ -125,12 +123,14 @@
     <span lang="fr">Politique de confidentialité</span>
   </p>
 
-  <h1 lang="el">Πώς διαχειριζόμαστε τα στοιχεία σας</h1>
-  <h1 lang="en">How we handle your data</h1>
-  <h1 lang="de">Wie wir mit Ihren Daten umgehen</h1>
-  <h1 lang="nl">Hoe wij met uw gegevens omgaan</h1>
-  <h1 lang="he">איך אנו מטפלים בנתונים שלכם</h1>
-  <h1 lang="fr" id="fr">Comment nous traitons vos données</h1>
+  <h1>
+    <span lang="el">Πώς διαχειριζόμαστε τα στοιχεία σας</span>
+    <span lang="en">How we handle your data</span>
+    <span lang="de">Wie wir mit Ihren Daten umgehen</span>
+    <span lang="nl">Hoe wij met uw gegevens omgaan</span>
+    <span lang="he">איך אנו מטפלים בנתונים שלכם</span>
+    <span lang="fr">Comment nous traitons vos données</span>
+  </h1>
 
   <!-- ============ EL ============ -->
   <div lang="el">
@@ -146,7 +146,7 @@
     </ul>
 
     <h2>Πώς υποβάλλεται η φόρμα</h2>
-    <p>Η φόρμα διαβιβάζεται μέσω της υπηρεσίας <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> και προωθείται στο <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. Η FormSubmit δεν αποθηκεύει το περιεχόμενο μετά τη διαβίβαση. Δείτε την <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">πολιτική απορρήτου της FormSubmit</a>.</p>
+    <p>Η φόρμα διαβιβάζεται μέσω της υπηρεσίας <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> και προωθείται στο <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. Η FormSubmit δεν αποθηκεύει το περιεχόμενο μετά τη διαβίβαση. Αν η υπηρεσία δεν απαντήσει, η σελίδα το δείχνει και το ίδιο μήνυμα μπορεί να σταλεί απευθείας στο ίδιο email. Δείτε την <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">πολιτική απορρήτου της FormSubmit</a>.</p>
 
     <h2>Σκοπός χρήσης</h2>
     <p>Τα στοιχεία σας χρησιμοποιούνται μόνο για να απαντηθεί η ερώτησή σας σχετικά με την κατοικία. Δεν διαβιβάζονται σε μεσίτες, δεν εντάσσονται σε λίστες, δεν χρησιμοποιούνται για marketing.</p>
@@ -178,7 +178,7 @@
     </ul>
 
     <h2>How the form is delivered</h2>
-    <p>The form is relayed through <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> and forwarded to <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit does not retain message content after delivery. See <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">FormSubmit's privacy policy</a>.</p>
+    <p>The form is relayed through <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> and forwarded to <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit does not retain message content after delivery. If that service does not respond, the page says so and the same message can be sent directly to the same address. See <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">FormSubmit's privacy policy</a>.</p>
 
     <h2>Purpose</h2>
     <p>Your data is used only to reply to your inquiry about the property. It is not shared with agents, added to mailing lists, or used for marketing.</p>
@@ -210,7 +210,7 @@
     </ul>
 
     <h2>Wie das Formular übermittelt wird</h2>
-    <p>Das Formular wird über <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> weitergeleitet an <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit speichert den Nachrichteninhalt nach der Zustellung nicht. Siehe <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">die Datenschutzerklärung von FormSubmit</a>.</p>
+    <p>Das Formular wird über <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> weitergeleitet an <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit speichert den Nachrichteninhalt nach der Zustellung nicht. Antwortet der Dienst nicht, zeigt die Seite das an und dieselbe Nachricht kann direkt an dieselbe Adresse gesendet werden. Siehe <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">die Datenschutzerklärung von FormSubmit</a>.</p>
 
     <h2>Zweck</h2>
     <p>Ihre Daten werden ausschließlich zur Beantwortung Ihrer Anfrage zur Immobilie verwendet. Sie werden nicht an Makler weitergegeben, nicht in Mailinglisten aufgenommen und nicht für Marketing genutzt.</p>
@@ -242,7 +242,7 @@
     </ul>
 
     <h2>Hoe het formulier wordt verzonden</h2>
-    <p>Het formulier wordt doorgestuurd via <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> naar <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit bewaart de berichtinhoud niet na bezorging. Zie <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">het privacybeleid van FormSubmit</a>.</p>
+    <p>Het formulier wordt doorgestuurd via <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> naar <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit bewaart de berichtinhoud niet na bezorging. Als die dienst niet antwoordt, zegt de pagina dat en kan hetzelfde bericht rechtstreeks naar hetzelfde adres worden gestuurd. Zie <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">het privacybeleid van FormSubmit</a>.</p>
 
     <h2>Doel</h2>
     <p>Uw gegevens worden uitsluitend gebruikt om uw vraag over de woning te beantwoorden. Ze worden niet gedeeld met makelaars, niet toegevoegd aan mailinglijsten en niet gebruikt voor marketing.</p>
@@ -274,7 +274,7 @@
     </ul>
 
     <h2>איך הטופס נשלח</h2>
-    <p>הטופס מועבר דרך השירות <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> ומגיע ל־<a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit אינה שומרת את תוכן ההודעה לאחר ההעברה. ראו את <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של FormSubmit</a>.</p>
+    <p>הטופס מועבר דרך השירות <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> ומגיע ל־<a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit אינה שומרת את תוכן ההודעה לאחר ההעברה. אם השירות אינו מגיב, העמוד מציין זאת וניתן לשלוח את אותה הודעה ישירות לאותה כתובת. ראו את <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות של FormSubmit</a>.</p>
 
     <h2>מטרת השימוש</h2>
     <p>הנתונים משמשים אך ורק כדי להשיב לפנייתכם לגבי הנכס. הם אינם מועברים למתווכים, אינם מצורפים לרשימות תפוצה ואינם משמשים לשיווק.</p>
@@ -306,7 +306,7 @@
     </ul>
 
     <h2>Comment le formulaire est transmis</h2>
-    <p>Le formulaire est relayé via le service <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> et transféré à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit ne conserve pas le contenu du message après la transmission. Voir <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">la politique de confidentialité de FormSubmit</a>.</p>
+    <p>Le formulaire est relayé via le service <a href="https://formsubmit.co/" target="_blank" rel="noopener noreferrer">FormSubmit</a> et transféré à <a href="mailto:home@kavrochori.gr">home@kavrochori.gr</a>. FormSubmit ne conserve pas le contenu du message après la transmission. Si ce service ne répond pas, la page l’indique et le même message peut être envoyé directement à la même adresse. Voir <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener noreferrer">la politique de confidentialité de FormSubmit</a>.</p>
 
     <h2>Finalité</h2>
     <p>Vos données servent uniquement à répondre à votre demande concernant le bien. Elles ne sont pas transmises à des agents immobiliers, ne sont pas ajoutées à des listes de diffusion et ne sont pas utilisées à des fins de marketing.</p>
