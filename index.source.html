@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (lazy Leaflet), CARTO/OSM tiles, Binance REST only when the visitor asks for a BTC quote, FormSubmit for the contact form. No WebSocket. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; connect-src 'self' https://api.binance.com; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-src https://formsubmit.co; upgrade-insecure-requests">
+<!-- Security: CSP enforced via meta (GitHub Pages can't set HTTP headers). Origins: unpkg (lazy Leaflet), OSM raster tiles (tile.openstreetmap.org; a *.tile.openstreetmap.org wildcard does not match that host), Binance REST only when the visitor asks for a BTC quote, FormSubmit for the contact form. No WebSocket. X-Content-Type-Options + Permissions-Policy are header-only and not settable here. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; font-src 'self'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self' https://api.binance.com; base-uri 'self'; form-action 'self' https://formsubmit.co; frame-src https://formsubmit.co; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex, nofollow">
 <title>Μεζονέτα με αυτόνομο διαμέρισμα — Ευρύτερη περιοχή Καβροχωρίου, Ηράκλειο Κρήτης</title>
@@ -2553,9 +2553,10 @@
         scrollWheelZoom: false
       });
 
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
+      // OSMF tile policy: exact host, no {s}, no retina {r}, no API key.
+      // Leaflet adds its own "Leaflet" prefix. Browser sends Referer (strict-origin-when-cross-origin) and caches tiles.
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19
       }).addTo(map);
 
